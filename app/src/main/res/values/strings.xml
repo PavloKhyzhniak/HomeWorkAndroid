@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">HomeWorkAndroid</string>
+    <string name="exercises001"><b>Exercises001</b></string>
+    <string name="exercises001_text"><div text-align="justify">\tРазработайте приложение с одной активностью для расчета треугольника. Используйте <b>LinearLayout</b> с вертикальной ориентацией, три расположенных один под другим элемента <b>TextView</b> для отображения длин сторон треугольника, три кнопки Button для вычисления площади и периметра треугольника, формирования сторон треугольника генератором случайных чисел. Обработчик клика назначайте в файле разметки. Выводите рассчитанные величины в два <b>TextView</b>, размещенные выше кнопок. Конечно же, используйте модель – класс для треугольника.</div></string>
+    <string name="sideA">Side A</string>
+    <string name="sideB">Side B</string>
+    <string name="sideC">Side C</string>
+    <string name="area">Area</string>
+    <string name="perimetr">Perimetr</string>
+    <string name="btn_Area">Calculate Area</string>
+    <string name="btn_Perimetr">Calculate Perimetr</string>
+    <string name="btn_Generate">Generate Side Values</string>
+    <string name="btn_GoToExercises002">Go to Exercises002</string>
+    <string name="btn_GoToExercises001">Go to Exercises001</string>
+    <string name="exercises002_text"><div text-align="justify">\tРазработайте приложение с одной активностью для ввода данных о покупке. Описание товара должно быть реализовано отдельным классом. Вводите наименование товара, количество, цену единицы товара.  <p>Рассчитайте и выведите сумму к оплате:  <br />Сумма_к_оплате = цена_единицы * количество_товара.<br /> </p> Используйте кнопки <b>Button</b>, элементы ввода <b>EditText</b>, элементы отображения <b>TextView</b> для вывода результата.</div></string>
+    <string name="exercises002"><b>Exercises002</b></string>
+    <string name="homework001">Home Work 001</string>
+    <string name="homework001_text"><div><b>Теоретическая часть</b> \t\n - Краткая характеристика Андроид и разработки под Андроид \t\n - Структура проекта\t\n - Использование файла манифеста для задания иконки приложения \t\n - Разметка интерфейса приложения – контейнер LinearLayout, ориентация элементов вертикальная и горизонтальная \t\n - Идентификаторы элементов интерфейса, элементов строковых ресурсов\t\nПолучение ссылок на элементы интерфейса по идентификаторам этих элементов \t\n - Понятие о dp, sp – пикселях, независимых от разрешения экрана \t\n - Элементы TextView, EditText, Button. \t\n - Реакция на событие клика по кнопке Button – назначение метода-слушателя в разметке, в коде</div></string>
+    <string name="btn_ReturnToMain">Return to Main</string>
+    <string name="name">Product Name</string>
+    <string name="count">Count</string>
+    <string name="price">Price</string>
+    <string name="summary">Summary:</string>
+    <string name="btn_Summary">Summary</string>
+    <string name="mainTitle">Home Work</string>
+    <string name="student_text">Работы выполнил ст.гр. ВПУ911 \n Хижняк Павел\nКА\"ШАГ\" г.Донецк</string>
+    <string name="btn_GoToHW002">Home Work on 13.03.2022</string>
+    <string name="btn_GoToHW001">Home Work on 06.03.2022</string>
+    <string name="btn_GoToHW002_Exercises001">Go to Exercises001</string>
+    <string name="btn_GoToHW002_Exercises002">Go to Exercises002</string>
+    <string name="homework002_text"><div><b>Теоретическая часть</b>
+\n•	Всплывающие сообщения <b>Snackbar</b>
+\n•	Добавление кнопки (<b>Action</b>) всплывающему сообщению <b>Snackbar</b>, изменение цвета текста на кнопке, цвета и других характеристик текста сообщения
+\n•	Работа с изображениями – элемент интерфейса <b>ImageView</b>. Загрузка изображения из ресурсов приложения, из папки <b>assets</b> проекта
+\n•	Создание папки <b>assets</b>
+\n•	Добавление еще одной активности в проект
+\n•	Запуск еще одной активности
+\n•	Передача примитивных типов в активность
+\n•	Передача ссылочных типов в активность – интерфейсы <b>Parcelable</b>, <b>Serializable</b>
+\n•	Получение данных из активности – обработчик события получения данных
+\n•	Элементы интерфейса: <b>Switch</b>, <b>RadioGroup</b>, <b>RadioButton</b>
+\n•	Слушатели событий клика на уровне радиокнопки
+\n•	Слушатель события изменения состояния группы радиокнопок
+\n•	Решение проблемы сохранения контекста при повороте экрана
+\n<b>Практическая часть</b>
+\n\tРазработайте приложение из трех активностей. \nНа главной активности разместите кнопки вызова двух активностей для выполнения обработки по заданию и кнопку выхода из приложения. \nМожет также разместить изображения по теме задания.  При вызове активности сгенерировать объект соответствующего класса – для представления животного, торгового судна. Сгенерированные в главной активности данные и данные, полученные из дополнительных активностей выводить в <b>TextView</b> на главной активности.</div>
+</string>
+    <string name="HW002_exercises001"><b>Exercises001</b></string>
+    <string name="HW002_exercises002"><b>Exercises002</b></string>
+    <string name="HW002_exercises001_text">\t<b>Активность 1.</b> В эту активность передавайте данные о домашнем животном: порода, кличка, возраст, вес, фамилия и инициалы владельца, имя файла с изображением в папке <b>assets</b>. А также признаки: специальный уход, специальная диета. Выводите полученные данные в поля <b>EditText</b>, <b>RadioButton</b>, <b>CheckBox</b> изображение по имени файла выводите в <b>ImageView</b>. Реализуйте кнопки увеличения и уменьшения возраста на 1 год, очистки полей ввода, возврата из активности. Возвращать измененные данные на главную активность.  Вводить имя файла с изображением не надо, оно определяется из породы животного. Для изменения породы животного используйте группу из пяти радиокнопок (используйте пять файлов с картинкой животного). Обрабатывайте некорректный ввод, выводите сообщения об ошибках в <b>Snackbar</b>. Передачу объекта выполняйте при помощи объекта с интерфейсом <b>Parcelable</b>.</string>
+    <string name="HW002_exercises002_text">\t<b>Активность 2.</b> В эту активность передавайте данные о торговом судне: название, грузоподъемность, имя файла с изображением в папке <b>assets</b>, пункт назначения, тип груза и его вес (например: бокситы, 128 900 тонн или каменный уголь, 110 200 тонн), стоимость 1 тонны груза, признаки – требуется ли специальный пирс для разгрузки, место на якорной стоянке, дозаправка судна топливом. Реализуйте кнопки вычисления стоимости груза, увеличения и уменьшения груза с шагом в 20 тонн, очистки полей ввода, возврата из активности. Возвращать измененные данные на главную активность. Тип судна задавайте при помощи группы радиокнопок (три типа судна – балкер, танкер, контейнеровоз и три фотографии). Вводить имя файла с изображением не надо, оно определяется из типа судна. При изменении типа судна изменяйте картинку или выводите изображение – плейсхолдер. Согласование типа груза и типа судна кодировать не надо, просто вводите корректные данные. При изменении веса груза или цены тонны груза пересчитывайте стоимость груза. Обрабатывайте некорректный ввод, выводите сообщения об ошибках в <b>Snackbar</b>. Передачу объекта выполняйте при помощи объекта с интерфейсом <b>Parcelable</b>.</string>
+    <string name="homework002">Home Work 002</string>
+    <string name="btn_ReturnToHomeWork002">Return To HomeWork002</string>
+    <string name="empty_space" />
+    <string name="btn_create">Create</string>
+    <string name="btn_process">Process</string>
+    <string name="head_ship">Ship</string>
+    <string name="head_animals">Animal</string>
+    <string name="AnimalBreed">Breed</string>
+    <string name="AnimalName">Name</string>
+    <string name="AnimalAge">Age</string>
+    <string name="AnimalWeight">Weight</string>
+    <string name="AnimalLastName">LastName</string>
+    <string name="AnimalFirstName">FirstName</string>
+    <string name="AnimalType">Type</string>
+    <string name="btnAnimalActivityBack">Return</string>
+    <string name="btnAnimalActivityProcess">Run</string>
+    <string name="rgr_age_head">Age Delta</string>
+    <string name="rbt_age_inc1">+1</string>
+    <string name="rbt_age_dec1">-1</string>
+    <string name="loadPicture">Load Picture</string>
+    <string name="txv_spinnerType">Choose Type By DropDown List</string>
+    <string name="txv_rgrType">Choose Type By Radio Group</string>
+</resources>
