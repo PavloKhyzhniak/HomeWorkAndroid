@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="6dp">
+
+    <ImageView
+        android:id="@+id/imgManufacturer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_vertical" />
+
+    <ImageView
+        android:id="@+id/imgType"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/imgManufacturer"
+        android:layout_alignEnd="@id/imgManufacturer"
+        android:layout_gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/txvTypeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgType"
+        android:layout_alignEnd="@id/imgType"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txvSizeLabel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgManufacturer"
+        android:layout_marginBottom="12dp"
+        android:text="@string/HW004_txvSize"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/txvSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgManufacturer"
+        android:layout_alignRight="@id/txvSizeLabel"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/llResolution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txvSizeLabel"
+        >
+
+        <TextView
+            android:id="@+id/txvResolutionLabel"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txvSizeLabel"
+            android:layout_marginBottom="12dp"
+            android:text="@string/HW004_txvResolution"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txvHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="12dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txvXLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/HW004_XLabel"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txvVertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txvPriceLabel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_below="@+id/llResolution"
+        android:text="@string/HW004_txvPrice"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/txvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/llResolution"
+        android:layout_alignRight="@id/txvPriceLabel"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txvTypeName"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:text="@string/btn_edit" />
+
+        <Button
+            android:id="@+id/btnRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:text="@string/btn_remove" />
+
+    </LinearLayout>
+
+</RelativeLayout>

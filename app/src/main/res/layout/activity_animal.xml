@@ -241,8 +241,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="@string/rgr_age_head"/>
+                    android:text="@string/rgr_age_head"
+                    android:textSize="18sp" />
 
                 <RadioButton
                     android:id="@+id/rbtAgeInc1"
@@ -258,7 +258,7 @@
                     android:onClick="onClickAgeIncHandler"
                     android:text="@string/rbt_age_dec1" />
 
-               </RadioGroup>
+            </RadioGroup>
 
             <Button
                 android:layout_height="wrap_content"

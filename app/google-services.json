@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "7720244902",
+    "project_id": "testfirebase-homeworkandroid",
+    "storage_bucket": "testfirebase-homeworkandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7720244902:android:f321a5b871f6b280f48667",
+        "android_client_info": {
+          "package_name": "com.example.homeworkandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7720244902-a8mej8jtmq2iiqs4koahqfju8daugai9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.homeworkandroid",
+            "certificate_hash": "2d0f90d1a888131e13572130134f6458fbc2b8dc"
+          }
+        },
+        {
+          "client_id": "7720244902-mc0moq9rkj698mhvn5sn5l4g61i5a761.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAboH_4DCDgofXHn5OhjkCS1Tehv5MwPmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7720244902-mc0moq9rkj698mhvn5sn5l4g61i5a761.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
