@@ -55,3 +55,4 @@ public enum AnimalType implements Serializable {
         this.name = name;
     }
 }
+

@@ -103,9 +103,11 @@ public class Exercises001 extends AppCompatActivity {
 
     // обработчик клика по кнопке вызова активности для Animal
     private void startAnimalActivity() {
-        Intent intent = new Intent(this, AnimalActivity.class);
-        intent.putExtra(Animal.class.getCanonicalName(), animal);
-        startActivityForResult(intent, ANIMAL_ACTIVITY);
+        if(animal!=null) {
+            Intent intent = new Intent(this, AnimalActivity.class);
+            intent.putExtra(Animal.class.getCanonicalName(), animal);
+            startActivityForResult(intent, ANIMAL_ACTIVITY);
+        }
     } // startUserActivity
 
     //region Сохранение и восстановление контекста при повороте устройства

@@ -169,7 +169,6 @@ public class AnimalActivity extends AppCompatActivity implements AdapterView.OnI
     private void fillSpinner(Spinner spinner, AnimalType type) {
         AnimalType[] arr = AnimalType.values();
         int cnt = arr.length;
-        rb = new RadioButton[cnt];
 
         paths = new String[cnt];
         int selected = 0;

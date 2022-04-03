@@ -51,6 +51,8 @@
     <string name="HW002_exercises002_text">\t<b>Активность 2.</b> В эту активность передавайте данные о торговом судне: название, грузоподъемность, имя файла с изображением в папке <b>assets</b>, пункт назначения, тип груза и его вес (например: бокситы, 128 900 тонн или каменный уголь, 110 200 тонн), стоимость 1 тонны груза, признаки – требуется ли специальный пирс для разгрузки, место на якорной стоянке, дозаправка судна топливом. Реализуйте кнопки вычисления стоимости груза, увеличения и уменьшения груза с шагом в 20 тонн, очистки полей ввода, возврата из активности. Возвращать измененные данные на главную активность. Тип судна задавайте при помощи группы радиокнопок (три типа судна – балкер, танкер, контейнеровоз и три фотографии). Вводить имя файла с изображением не надо, оно определяется из типа судна. При изменении типа судна изменяйте картинку или выводите изображение – плейсхолдер. Согласование типа груза и типа судна кодировать не надо, просто вводите корректные данные. При изменении веса груза или цены тонны груза пересчитывайте стоимость груза. Обрабатывайте некорректный ввод, выводите сообщения об ошибках в <b>Snackbar</b>. Передачу объекта выполняйте при помощи объекта с интерфейсом <b>Parcelable</b>.</string>
     <string name="homework002">Home Work 002</string>
     <string name="btn_ReturnToHomeWork002">Return To HomeWork002</string>
+    <string name="btn_ReturnToHomeWork003">Return To HomeWork003</string>
+    <string name="btn_ReturnToHomeWork004">Return To HomeWork004</string>
     <string name="empty_space" />
     <string name="btn_create">Create</string>
     <string name="btn_process">Process</string>
@@ -71,4 +73,174 @@
     <string name="loadPicture">Load Picture</string>
     <string name="txv_spinnerType">Choose Type By DropDown List</string>
     <string name="txv_rgrType">Choose Type By Radio Group</string>
+    <string name="rgr_choose_ship">Choose Ship</string>
+    <string name="rbt_ship_balker">Балкер</string>
+    <string name="rbt_ship_conteinerwage">Контейнеровоз</string>
+    <string name="rbt_ship_tanker">Танкер</string>
+    <string name="rbt_ship_suhogruz">Сухогруз</string>
+    <string name="rbt_ship_rolker">Ролкер</string>
+    <string name="rbt_ship_parom">Паром</string>
+    <string name="ShipType">Type</string>
+    <string name="ShipName">Name</string>
+    <string name="ShipCarryingCapacity">Carring Capacity</string>
+    <string name="ShipDestination">Destination</string>
+    <string name="ShipCargoType">Cargo Type</string>
+    <string name="CargoWeight">Weight</string>
+    <string name="CargoPrice">Price</string>
+    <string name="swt_IndicationSpecialPier_use">whether a special pier is required for unloading</string>
+    <string name="swt_IndicationAnchoragePlace_use">an anchorage place</string>
+    <string name="swt_IndicationRefueling_use">refueling of the ship with fuel</string>
+    <string name="btnShipActivityProcess">Run</string>
+    <string name="btnShipActivityBack">Return</string>
+    <string name="rgr_weight_head">Weight</string>
+    <string name="rbt_weight_inc20">+20</string>
+    <string name="rbt_weight_dec20">-20</string>
+    <string name="Summary">Summary</string>
+    <string name="btnSummary">Calculate</string>
+    <string name="btn_GoToHW003">Home work on 20.03.2022</string>
+    <string name="mni_exit">Exit</string>
+    <string name="mni_return">Return</string>
+    <string name="mni_animal_adapter">Animals</string>
+    <string name="mni_ship_adapter">Ships</string>
+    <string name="headerAnimalAdapter">Animals</string>
+    <string name="headerShipAdapter">Ships</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_remove">Remove</string>
+    <string name="btn_back">Back</string>
+    <string name="homework003">Home Work 003</string>
+    <string name="homework003_text"><b>Теоретическая часть</b>
+        \n•\tДобавление в приложение меню – создание разметки меню
+        \n•\tРеализация обработчика выбора в меню
+        \n•\tДобавление на активность контекстного меню – создание разметки меню
+        \n•\tРеализация обработчика выбора в контекстном меню
+        \n•\t<b>ListView</b> – создание элемента отображения, настройка адаптера отображения списка
+        \n•\tИсточники данных для <b>ListView</b> – коллекции в коде, массив строк из ресурсов.
+        \n•\tПрограммное получение данных для <b>ListView</b> из ресурсов
+        \n•\t<b>ListView</b> с указанием источника данных в разметке
+        \n•\tРеализация обработчика клика по пункту <b>ListView</b>
+        \n•\tУдаление из коллекции и <b>ListView</b>
+        \n•\tСоздание собственного адаптера
+        \n•\tДобавление обработчика события клика для адаптера
+        \n•\tОбработка клика по сложному объекту с кнопками
+        \n<b>Практическая часть</b>
+        \n\tРазработайте приложение из трех активностей.
+        \n\tНа главной активности разместите меню вызова двух активностей для выполнения обработки по заданию и выхода из приложения.
+        \n\tМожет также разместить изображения по теме задания.</string>
+    <string name="HW003_exercises001_text">•\t<b>Активность 1.</b> В этой активности выводите в <b>ListView</b> сформированный при создании активности список домашних животных со сведениями: порода, кличка, возраст, вес, фамилия и инициалы владельца, имя файла с изображением в папке <b>assets</b>. А также признаки: специальный уход, специальная диета.  По клику на элемент списка данные выбранного животного выводите в отдельной активности с возможностью редактирования.</string>
+    <string name="HW003_exercises001"><b>Exercises 001</b></string>
+    <string name="HW003_exercises002"><b>Exercises 002</b></string>
+    <string name="HW003_exercises002_text">•\t<b>Активность 2.</b> В этой активности выводите список данных о торговом судне: название, грузоподъемность, имя файла с изображением в папке assets, пункт назначения, тип груза и его вес (например: бокситы, 128 900 тонн или каменный уголь, 110 200 тонн), стоимость 1 тонны груза, признаки – требуется ли специальный пирс для разгрузки, место на якорной стоянке, дозаправка судна топливом. По кнопкам в адаптере увеличивайте или уменьшайте вес груза (на 100 тонн за один клик), изменяйте стоимость 1 тонны груза (на 10$ за каждый клик). По клику на элемент списка данные судна выводите в отдельную активность (без возможности редактирования).</string>
+    <string name="LoginPageTitle">Home Work 003 Login</string>
+    <string name="RegisterApp">Register App</string>
+    <string name="warnung">Please Login</string>
+    <string name="loginPage_bntRegister">Register</string>
+    <string name="loginPage_bntLogIn">LogIn</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintPassword">password</string>
+    <string name="hintLogin">Login</string>
+    <string name="hintPhone">Phone</string>
+    <string name="registration">Registration</string>
+    <string name="welcome_registration">Input All datas</string>
+    <string name="cancel">Cancel</string>
+    <string name="addLogin">Add</string>
+    <string name="btn_GoToHW004">Home Work on 27.03.2022</string>
+    <string name="sign_in_window">Sign In</string>
+    <string name="welcome_sign_in">Welcome to SignIn</string>
+    <string name="signIn">SignIn</string>
+
+    <string name="warnung_email">Warnung Email</string>
+    <string name="warnung_pass">Warnung Password</string>
+    <string name="error_sign">Failure SignIn</string>
+    <string name="warnung_login">Warnung Login</string>
+    <string name="warnung_phone">Warnung Phone</string>
+    <string name="user_add">User Create</string>
+    <string name="btn_GoToLoginHW004">Login</string>
+
+    <string name="homework004">Home Work 004</string>
+    <string name="homework004_text"><b>Теоретическая часть</b>
+\n•\t	Множественный выбор в ListView
+\n•\t	Добавление элемента в коллекцию, отображаемую в ListView
+\n•\t	Оптимизация адаптера и View Holder
+\n•\t	Выпадающий список Spinner
+\n•\t	RecyclerView – современный виджет отображения списочных данных
+\n•\t	Обработка выбора элемента в RecyclerView
+\n•\t	Создание и использование стилей
+\n•\t	Создание и задание темы для приложения и активности
+\n•\t	Создание и задание темы для контейнера размещения элементов
+\n        <b>Практическая часть</b>
+    </string>
+    <string name="HW004_exercises001_text">•\t<b>Задача 1.</b> Разработайте приложение для отображения коллекции объектов класса Телевизор с полями для хранения:
+\n•\t	производителя и типа телевизора – это одно поле (например, Samsung OLED55DT2020)
+\n•\t	имя файла с фотографией телевизора в папке <b>assets</b>
+\n•\t	диагонали экрана в дюймах
+\n•\t	разрешения по вертикали в пикселях
+\n•\t	разрешения по горизонтали в пикселях
+\n•\t	цена в рублях
+\n\tВ коллекции объектов определить телевизоры с максимальным разрешением по вертикали. Упорядочить копию коллекции:
+\n•\t	по убыванию цены
+\n•\t	по возрастанию диагонали экрана
+\n•\t	по производителю и типу телевизора
+\n\tУпорядоченные копии выводить в отдельную активность.
+\n\tРеализовать добавление, изменение и удаление элементов коллекции (используйте отдельную активность для редактирования объекта коллекции).
+\n\tИспользуйте <b>RecyclerView</b> для отображения коллекции на главной активности, <b>ListView</b> с оптимизированным адаптером для вывода упорядоченных копий.
+\n\tПо возможности примените <b>Spinner</b> в активности ввода/редактирования сведений о телевизорах.
+\n\tИспользуйте стили оформления элементов интерфейса, тему оформления приложения, активности выводу упорядоченной коллекции.
+</string>
+    <string name="HW004_exercises001"><b>Exercises 001</b></string>
+    <string name="btn_GoToHW004_Exercises001">Go to Exercises001</string>
+    <string name="mni_tvshop_adapter">TV Shop</string>
+    <string name="HW004_XLabel">x</string>
+    <string name="HW004_txvResolution">Resolution</string>
+    <string name="HW004_txvSize">Size</string>
+    <string name="HW004_txvPrice">Price</string>
+    <string name="mni_sort_manufacturer">Sort Manufacturer</string>
+    <string name="mni_sort_size">Sort Size</string>
+    <string name="mni_sort_desc_price">Sort Price</string>
+    <string name="btn_GoToHW005">Home Work on 03.04.2022</string>
+    <string name="btn_Exit">Exit</string>
+    <string name="btn_GoToHW006">Home Work on 10.04.2022</string>
+    <string name="mni_book_adapter">Books</string>
+    <string name="btn_GoToHW005_Exercises001">Go to Exercises001</string>
+    <string name="btn_GoToHW005_Exercises002">Go to Exercises002</string>
+    <string name="HW005_exercises001_text">\t<b>Задача 1.</b> Разработайте приложение для отображения коллекции объектов класса Телевизор с полями для хранения:
+        \n•\tпроизводителя и типа телевизора – это одно поле (например, Samsung OLED55DT2020)
+        \n•\tимя файла с фотографией телевизора в папке assets
+        \n•\tдиагонали экрана в дюймах
+        \n•\tразрешения по вертикали в пикселях
+        \n•\tразрешения по горизонтали в пикселях
+        \n•\tцена в рублях В коллекции объектов определить телевизоры с максимальным разрешением по вертикали. Упорядочить копию коллекции:
+        \n•\tпо убыванию цены
+        \n•\tпо возрастанию диагонали экрана  Упорядоченные копии выводить в отдельные активности.
+        \n\tРеализовать добавление, изменение и удаление элементов коллекции (используйте отдельную активность для редактирования объекта коллекции).
+        \n\tИспользуйте <b>GridView</b> для отображения коллекции на главной активности, <b>RecyclerView</b> для вывода упорядоченных копий. Коллекцию хранить в бинарном файле, во внешней памяти. </string>
+    <string name="HW005_exercises001"><b>Exercises 001</b></string>
+    <string name="HW005_exercises002"><b>Exercises 002</b></string>
+    <string name="HW005_exercises002_text">\t<b>Задача 2.</b>
+        \n\tРазработайте Андроид-приложение для работы с базой данных, хранящей сведения о книгах <b>books_2.db</b> (база данных в папке CW этого задания).
+        \n\tПриложение должно иметь следующий функционал:
+        \n•\tВывод на главной активности в <b>ListView</b> данных о книгах – автор, название, год издания, категория. Разместить кнопки (команды меню) для увеличения стоимость книг Абрамяна М.Э. на 15%, уменьшения стоимость книг Абрамяна М.Э. на 15%
+        \n•\tВывод списка авторов в отдельной активности – в <b>ListView</b>, используйте <b>SimpleCursorAdapter</b>. По клику на элемент списка вызывать активность редактирования автора, по отдельной кнопке (пункту меню) вызывать активность редактирования автора, но в режиме добавления новой записи
+        \n•\tВывод списка категорий в отдельной активности – в <b>ListView</b>, используйте <b>SimpleCursorAdapter</b>
+        \n•\tАктивность для добавления или редактирования автора, должен быть пункт меню для завершения активности (для возврата на вызывающую активность)
+        \n•\tАктивность вывода фамилии и инициалов авторов и количество книг этих авторов
+        \n•\tАктивность сведений о приложении и разработчике Переходы между главной активностью и вспомогательными реализовать при помощи меню. В каждой активности также должна быть реализована команда возврата на главную активность. </string>
+    <string name="homework005_text">\t<b>Теоретическая часть</b>
+        \n•\tВиджет <b>GridView</b>
+        \n•\tХранение данных во внутренней памяти устройства
+        \n•\tОсновные методы работы с файлами и каталогами в локальной памяти приложения
+        \n•\tХранение данных во внешней памяти устройства
+        \n•\tМесто хранения базы данных <b>SQLite</b> в приложении Андроид – внутренняя память устройства, папка <b>assets</b> приложения или внешняя память
+        \n•\tВспомогательный класс <b>SQLiteOpenHelper</b> и переопределение его методов в производном классе для организации доступа к базам данных
+        \n•\tМетоды для выполнения запросов <b>execSQL()</b>, <b>rowQuery()</b>
+        \n•\tМетоды-оболочки запросов выборки данных <b>query()</b>, модификации данных <b>update()</b>, удаления данных <b>delete()</b>, добавления данных <b>insert()</b>
+        \n•\tКласс <b>ContentValues</b> и передача данных в запросы
+        \n•\tКласс <b>Cursor</b> и обход результатов запроса (коллекции или выборки данных)
+        \n•\tНеобходимость закрытия базы данных после завершения работы с ней
+        \n\t<b>Практическая часть</b></string>
+    <string name="homework005">Home Work on 03.04.2022</string>
+    <string name="item_amount">Amount</string>
+    <string name="item_price">Price</string>
+    <string name="item_year">Year</string>
+    <string name="header_db_book">Books</string>
+
 </resources>

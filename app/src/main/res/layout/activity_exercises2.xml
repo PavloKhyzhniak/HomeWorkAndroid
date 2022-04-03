@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".homework001.MainActivityHW001"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".homework001.MainActivityHW001">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="right">
+            android:gravity="end"
+            android:orientation="horizontal">
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -25,55 +23,327 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/HW002_exercises002"
                     android:layout_gravity="left|center"
-                    />
+                    android:text="@string/HW002_exercises002" />
+
                 <Button
                     android:id="@+id/btnGoToExercises001"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/btn_GoToExercises001"
-                    android:layout_gravity="right"/>
+                    android:layout_gravity="right"
+                    android:text="@string/btn_GoToExercises001" />
             </FrameLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/HW002_exercises002_text"
                 android:gravity="fill"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:textSize="24sp"
-                android:text="@string/head_ship" />
+                android:text="@string/HW002_exercises002_text" />
 
             <TextView
-                android:id="@+id/txvShip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:textSize="22sp"
-                android:text="@string/empty_space" />
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginBottom="3dp"
+                android:text="@string/head_ship"
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:id="@+id/rgrChooseShip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="35dp"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rgr_choose_ship"
+                        android:textSize="18sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbtShipBalker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="onClickChooseShipHandler"
+                        android:text="@string/rbt_ship_balker" />
+
+                    <RadioButton
+                        android:id="@+id/rbtShipConteiner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="onClickChooseShipHandler"
+                        android:text="@string/rbt_ship_conteinerwage" />
+
+                    <RadioButton
+                        android:id="@+id/rbtShipParom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="onClickChooseShipHandler"
+                        android:text="@string/rbt_ship_parom" />
+
+                    <RadioButton
+                        android:id="@+id/rbtShipRolker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="onClickChooseShipHandler"
+                        android:text="@string/rbt_ship_rolker" />
+
+                    <RadioButton
+                        android:id="@+id/rbtShipSuhogruz"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="onClickChooseShipHandler"
+                        android:text="@string/rbt_ship_suhogruz" />
+
+                    <RadioButton
+                        android:id="@+id/rbtShipTanker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="onClickChooseShipHandler"
+                        android:text="@string/rbt_ship_tanker" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/llShip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+
+                    <ImageView
+                        android:id="@+id/imageViewShip"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center_horizontal"
+                        android:scaleType="fitXY" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="30"
+                            android:text="@string/ShipType"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/txvShipType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="70"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_margin="6dp"
+                            android:layout_weight="30"
+                            android:text="@string/ShipName"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/txvShipName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_margin="6dp"
+                            android:layout_weight="70"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="30"
+                            android:text="@string/ShipCarryingCapacity"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/txvShipCarryingCapacity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="70"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="30"
+                            android:text="@string/ShipDestination"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/txvShipDestination"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="70"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="30"
+                            android:text="@string/ShipCargoType"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/txvShipCargoType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="70"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="25"
+                            android:text="@string/CargoWeight"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/txvCargoWeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="25"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="25"
+                            android:text="@string/CargoPrice"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/txvCargoPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:layout_weight="25"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="10dp"
+                        android:background="#c0c0c0" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txvIndicationSpecialPier"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:text="@string/swt_IndicationSpecialPier_use"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txvIndicationAnchoragePlace"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:text="@string/swt_IndicationAnchoragePlace_use"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txvIndicationRefueling"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:text="@string/swt_IndicationRefueling_use"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginRight="6dp"
                 android:layout_marginBottom="12dp"
-                android:weightSum="100"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="100">
 
 
                 <Button
@@ -81,9 +351,9 @@
                     style="@android:style/Widget.Holo.Button.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="3dp"
+                    android:layout_weight="50"
                     android:text="@string/btn_create" />
 
                 <Button
@@ -91,29 +361,31 @@
                     style="@android:style/Widget.Holo.Button.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="50"
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="6dp"
+                    android:layout_weight="50"
                     android:text="@string/btn_process" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btnReturnToHomeWork002"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/btn_ReturnToHomeWork002"
-                    android:layout_gravity="right"/>
+                    android:layout_gravity="right"
+                    android:text="@string/btn_ReturnToHomeWork002" />
+
                 <Button
                     android:id="@+id/btnReturnToMain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/btn_ReturnToMain"
-                    android:layout_gravity="right"/>
+                    android:layout_gravity="right"
+                    android:text="@string/btn_ReturnToMain" />
             </LinearLayout>
 
         </LinearLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.homeworkandroid">
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -10,6 +11,42 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeWorkAndroid">
+        <activity
+            android:name=".homework005.activity.DBBookAdapterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".homework005.MainActivityHW005"
+            android:exported="false" />
+        <activity
+            android:name=".homework004.activity.TVShopEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".homework004.activity.TVShopAdapterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".homework004.MainActivityHW004"
+            android:exported="false" />
+        <activity
+            android:name=".homework004.LoginPage"
+            android:exported="false" />
+        <activity
+            android:name=".homework003.activity.ShipActivity"
+            android:exported="false" />
+        <activity
+            android:name=".homework003.adapters.AnimalAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".homework003.ShipAdapterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".homework003.AnimalAdapterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".homework003.MainActivityHW003"
+            android:exported="false" />
+        <activity
+            android:name=".homework002.ShipActivity"
+            android:exported="false" />
         <activity
             android:name=".homework002.AnimalActivity"
             android:exported="false" />
@@ -40,6 +77,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".homework005.db.BookProvider"
+            android:authorities="com.example.homeworkandroid.homework005.db.BookProvider" />
     </application>
 
 </manifest>

@@ -1,71 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="100dp"
         android:gravity="center"
-        android:layout_marginTop="100dp">
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/mainTitle"
-        android:layout_gravity="left|center"
-        android:textSize="24sp"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:text="@string/mainTitle"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/student_text"
-            android:gravity="center"
             android:layout_gravity="center"
-            />
+            android:gravity="center"
+            android:text="@string/student_text" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <Button
+                android:id="@+id/btnGoToHW001"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                >
-                <Button
-                    android:id="@+id/btnGoToHW001"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/btn_GoToHW001"
-                    />
-                <Button
-                    android:id="@+id/btnGoToHW002"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/btn_GoToHW002"
-                    />
-            </LinearLayout>
-        </LinearLayout>
+                android:layout_centerHorizontal="true"
+                android:text="@string/btn_GoToHW001" />
+
+            <Button
+                android:id="@+id/btnGoToHW002"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_GoToHW002"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/btnGoToHW001" />
+
+            <Button
+                android:id="@+id/btnGoToHW003"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_GoToHW003"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/btnGoToHW002" />
+
+<LinearLayout
+    android:id="@+id/llHW004"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_alignStart="@id/btnGoToHW003"
+    android:layout_below="@id/btnGoToHW003"
+    android:layout_centerInParent="true"
+    android:gravity="center"
+    >
+
+    <Button
+        android:id="@+id/btnGoToHW004"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_GoToHW004"
+        android:layout_centerInParent="true"
+        />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="10dp"
+        android:id="@+id/btnGoToLoginHW004"
+        android:background="@mipmap/ic_hand_key_round"
+        style="@style/Widget.AppCompat.Button"
+        />
+
+</LinearLayout>
+            <Button
+                android:id="@+id/btnGoToHW005"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_GoToHW005"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/llHW004" />
+
+            <Button
+                android:enabled="false"
+                android:id="@+id/btnGoToHW006"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_GoToHW006"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/btnGoToHW005" />
+
+        </RelativeLayout>
+        <Button
+            android:id="@+id/btnExit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_Exit"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="right"
+            />
 
     </LinearLayout>
 </LinearLayout>

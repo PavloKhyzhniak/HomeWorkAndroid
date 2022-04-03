@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/mniTVShopAdapter"
+        android:title="@string/mni_tvshop_adapter" />
+    <item
+        android:id="@+id/mniBookAdapter"
+        android:title="@string/mni_book_adapter" />
+    <item
+        android:id="@+id/mniReturn"
+        android:title="@string/mni_return" />
+
+    <item
+        android:id="@+id/mniExit"
+        android:title="@string/mni_exit"
+        android:icon="@drawable/door_out"
+        app:showAsAction="always"/>
+</menu>
