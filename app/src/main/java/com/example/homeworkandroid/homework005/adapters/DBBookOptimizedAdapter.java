@@ -6,14 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.example.homeworkandroid.R;
-import com.example.homeworkandroid.homework005.activity.DBBookAdapterActivity;
 import com.example.homeworkandroid.homework005.db.DBProvider_Book;
 import com.example.homeworkandroid.homework005.db.IReportBack;
 import com.example.homeworkandroid.homework005.models.Book;
@@ -23,11 +21,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class DBBookOptimizedAdapter extends ArrayAdapter<Book> {
-    private LayoutInflater inflater;     // контекст создания - активность или фрагмент
-    private int            layout;       // ид разметки элемента списка
-    private List<Book> itemList;      // коллекция данных
+    private final LayoutInflater inflater;     // контекст создания - активность или фрагмент
+    private final int            layout;       // ид разметки элемента списка
+    private final List<Book> itemList;      // коллекция данных
 
-    private DBProvider_Book providerTester = null;
+    private final DBProvider_Book providerTester;
 
     // для создания адаптера в точке вызова
     public DBBookOptimizedAdapter(@NonNull Context context, int resource, @NonNull List<Book> itemList) {
@@ -118,13 +116,13 @@ public class DBBookOptimizedAdapter extends ArrayAdapter<Book> {
 
             // назначаем обработчика клика по элементам разметки, т.к. клик в
             // основной активности блокируется слушателями кнопками
-            llTextViews.setOnClickListener(v->onClickListner(v, position));
+            llTextViews.setOnClickListener(v->onClickListner(v, this.position));
 
             // обработчики кликов по кнопкам
-            btnEdit.setOnClickListener(v -> editItem(position));
+            btnEdit.setOnClickListener(v -> editItem(this.position));
             btnRemove.setOnClickListener(v -> {
                 try {
-                    removeItem(v, position);
+                    removeItem(v, this.position);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

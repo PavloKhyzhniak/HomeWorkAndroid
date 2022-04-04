@@ -1,12 +1,12 @@
 package com.example.homeworkandroid.homework005.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.homeworkandroid.R;
 import com.example.homeworkandroid.homework005.adapters.DBBookOptimizedAdapter;
@@ -15,8 +15,6 @@ import com.example.homeworkandroid.homework005.db.IReportBack;
 import com.example.homeworkandroid.homework005.models.Book;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DBBookAdapterActivity extends AppCompatActivity implements IReportBack {

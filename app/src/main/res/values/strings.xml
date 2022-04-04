@@ -242,5 +242,6 @@
     <string name="item_price">Price</string>
     <string name="item_year">Year</string>
     <string name="header_db_book">Books</string>
+    <string name="image_button">Image Button</string>
 
 </resources>
