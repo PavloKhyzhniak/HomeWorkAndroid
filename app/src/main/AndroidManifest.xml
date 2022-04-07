@@ -36,31 +36,31 @@
             android:name=".homework003.adapters.AnimalAdapter"
             android:exported="false" />
         <activity
-            android:name=".homework003.ShipAdapterActivity"
+            android:name=".homework003.activity.ShipAdapterActivity"
             android:exported="false" />
         <activity
-            android:name=".homework003.AnimalAdapterActivity"
+            android:name=".homework003.activity.AnimalAdapterActivity"
             android:exported="false" />
         <activity
             android:name=".homework003.MainActivityHW003"
             android:exported="false" />
         <activity
-            android:name=".homework002.ShipActivity"
+            android:name=".homework002.activity.ShipActivity"
             android:exported="false" />
         <activity
-            android:name=".homework002.AnimalActivity"
+            android:name=".homework002.activity.AnimalActivity"
             android:exported="false" />
         <activity
-            android:name=".homework002.Exercises002"
+            android:name=".homework002.activity.Exercises002"
             android:exported="false" />
         <activity
-            android:name=".homework002.Exercises001"
+            android:name=".homework002.activity.Exercises001"
             android:exported="false" />
         <activity
-            android:name=".homework001.Exercises001"
+            android:name=".homework001.activity.Exercises001"
             android:exported="false" />
         <activity
-            android:name=".homework001.Exercises002"
+            android:name=".homework001.activity.Exercises002"
             android:exported="false" />
         <activity
             android:name=".homework001.MainActivityHW001"
@@ -80,7 +80,8 @@
 
         <provider
             android:name=".homework005.db.BookProvider"
-            android:authorities="com.example.homeworkandroid.homework005.db.BookProvider" />
+            android:authorities="com.example.homeworkandroid.homework005.db.BookProvider"
+            android:exported="false" />
     </application>
 
 </manifest>

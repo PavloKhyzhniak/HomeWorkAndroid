@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,7 +35,7 @@ public class TVShopAdapterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tvshop_adapter);
+        setContentView(R.layout.homework004_activity_tvshop_adapter);
 
         // получение коллекции для отображения в RecyclerView
         tvShopList = getIntent().getParcelableArrayListExtra(TVShop.class.getCanonicalName());
@@ -53,6 +54,7 @@ public class TVShopAdapterActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     } // onCreateOptionsMenu
 
+    @SuppressLint("NonConstantResourceId")
     @Override // обработчик выбора меню
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 // обработка выбора в меню по ид пункта
@@ -63,7 +65,7 @@ public class TVShopAdapterActivity extends AppCompatActivity {
                     @Override
                     public int compare(TVShop lhs, TVShop rhs) {
                         // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
-                        return lhs.getPrice() > rhs.getPrice() ? -1 : (lhs.getPrice() < rhs.getPrice()) ? 1 : 0;
+                        return Integer.compare(rhs.getPrice(), lhs.getPrice());
                     }
                 });
                 startActivity(new Intent(this, TVShopAdapterActivity.class).putParcelableArrayListExtra(TVShop.class.getCanonicalName(), (ArrayList<? extends Parcelable>) copy_TVShop));
@@ -75,7 +77,7 @@ public class TVShopAdapterActivity extends AppCompatActivity {
                     @Override
                     public int compare(TVShop lhs, TVShop rhs) {
                         // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
-                        return lhs.getSize() > rhs.getSize() ? -1 : (lhs.getSize() < rhs.getSize()) ? 1 : 0;
+                        return Double.compare(rhs.getSize(), lhs.getSize());
                     }
                 });
                 startActivity(new Intent(this, TVShopAdapterActivity.class).putParcelableArrayListExtra(TVShop.class.getCanonicalName(), (ArrayList<? extends Parcelable>) copy_TVShop));
@@ -89,7 +91,7 @@ public class TVShopAdapterActivity extends AppCompatActivity {
                         // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
                         String obj1 = lhs.getManufacturer().getName();
                         String obj2 = rhs.getManufacturer().getName();
-                        if (obj1 == obj2) {
+                        if (obj1.equals(obj2)) {
                             return 0;
                         }
                         if (obj1 == null) {

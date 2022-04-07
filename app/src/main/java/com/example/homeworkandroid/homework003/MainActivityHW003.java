@@ -3,6 +3,7 @@ package com.example.homeworkandroid.homework003;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,10 +16,9 @@ import android.widget.TextView;
 
 import com.example.homeworkandroid.MainActivity;
 import com.example.homeworkandroid.R;
-import com.example.homeworkandroid.homework003.AnimalAdapterActivity;
-import com.example.homeworkandroid.homework003.ShipAdapterActivity;
+import com.example.homeworkandroid.homework003.activity.AnimalAdapterActivity;
+import com.example.homeworkandroid.homework003.activity.ShipAdapterActivity;
 
-import com.example.homeworkandroid.R;
 public class MainActivityHW003 extends AppCompatActivity {
 
     private Button btnGotoExercises001, btnGotoExercises002, btnReturnToMain;
@@ -27,7 +27,7 @@ public class MainActivityHW003 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_hw003);
+        setContentView(R.layout.homework003_activity_main_hw003);
 
         findViews();
 
@@ -96,6 +96,7 @@ public class MainActivityHW003 extends AppCompatActivity {
 
 
     // обработчик события выбора в меню
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // обработка выбора в меню по ид пункта

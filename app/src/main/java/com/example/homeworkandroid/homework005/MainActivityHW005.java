@@ -3,6 +3,7 @@ package com.example.homeworkandroid.homework005;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -31,7 +32,7 @@ public class MainActivityHW005 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_hw005);
+        setContentView(R.layout.homework005_activity_main_hw005);
 
         findViews();
 
@@ -105,6 +106,7 @@ public class MainActivityHW005 extends AppCompatActivity {
 
 
     // обработчик события выбора в меню
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // обработка выбора в меню по ид пункта

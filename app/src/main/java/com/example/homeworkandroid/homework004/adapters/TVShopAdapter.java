@@ -1,5 +1,6 @@
 package com.example.homeworkandroid.homework004.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,8 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.homeworkandroid.homework002.Ship;
-import com.example.homeworkandroid.homework003.activity.ShipActivity;
 import com.example.homeworkandroid.homework004.activity.TVShopEditActivity;
 import com.example.homeworkandroid.homework004.models.TVShop;
 
@@ -55,7 +53,7 @@ public class TVShopAdapter extends RecyclerView.Adapter<TVShopAdapter.ViewHolder
     @NonNull
     @Override
     public TVShopAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(R.layout.tvshop_item, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.homework004_tvshop_item, parent, false));
     }
 
     // Привязчик данных к элементам интерфейса
@@ -131,7 +129,8 @@ public class TVShopAdapter extends RecyclerView.Adapter<TVShopAdapter.ViewHolder
     } // edit
 
     // пример удаления записи из коллекции
-    private void delete(View view,  int position) {
+    @SuppressLint("NotifyDataSetChanged")
+    private void delete(View view, int position) {
         String str = tvShopList.get(position).getName();
 
         tvShopList.remove(position);    // удаление записи по индексу
@@ -141,6 +140,7 @@ public class TVShopAdapter extends RecyclerView.Adapter<TVShopAdapter.ViewHolder
     } // delete
 
     // обработчик события получения данных из другой активности
+    @SuppressLint({"DefaultLocale", "NotifyDataSetChanged"})
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         if (resultCode != RESULT_OK) {
@@ -155,7 +155,7 @@ public class TVShopAdapter extends RecyclerView.Adapter<TVShopAdapter.ViewHolder
         // при успешной работе активностей - принять данные, вывести в TextView
         switch (requestCode) {
             case TVSHOP_ACTIVITY:
-                _ACTIVITY:
+                assert data != null;
                 tmp_elem = data.getParcelableExtra(TVShop.class.getCanonicalName());
                 updateTVShop(tmp_elem);
 

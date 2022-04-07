@@ -1,5 +1,6 @@
 package com.example.homeworkandroid.homework004.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -19,10 +20,6 @@ import android.widget.Spinner;
 
 import com.example.homeworkandroid.MainActivity;
 import com.example.homeworkandroid.R;
-import com.example.homeworkandroid.homework002.MainActivityHW002;
-import com.example.homeworkandroid.homework002.Ship;
-import com.example.homeworkandroid.homework002.ShipType;
-import com.example.homeworkandroid.homework003.adapters.ShipAdapter;
 import com.example.homeworkandroid.homework004.MainActivityHW004;
 import com.example.homeworkandroid.homework004.adapters.TVShopAdapter;
 import com.example.homeworkandroid.homework004.models.TVShop;
@@ -56,7 +53,7 @@ public class TVShopEditActivity extends AppCompatActivity implements AdapterView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tvshop_edit);
+        setContentView(R.layout.homework004_activity_tvshop_edit);
 
         // получить параметр из вызывающей активности
         Intent intent = getIntent();
@@ -106,7 +103,7 @@ public class TVShopEditActivity extends AppCompatActivity implements AdapterView
         // связать разметку и ссылки на элементы отображения
         ShowImg(imgType,tvShop.getType().getBase());
 
-        edtTypeName.setText(tvShop.getName().toString());
+        edtTypeName.setText(tvShop.getName());
         edtSize.setText(String.format(Locale.UK, "%.3f", tvShop.getSize()));
         edtHorizontal.setText(String.format(Locale.UK, "%3d", tvShop.getHorizontal()));
         edtVertical.setText(String.format(Locale.UK, "%3d", tvShop.getVertical()));
@@ -140,7 +137,7 @@ public class TVShopEditActivity extends AppCompatActivity implements AdapterView
         }
 
         @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+        public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
             return getImageForPosition(position);
         }
 

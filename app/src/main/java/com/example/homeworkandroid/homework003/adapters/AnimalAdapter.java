@@ -10,6 +10,6 @@ public class AnimalAdapter extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_animal_adapter_item);
+        setContentView(R.layout.homework003_activity_animal_adapter_item);
     }
 }

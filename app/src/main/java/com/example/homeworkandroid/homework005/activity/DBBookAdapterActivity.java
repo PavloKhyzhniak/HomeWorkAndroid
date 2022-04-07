@@ -1,5 +1,6 @@
 package com.example.homeworkandroid.homework005.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,7 +32,7 @@ public class DBBookAdapterActivity extends AppCompatActivity implements IReportB
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dbbook_adapter);
+        setContentView(R.layout.homework005_activity_dbbook_adapter);
 
         try {
             dbHelper_books = new DBHelper_Books(this,this);
@@ -50,7 +51,7 @@ public class DBBookAdapterActivity extends AppCompatActivity implements IReportB
         // адаптер попроще
         DBBookOptimizedAdapter bookOptimizedAdapter = new DBBookOptimizedAdapter(
                 this,
-                R.layout.book_item,
+                R.layout.homework005_book_item,
                 itemList);
 
         // 3. Назаначение адаптера
@@ -75,6 +76,7 @@ public class DBBookAdapterActivity extends AppCompatActivity implements IReportB
 
 
     // обработчик события выбора в меню
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // обработка выбора в меню по ид пункта

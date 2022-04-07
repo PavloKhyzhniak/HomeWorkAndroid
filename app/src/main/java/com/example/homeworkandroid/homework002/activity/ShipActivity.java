@@ -1,4 +1,4 @@
-package com.example.homeworkandroid.homework003.activity;
+package com.example.homeworkandroid.homework002.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
@@ -21,10 +21,9 @@ import android.widget.TextView;
 
 import com.example.homeworkandroid.MainActivity;
 import com.example.homeworkandroid.R;
+import com.example.homeworkandroid.homework002.MainActivityHW002;
 import com.example.homeworkandroid.homework002.models.Ship;
 import com.example.homeworkandroid.homework002.models.ShipType;
-import com.example.homeworkandroid.homework003.MainActivityHW003;
-import com.example.homeworkandroid.homework003.adapters.ShipAdapter;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.IOException;
@@ -37,7 +36,7 @@ public class ShipActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private ShipType currentShipType;
 
-    private Button btnReturnToHomeWork003,btnReturnToMain;
+    private Button btnReturnToHomeWork002, btnReturnToMain;
     private Button btnSummary;
     private TextView txvSummary;
     private Button btnShipActivityProcess, btnShipActivityBack;
@@ -54,7 +53,7 @@ public class ShipActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homework003_activity_ship);
+        setContentView(R.layout.homework002_activity_ship);
 
         // получить параметр из вызывающей активности
         Intent intent = getIntent();
@@ -71,7 +70,6 @@ public class ShipActivity extends AppCompatActivity implements AdapterView.OnIte
 
         fillSpinner(spinner, currentShipType);
     }
-
 
     private void showShip(Ship ship) {
         llShip.setVisibility(View.VISIBLE);
@@ -131,7 +129,7 @@ public class ShipActivity extends AppCompatActivity implements AdapterView.OnIte
 
         imageViewShip = findViewById(R.id.imageViewShip);
 
-        btnReturnToHomeWork003 = findViewById(R.id.btnReturnToHomeWork003);
+        btnReturnToHomeWork002 = findViewById(R.id.btnReturnToHomeWork002);
         btnReturnToMain = findViewById(R.id.btnReturnToMain);
 
         btnShipActivityProcess = findViewById(R.id.btnShipActivityProcess);
@@ -144,7 +142,7 @@ public class ShipActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void setListeners() {
-        btnReturnToHomeWork003.setOnClickListener(v -> returnToHomeWork003());
+        btnReturnToHomeWork002.setOnClickListener(v -> returnToHomeWork002());
         btnReturnToMain.setOnClickListener(v -> returnToMain());
 
         btnShipActivityProcess.setOnClickListener(v -> processAnimalActivity());
@@ -211,7 +209,7 @@ public class ShipActivity extends AppCompatActivity implements AdapterView.OnIte
                 selected = i;
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(com.example.homeworkandroid.homework003.activity.ShipActivity.this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(ShipActivity.this,
                 android.R.layout.simple_spinner_item, paths);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -241,15 +239,17 @@ public class ShipActivity extends AppCompatActivity implements AdapterView.OnIte
         Intent intent = new Intent();
         intent.putExtra(Ship.class.getCanonicalName(), ship);
 
-        setResult(ShipAdapter.RESULT_OK, intent);
+        setResult(Exercises002.RESULT_OK, intent);
         finish();
     }
-    private void returnToHomeWork003() {
-        Intent myIntent = new Intent(this, MainActivityHW003.class);
-        startActivity(myIntent);
-    }
+
     private void returnToMain() {
         Intent myIntent = new Intent(this, MainActivity.class);
+        startActivity(myIntent);
+    }
+
+    private void returnToHomeWork002() {
+        Intent myIntent = new Intent(this, MainActivityHW002.class);
         startActivity(myIntent);
     }
 

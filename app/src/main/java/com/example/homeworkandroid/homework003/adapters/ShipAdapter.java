@@ -2,13 +2,12 @@ package com.example.homeworkandroid.homework003.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.homeworkandroid.homework002.Ship;
+import com.example.homeworkandroid.homework002.models.Ship;
 import com.example.homeworkandroid.homework003.activity.ShipActivity;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -56,7 +55,7 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
     // parent      - ссылка на сам ListView
     public View getView(int position, View convertView, ViewGroup parent) {
         // связать разметку и ссылку на View
-        View view = inflater.inflate(this.layout, parent, false);
+        @SuppressLint("ViewHolder") View view = inflater.inflate(this.layout, parent, false);
 
         // связать разметку и ссылки на элементы отображения
         findViews(view);
@@ -179,6 +178,7 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
     } // removeItem
 
     // обработчик события получения данных из другой активности
+    @SuppressLint("DefaultLocale")
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         if (resultCode != RESULT_OK) {
@@ -193,7 +193,7 @@ public class ShipAdapter extends ArrayAdapter<Ship> {
         // при успешной работе активностей - принять данные, вывести в TextView
         switch (requestCode) {
             case SHIP_ACTIVITY:
-                _ACTIVITY:
+                assert data != null;
                 tmp_ship = data.getParcelableExtra(Ship.class.getCanonicalName());
                 updateShip(tmp_ship);
 

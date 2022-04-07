@@ -26,6 +26,21 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src\\main\\res',
+                        'src\\main\\res\\layouts\\homework008',
+                        'src\\main\\res\\layouts\\homework007',
+                        'src\\main\\res\\layouts\\homework006',
+                        'src\\main\\res\\layouts\\homework005',
+                        'src\\main\\res\\layouts\\homework004',
+                        'src\\main\\res\\layouts\\homework003',
+                        'src\\main\\res\\layouts\\homework002',
+                        'src\\main\\res\\layouts\\homework001'
+            }
+        }
+    }
 }
 
 dependencies {

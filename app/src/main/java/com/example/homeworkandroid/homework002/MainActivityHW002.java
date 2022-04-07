@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.homeworkandroid.R;
+import com.example.homeworkandroid.homework002.activity.Exercises001;
+import com.example.homeworkandroid.homework002.activity.Exercises002;
 
 public class MainActivityHW002 extends AppCompatActivity {
 
@@ -20,7 +22,7 @@ public class MainActivityHW002 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_hw02);
+        setContentView(R.layout.homework002_activity_main_hw002);
 
         btnGotoExercises001 = findViewById(R.id.btnGoToExercises001);
         btnGotoExercises002 = findViewById(R.id.btnGoToExercises002);

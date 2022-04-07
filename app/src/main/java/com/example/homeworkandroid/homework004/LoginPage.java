@@ -38,7 +38,7 @@ public class LoginPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_page);
+        setContentView(R.layout.homework004_activity_login_page);
 
         findView();
 
@@ -51,18 +51,8 @@ public class LoginPage extends AppCompatActivity {
     }
 
     private void setListeners() {
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showRegisterWindow();
-            }
-        });
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showSignInWindow();
-            }
-        });
+        btnRegister.setOnClickListener(v -> showRegisterWindow());
+        btnSignIn.setOnClickListener(view -> showSignInWindow());
     }
 
     private void showSignInWindow() {
@@ -71,53 +61,37 @@ public class LoginPage extends AppCompatActivity {
         dialog.setMessage(R.string.welcome_sign_in);
 
         LayoutInflater inflater = LayoutInflater.from(this);
-        final View sign_in_window = inflater.inflate(R.layout.sign_in_window, null);
+        final View sign_in_window = inflater.inflate(R.layout.homework004_sign_in_window, null);
 
         dialog.setView(sign_in_window);
 
         final MaterialEditText email = (MaterialEditText) sign_in_window.findViewById(R.id.emailField);
         final MaterialEditText pass = (MaterialEditText) sign_in_window.findViewById(R.id.passField);
 
-        dialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                dialogInterface.dismiss();
+        dialog.setNegativeButton(R.string.cancel, (dialogInterface, which) -> dialogInterface.dismiss());
+
+        dialog.setPositiveButton(R.string.signIn, (dialogInterface, which) -> {
+
+            if(TextUtils.isEmpty(email.getText().toString()))
+            {
+                Snackbar.make(root_element, R.string.warnung_email, Snackbar.LENGTH_LONG).show();
+                return;
             }
-        });
 
-        dialog.setPositiveButton(R.string.signIn, new DialogInterface.OnClickListener() {
-            @SuppressLint("ResourceType")
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-
-                if(TextUtils.isEmpty(email.getText().toString()))
-                {
-                    Snackbar.make(root_element, R.string.warnung_email, Snackbar.LENGTH_LONG).show();
-                    return;
-                }
-
-                if(pass.getText().toString().length()<5)
-                {
-                    Snackbar.make(root_element, R.string.warnung_pass, Snackbar.LENGTH_LONG).show();
-                    return;
-                }
-
-                auth.signInWithEmailAndPassword(email.getText().toString(),pass.getText().toString())
-                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        startActivity(new Intent(LoginPage.this,MainActivityHW004.class));
-                        finish();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Snackbar.make(root_element, R.string.error_sign + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                        return;
-                    }
-                });
+            if(pass.getText().toString().length()<5)
+            {
+                Snackbar.make(root_element, R.string.warnung_pass, Snackbar.LENGTH_LONG).show();
+                return;
             }
+
+            auth.signInWithEmailAndPassword(email.getText().toString(),pass.getText().toString())
+            .addOnSuccessListener(authResult -> {
+                startActivity(new Intent(LoginPage.this,MainActivityHW004.class));
+                finish();
+            })
+            .addOnFailureListener(e -> {
+                Snackbar.make(root_element, R.string.error_sign + e.getMessage(), Snackbar.LENGTH_LONG).show();
+            });
         });
 
         dialog.show();
@@ -129,7 +103,7 @@ public class LoginPage extends AppCompatActivity {
         dialog.setMessage(R.string.welcome_registration);
 
         LayoutInflater inflater = LayoutInflater.from(this);
-        final View register_window = inflater.inflate(R.layout.register_window, null);
+        final View register_window = inflater.inflate(R.layout.homework004_register_window, null);
 
         dialog.setView(register_window);
 
@@ -138,63 +112,51 @@ public class LoginPage extends AppCompatActivity {
         final MaterialEditText login = (MaterialEditText) register_window.findViewById(R.id.loginField);
         final MaterialEditText phone = (MaterialEditText) register_window.findViewById(R.id.phoneField);
 
-        dialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                dialogInterface.dismiss();
+        dialog.setNegativeButton(R.string.cancel, (dialogInterface, which) -> dialogInterface.dismiss());
+
+        dialog.setPositiveButton(R.string.addLogin, (dialogInterface, which) -> {
+
+            if(TextUtils.isEmpty(email.getText().toString()))
+            {
+                Snackbar.make(root_element, R.string.warnung_email, Snackbar.LENGTH_LONG).show();
+                return;
             }
-        });
 
-        dialog.setPositiveButton(R.string.addLogin, new DialogInterface.OnClickListener() {
-            @SuppressLint("ResourceType")
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-
-                if(TextUtils.isEmpty(email.getText().toString()))
-                {
-                    Snackbar.make(root_element, R.string.warnung_email, Snackbar.LENGTH_LONG).show();
-                    return;
-                }
-
-                if(TextUtils.isEmpty(login.getText().toString()))
-                {
-                    Snackbar.make(root_element, R.string.warnung_login, Snackbar.LENGTH_LONG).show();
-                    return;
-                }
-
-                if(TextUtils.isEmpty(phone.getText().toString()))
-                {
-                    Snackbar.make(root_element, R.string.warnung_phone, Snackbar.LENGTH_LONG).show();
-                    return;
-                }
-
-                if(pass.getText().toString().length()<5)
-                {
-                    Snackbar.make(root_element, R.string.warnung_pass, Snackbar.LENGTH_LONG).show();
-                    return;
-                }
-
-                auth.createUserWithEmailAndPassword(email.getText().toString(),pass.getText().toString())
-                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                            @Override
-                            public void onSuccess(AuthResult authResult) {
-                                User user = new User();
-                                user.setEmail(email.getText().toString());
-                                user.setPass(pass.getText().toString());
-                                user.setLogin(login.getText().toString());
-                                user.setPhone(phone.getText().toString());
-
-                                users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(user)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                Snackbar.make(root_element, R.string.user_add, Snackbar.LENGTH_LONG).show();
-                                            }
-                                        });
-                            }
-                        });
+            if(TextUtils.isEmpty(login.getText().toString()))
+            {
+                Snackbar.make(root_element, R.string.warnung_login, Snackbar.LENGTH_LONG).show();
+                return;
             }
+
+            if(TextUtils.isEmpty(phone.getText().toString()))
+            {
+                Snackbar.make(root_element, R.string.warnung_phone, Snackbar.LENGTH_LONG).show();
+                return;
+            }
+
+            if(pass.getText().toString().length()<5)
+            {
+                Snackbar.make(root_element, R.string.warnung_pass, Snackbar.LENGTH_LONG).show();
+                return;
+            }
+
+            auth.createUserWithEmailAndPassword(email.getText().toString(),pass.getText().toString())
+                    .addOnSuccessListener(authResult -> {
+                        User user = new User();
+                        user.setEmail(email.getText().toString());
+                        user.setPass(pass.getText().toString());
+                        user.setLogin(login.getText().toString());
+                        user.setPhone(phone.getText().toString());
+
+                        users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(user)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Snackbar.make(root_element, R.string.user_add, Snackbar.LENGTH_LONG).show();
+                                    }
+                                });
+                    });
         });
 
         dialog.show();
