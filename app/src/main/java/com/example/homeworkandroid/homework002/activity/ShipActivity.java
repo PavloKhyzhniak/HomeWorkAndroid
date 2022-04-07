@@ -1,8 +1,5 @@
 package com.example.homeworkandroid.homework002.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -16,8 +13,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.example.homeworkandroid.MainActivity;
 import com.example.homeworkandroid.R;
@@ -209,7 +208,7 @@ public class ShipActivity extends AppCompatActivity implements AdapterView.OnIte
                 selected = i;
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(ShipActivity.this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(ShipActivity.this,
                 android.R.layout.simple_spinner_item, paths);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

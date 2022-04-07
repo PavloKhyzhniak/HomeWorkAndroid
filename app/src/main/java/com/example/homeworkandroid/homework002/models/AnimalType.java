@@ -1,8 +1,5 @@
 package com.example.homeworkandroid.homework002.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
 public enum AnimalType implements Serializable {

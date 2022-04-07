@@ -36,7 +36,7 @@ import java.util.Locale;
 
 public class AnimalActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private static int RESULT_LOAD_IMAGE = 1;
+    private static final int RESULT_LOAD_IMAGE = 1;
     // this is the action code we use in our intent,
     // this way we know we're looking at the response from our own action
     private static final int SELECT_PICTURE = 1;
@@ -57,7 +57,6 @@ public class AnimalActivity extends AppCompatActivity implements AdapterView.OnI
     private ImageView imageViewTypeIcon;
 
     private Spinner spinner;
-    private String[] paths;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,14 +138,12 @@ public class AnimalActivity extends AppCompatActivity implements AdapterView.OnI
             currentAnimalType = arr[checkedId - 100];
     }
 
-    private RadioButton[] rb;
-
     private void createRadioButton(RadioGroup rg, AnimalType type) {
         //RadioGroup rg = new RadioGroup(this); //create the RadioGroup
         rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.HORIZONTAL
         AnimalType[] arr = AnimalType.values();
         int cnt = arr.length;
-        rb = new RadioButton[cnt];
+        RadioButton[] rb = new RadioButton[cnt];
 
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -169,7 +166,7 @@ public class AnimalActivity extends AppCompatActivity implements AdapterView.OnI
         AnimalType[] arr = AnimalType.values();
         int cnt = arr.length;
 
-        paths = new String[cnt];
+        String[] paths = new String[cnt];
         int selected = 0;
         for (int i = 0; i < cnt; i++) {
             paths[i] = arr[i].getName();
@@ -270,7 +267,7 @@ public class AnimalActivity extends AppCompatActivity implements AdapterView.OnI
             snackbar.setAction("OK", v -> {
             });
             snackbar.show();
-        } // try-catсh
+        } // try-catch
     }
 
     private void ShowGalleryImg(ImageView imageView, String picturePath) {
@@ -290,7 +287,7 @@ public class AnimalActivity extends AppCompatActivity implements AdapterView.OnI
             snackbar.setAction("OK", v -> {
             });
             snackbar.show();
-        } // try-catсh
+        } // try-catch
     }
 
     /**

@@ -6,20 +6,17 @@
         android:id="@+id/mniSortDescPrice"
         android:title="@string/mni_sort_desc_price"
         android:icon="@mipmap/ic_sortascaz_round"
-        android:tooltipText="@string/mni_sort_desc_price"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/mniSortSize"
         android:title="@string/mni_sort_size"
         android:icon="@mipmap/ic_sortasc_round"
-        android:tooltipText="@string/mni_sort_size"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/mniSortManufacturer"
         android:title="@string/mni_sort_manufacturer"
         android:icon="@mipmap/ic_sort_round"
-        android:tooltipText="@string/mni_sort_manufacturer"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/mniBack"
         android:icon="@drawable/arrow_left"

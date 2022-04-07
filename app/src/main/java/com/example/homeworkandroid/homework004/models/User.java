@@ -5,14 +5,14 @@ public class User
     private String
             login, pass, email,phone;
 
-    public User(){};
+    public User(){}
 
     public User(String login, String pass, String email, String phone){
         this.login = login;
         this.pass = pass;
         this.email = email;
         this.phone = phone;
-    };
+    }
 
     public String getPass() {
         return pass;

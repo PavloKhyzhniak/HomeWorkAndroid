@@ -1,31 +1,26 @@
 package com.example.homeworkandroid.homework004;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.LabeledIntent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.SearchView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.homeworkandroid.R;
 import com.example.homeworkandroid.homework004.models.User;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rengwuxian.materialedittext.MaterialEditText;
+
+import java.util.Objects;
 
 public class LoginPage extends AppCompatActivity {
 
@@ -72,13 +67,13 @@ public class LoginPage extends AppCompatActivity {
 
         dialog.setPositiveButton(R.string.signIn, (dialogInterface, which) -> {
 
-            if(TextUtils.isEmpty(email.getText().toString()))
+            if(TextUtils.isEmpty(Objects.requireNonNull(email.getText()).toString()))
             {
                 Snackbar.make(root_element, R.string.warnung_email, Snackbar.LENGTH_LONG).show();
                 return;
             }
 
-            if(pass.getText().toString().length()<5)
+            if(Objects.requireNonNull(pass.getText()).toString().length()<5)
             {
                 Snackbar.make(root_element, R.string.warnung_pass, Snackbar.LENGTH_LONG).show();
                 return;
@@ -89,9 +84,7 @@ public class LoginPage extends AppCompatActivity {
                 startActivity(new Intent(LoginPage.this,MainActivityHW004.class));
                 finish();
             })
-            .addOnFailureListener(e -> {
-                Snackbar.make(root_element, R.string.error_sign + e.getMessage(), Snackbar.LENGTH_LONG).show();
-            });
+            .addOnFailureListener(e -> Snackbar.make(root_element, R.string.error_sign + e.getMessage(), Snackbar.LENGTH_LONG).show());
         });
 
         dialog.show();
@@ -116,25 +109,25 @@ public class LoginPage extends AppCompatActivity {
 
         dialog.setPositiveButton(R.string.addLogin, (dialogInterface, which) -> {
 
-            if(TextUtils.isEmpty(email.getText().toString()))
+            if(TextUtils.isEmpty(Objects.requireNonNull(email.getText()).toString()))
             {
                 Snackbar.make(root_element, R.string.warnung_email, Snackbar.LENGTH_LONG).show();
                 return;
             }
 
-            if(TextUtils.isEmpty(login.getText().toString()))
+            if(TextUtils.isEmpty(Objects.requireNonNull(login.getText()).toString()))
             {
                 Snackbar.make(root_element, R.string.warnung_login, Snackbar.LENGTH_LONG).show();
                 return;
             }
 
-            if(TextUtils.isEmpty(phone.getText().toString()))
+            if(TextUtils.isEmpty(Objects.requireNonNull(phone.getText()).toString()))
             {
                 Snackbar.make(root_element, R.string.warnung_phone, Snackbar.LENGTH_LONG).show();
                 return;
             }
 
-            if(pass.getText().toString().length()<5)
+            if(Objects.requireNonNull(pass.getText()).toString().length()<5)
             {
                 Snackbar.make(root_element, R.string.warnung_pass, Snackbar.LENGTH_LONG).show();
                 return;
@@ -148,14 +141,9 @@ public class LoginPage extends AppCompatActivity {
                         user.setLogin(login.getText().toString());
                         user.setPhone(phone.getText().toString());
 
-                        users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        users.child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
                                 .setValue(user)
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        Snackbar.make(root_element, R.string.user_add, Snackbar.LENGTH_LONG).show();
-                                    }
-                                });
+                                .addOnSuccessListener(unused -> Snackbar.make(root_element, R.string.user_add, Snackbar.LENGTH_LONG).show());
                     });
         });
 

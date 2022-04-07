@@ -7,5 +7,5 @@ package com.example.homeworkandroid.homework005.db;
  */
 public interface IReportBack 
 {
-	public void reportBack(String tag, String message);
+	void reportBack(String tag, String message);
 }

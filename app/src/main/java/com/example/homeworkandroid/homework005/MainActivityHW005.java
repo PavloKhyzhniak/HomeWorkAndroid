@@ -1,8 +1,5 @@
 package com.example.homeworkandroid.homework005;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,12 +12,14 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.homeworkandroid.MainActivity;
 import com.example.homeworkandroid.R;
 import com.example.homeworkandroid.homework004.activity.TVShopAdapterActivity;
 import com.example.homeworkandroid.homework004.models.TVShop;
 import com.example.homeworkandroid.homework005.activity.DBBookAdapterActivity;
-import com.example.homeworkandroid.homework005.models.Book;
 
 import java.util.ArrayList;
 
@@ -115,7 +114,7 @@ public class MainActivityHW005 extends AppCompatActivity {
                 startActivity(new Intent(this, TVShopAdapterActivity.class).putParcelableArrayListExtra(TVShop.class.getCanonicalName(), (ArrayList<? extends Parcelable>) TVShop.init()));
                 break;
             case R.id.mniBookAdapter:
-                startActivity(new Intent(this, TVShopAdapterActivity.class).putParcelableArrayListExtra(TVShop.class.getCanonicalName(), (ArrayList<? extends Parcelable>) TVShop.init()));
+                startActivity(new Intent(this, DBBookAdapterActivity.class).putParcelableArrayListExtra(TVShop.class.getCanonicalName(), (ArrayList<? extends Parcelable>) TVShop.init()));
                 break;
             case R.id.mniReturn:
                 startActivity(new Intent(this, MainActivity.class));

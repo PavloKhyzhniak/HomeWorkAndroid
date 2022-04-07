@@ -1,5 +1,6 @@
 package com.example.homeworkandroid;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         ibtnGotoLoginHW004.setOnClickListener(this::onButtonClick);
 
     }
+    @SuppressLint("NonConstantResourceId")
     private void onButtonClick(View view) {
         Intent myIntent;
         switch(view.getId())

@@ -61,7 +61,7 @@ public class Exercises001 extends AppCompatActivity {
         //edtSideC.setOnFocusChangeListener(this::onFocusChange);
          class GenericTextWatcher implements TextWatcher{
 
-            private View view;
+            private final View view;
             private GenericTextWatcher(View view) {
                 this.view = view;
             }
@@ -116,12 +116,12 @@ public class Exercises001 extends AppCompatActivity {
 
     @SuppressLint("DefaultLocale")
     private void areaClick(View view) {
-        txvArea.setText(String.format("%.3f", this.triangle.CalculateArea()));
+        txvArea.setText(String.format("%.3f", triangle.CalculateArea()));
     }
 
     @SuppressLint("DefaultLocale")
     private void perimeterClick(View view) {
-        txvPerimeter.setText(String.format("%.3f", this.triangle.CalculatePerimeter()));
+        txvPerimeter.setText(String.format("%.3f", triangle.CalculatePerimeter()));
     }
 
     private void generateClick(View view) {

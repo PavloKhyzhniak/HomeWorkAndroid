@@ -15,7 +15,7 @@ import java.util.List;
 
 public class DBProvider_Book extends BaseTester
 {
-	private static String tag = "Provider Tester";
+	private static final String tag = "Provider Tester";
 	public DBProvider_Book(Context ctx, IReportBack target)
 	{
 		super(ctx, target);
@@ -71,7 +71,7 @@ public class DBProvider_Book extends BaseTester
 		int iPrice = c.getColumnIndex(BookProviderMetaData.BookTableMetaData.BOOK_PRICE);
 		int iAmount = c.getColumnIndex(BookProviderMetaData.BookTableMetaData.BOOK_AMOUNT);
 
-		List<Book> list = new ArrayList<Book>();
+		List<Book> list = new ArrayList<>();
 
 		//walk through the rows based on indexes
 		for(c.moveToFirst();!c.isAfterLast();c.moveToNext()) {

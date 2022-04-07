@@ -3,13 +3,6 @@ package com.example.homeworkandroid.homework005.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.example.homeworkandroid.homework004.models.TVShopManufacturer;
-import com.example.homeworkandroid.homework004.models.TVShopType;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Book implements Parcelable {
 
     public int getAuthor_id() {

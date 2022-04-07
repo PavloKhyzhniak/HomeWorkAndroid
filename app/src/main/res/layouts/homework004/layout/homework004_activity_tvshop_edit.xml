@@ -78,7 +78,8 @@
 
             android:layout_marginBottom="12dp"
             android:textSize="16sp" android:autofillHints=""
-            android:inputType="number"/>
+            android:inputType="number"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/txvXLabel"
@@ -94,7 +95,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:textSize="16sp" android:autofillHints=""
-            android:inputType="number"/>
+            android:inputType="number"
+            tools:ignore="LabelFor" />
 
 
     </LinearLayout>
@@ -116,7 +118,8 @@
         android:layout_alignEnd="@id/txvPriceLabel"
         android:layout_marginBottom="12dp"
         android:textSize="16sp" android:autofillHints=""
-        android:inputType="number"/>
+        android:inputType="number"
+        tools:ignore="LabelFor" />
 
     <LinearLayout
         android:id="@+id/llButton"

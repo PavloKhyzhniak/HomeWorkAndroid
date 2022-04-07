@@ -24,10 +24,10 @@ public class BookProvider extends ContentProvider
     //Projection maps are similar to "as" construct
     //in an sql statement where by you can rename the 
     //columns.
-    private static HashMap<String, String> sBooksProjectionMap;
+    private static final HashMap<String, String> sBooksProjectionMap;
     static
     {
-    	sBooksProjectionMap = new HashMap<String, String>();
+    	sBooksProjectionMap = new HashMap<>();
     	sBooksProjectionMap.put(BookProviderMetaData.BookTableMetaData._ID,
                                 BookProviderMetaData.BookTableMetaData.BOOK_ID);
     	
@@ -183,34 +183,34 @@ public class BookProvider extends ContentProvider
             values = new ContentValues();
         }
 
-        Long now = Long.valueOf(System.currentTimeMillis());
+        Long now = System.currentTimeMillis();
 
 
-        if (values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_AUTHOR_ID) == false)
+        if (!values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_AUTHOR_ID))
         {
             throw new SQLException(
                     "Failed to insert row because Book AuthorID is needed " + uri);
         }
-        if (values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_CATEGORY_ID) == false)
+        if (!values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_CATEGORY_ID))
         {
             throw new SQLException(
                     "Failed to insert row because Book CategoryID is needed " + uri);
         }
-        if (values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_TITLE) == false)
+        if (!values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_TITLE))
         {
             throw new SQLException(
                "Failed to insert row because Book Title is needed " + uri);
         }
 
-        if (values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_YEAR) == false)
+        if (!values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_YEAR))
         {
             throw new SQLException(
                     "Failed to insert row because Book Year is needed " + uri);
         }
-        if (values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_PRICE) == false) {
+        if (!values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_PRICE)) {
             values.put(BookProviderMetaData.BookTableMetaData.BOOK_PRICE, "0");
         }
-        if (values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_AMOUNT) == false) {
+        if (!values.containsKey(BookProviderMetaData.BookTableMetaData.BOOK_AMOUNT)) {
             values.put(BookProviderMetaData.BookTableMetaData.BOOK_AMOUNT, "0");
         }
 

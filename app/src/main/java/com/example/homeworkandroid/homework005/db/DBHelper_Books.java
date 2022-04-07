@@ -1,5 +1,6 @@
 package com.example.homeworkandroid.homework005.db;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -24,7 +25,7 @@ import java.util.List;
 public class DBHelper_Books extends SQLiteOpenHelper {
 
 
-    private static String tag = "Provider Tester Books";
+    private static final String tag = "Provider Tester Books";
 
     protected IReportBack mReportTo;
     protected Context mContext;
@@ -32,19 +33,20 @@ public class DBHelper_Books extends SQLiteOpenHelper {
     private static String YOUR_PACKAGE = "com.example.homeworkandroid";
     // путь к базе данных вашего приложения
     private static String DB_PATH;
-    private static String DB_NAME = "books_2.db";
+    private static final String DB_NAME = "books_2.db";
     private SQLiteDatabase dbBooks;
     /**
      * Конструктор
      * Принимает и сохраняет ссылку на переданный контекст для доступа к ресурсам приложения
-     * @param ctx
      */
+    @SuppressLint("SdCardPath")
     public DBHelper_Books(Context ctx, IReportBack target) throws IOException {
         super(ctx, DB_NAME, null, 1);
         mReportTo = target;
         mContext = ctx;
         PACKAGE_NAME = ctx.getApplicationContext().getPackageName();
-        DB_PATH = "/data/data/"+YOUR_PACKAGE+"/databases/";
+//        DB_PATH = "/data/data/"+YOUR_PACKAGE+"/databases/";
+        DB_PATH = ctx.getFilesDir().getPath() + YOUR_PACKAGE+"/databases/";
         createDataBase();
 
     }
@@ -85,7 +87,7 @@ public class DBHelper_Books extends SQLiteOpenHelper {
         if(checkDB != null){
             checkDB.close();
         }
-        return checkDB != null ? true : false;
+        return checkDB != null;
     }
 
     /**
@@ -191,7 +193,7 @@ public class DBHelper_Books extends SQLiteOpenHelper {
         int iPrice = c.getColumnIndex(BookProviderMetaData.BookTableMetaData.BOOK_PRICE);
         int iAmount = c.getColumnIndex(BookProviderMetaData.BookTableMetaData.BOOK_AMOUNT);
 
-        List<Book> list = new ArrayList<Book>();
+        List<Book> list = new ArrayList<>();
 
 
         //walk through the rows based on indexes
