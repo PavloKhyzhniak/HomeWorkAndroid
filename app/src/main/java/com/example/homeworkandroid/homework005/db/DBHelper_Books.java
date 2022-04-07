@@ -45,8 +45,8 @@ public class DBHelper_Books extends SQLiteOpenHelper {
         mReportTo = target;
         mContext = ctx;
         PACKAGE_NAME = ctx.getApplicationContext().getPackageName();
-//        DB_PATH = "/data/data/"+YOUR_PACKAGE+"/databases/";
-        DB_PATH = ctx.getFilesDir().getPath() + YOUR_PACKAGE+"/databases/";
+        DB_PATH = "/data/data/"+YOUR_PACKAGE+"/databases/";
+//        DB_PATH = ctx.getFilesDir().getPath() + '/' + YOUR_PACKAGE+"/databases/";
         createDataBase();
 
     }
@@ -54,7 +54,7 @@ public class DBHelper_Books extends SQLiteOpenHelper {
     /**
      * Создает пустую базу данных и перезаписывает ее нашей собственной базой
      * */
-    public void createDataBase() throws IOException {
+    public void createDataBase() {
         boolean dbExist = checkDataBase();
 
         if(dbExist){

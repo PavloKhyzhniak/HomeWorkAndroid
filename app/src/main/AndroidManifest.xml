@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeWorkAndroid">
         <activity
+            android:name=".homework006.MainActivityHW006"
+            android:exported="false" />
+        <activity
             android:name=".homework005.activity.DBBookAdapterActivity"
             android:exported="false" />
         <activity
