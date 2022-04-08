@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".homework006.activity.Exercises001">
+
+    <fragment
+        android:id="@+id/frDetailsRequest"
+        android:layout_margin="6dp"
+        android:name="com.example.homeworkandroid.homework006.fragments.DetailRequestFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

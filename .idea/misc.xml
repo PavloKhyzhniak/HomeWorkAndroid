@@ -30,6 +30,10 @@
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/activity_tvshop_adapter.xml" value="0.19114583333333332" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/activity_tvshop_edit.xml" value="0.19114583333333332" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/book_item.xml" value="0.17119565217391305" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/fragment_item_list.xml" value="0.35643115942028986" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/homework006_activity_detail.xml" value="0.13541666666666666" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/homework006_fragment_item.xml" value="0.35643115942028986" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/homework006_fragment_list.xml" value="0.35643115942028986" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/register_window.xml" value="0.19114583333333332" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/sign_in_window.xml" value="0.19114583333333332" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/tvshop_item.xml" value="0.19114583333333332" />
@@ -62,7 +66,13 @@
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework005/layout/homework005_activity_dbbook_adapter.xml" value="0.19114583333333332" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework005/layout/homework005_activity_main_hw005.xml" value="0.19114583333333332" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework005/layout/homework005_book_item.xml" value="0.19114583333333332" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework006/layout-land/homework006_activity_exercises001.xml" value="0.21" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework006/layout/homework006_activity_detail_request.xml" value="0.18" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework006/layout/homework006_activity_exercises001.xml" value="0.17" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework006/layout/homework006_activity_exercises001_land.xml" value="0.3834808259587021" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework006/layout/homework006_activity_main_hw006.xml" value="0.35643115942028986" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework006/layout/homework006_fragment_detail_request.xml" value="0.35643115942028986" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework006/layout/homework006_fragment_list.xml" value="0.1213768115942029" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/menu/back_menu_tvshop.xml" value="0.2" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/menu/main_menu_hw005.xml" value="0.20277777777777778" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/menu/main_menu_hw006.xml" value="0.20277777777777778" />

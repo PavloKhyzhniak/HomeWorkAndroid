@@ -267,5 +267,17 @@
     <string name="btn_GoToHW007">Home Work on 17.04.2022</string>
     <string name="btn_GoToHW008">Home Work on 15.05.2022</string>
     <string name="btn_GoToHW006_Exercises001">Go to Exercises 001</string>
+    <string name="HW006_exercises001_request">ЗАПРОСЫ</string>
+    <string name="HW006_exercises001_request01">Выбирает информацию о пациентах с фамилиями, начинающимися на заданную параметром последовательность букв</string>
+    <string name="HW006_exercises001_request02">Выбирает информацию о врачах, для которых значение в поле <b>Процент отчисления на зарплату</b>, больше 2.3% (задавать параметром)</string>
+    <string name="HW006_exercises001_request03">Выбирает информацию о приемах за некоторый период, заданный параметрами</string>
+    <string name="HW006_exercises001_request04">Выбирает информацию о докторах, специальность которых задана параметром </string>
+    <string name="HW006_exercises001_request05">Вычисляет размер заработной платы врача за каждый прием. Включает поля <b>Фамилия врача, Имя врача, Отчество врача, Специальность врача, Стоимость приема, Зарплата.</b> Сортировка по полю <b>Специальность врача</b></string>
+    <string name="HW006_exercises001_request06">Выполняет группировку по полю <b>Дата приема</b>. Для каждой даты вычисляет максимальную стоимость приема</string>
+    <string name="HW006_exercises001_request07">Выполняет группировку по полю <b>Специальность</b>. Для каждой специальности вычисляет средний Процент отчисления на зарплату от стоимости приема</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="HW006_exercises001_getAllUsers">Получить всех пользователей</string>
+    <string name="HW006_exercises001_getAllAddresses">Получить все адресса</string>
 
 </resources>

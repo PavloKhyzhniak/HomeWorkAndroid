@@ -19,6 +19,7 @@ import com.example.homeworkandroid.MainActivity;
 import com.example.homeworkandroid.R;
 import com.example.homeworkandroid.homework004.activity.TVShopAdapterActivity;
 import com.example.homeworkandroid.homework004.models.TVShop;
+import com.example.homeworkandroid.homework006.activity.Exercises001;
 
 import java.util.ArrayList;
 
@@ -63,8 +64,7 @@ public class MainActivityHW006 extends AppCompatActivity {
     }
 
     private void gotoExercises001Click(View view) {
-        Intent myIntent = new Intent(this, TVShopAdapterActivity.class);
-        myIntent.putParcelableArrayListExtra(TVShop.class.getCanonicalName(), (ArrayList<? extends Parcelable>) TVShop.init());
+        Intent myIntent = new Intent(this, Exercises001.class);
         myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         myIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(myIntent);
