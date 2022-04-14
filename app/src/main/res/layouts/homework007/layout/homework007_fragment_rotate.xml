@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    class="com.example.homeworkandroid.homework007.models.RotateAnimation" >
+
+    <data class="RotateAnimation">
+
+        <variable
+            name="rotate"
+            type="com.example.homeworkandroid.homework007.models.RotateAnimation" />
+        <import type="com.example.homeworkandroid.homework007.models.RotateAnimation.Converter">
+
+        </import>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".homework007.fragments.RotateFragment">
+
+        <TextView
+            android:id="@+id/txvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/scale_fragment_title" />
+
+        <LinearLayout
+            android:id="@+id/llFromDegrees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txvTitle"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txvFromDegrees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:textColor="@color/blue"
+                    android:gravity="top"
+                    android:text="@string/scale_fragment_FromDegrees" />
+
+                <TextView
+                    android:id="@+id/seekBarFromDegreesValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="bottom"
+                    android:textColor="@{rotate.fromDegreesColor}"
+                    android:text="@{Integer.toString(rotate.fromDegrees)}"
+                    android:textSize="26sp" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/seekBarFromDegreesValueMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="@{Integer.toString(rotate.fromDegreesMin)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <SeekBar
+                    android:id="@+id/skbFromDegrees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="90"
+                    android:max="@{rotate.fromDegreesMax}"
+                    android:min="@{rotate.fromDegreesMin}"
+                    android:progress="@={rotate.fromDegrees}"
+                    tools:ignore="UnusedAttribute" />
+
+                <TextView
+                    android:id="@+id/seekBarFromDegreesValueMax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="@{Integer.toString(rotate.fromDegreesMax)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llToDegrees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llFromDegrees"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txvToDegrees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:gravity="top"
+                    android:textColor="@color/blue"
+                    android:text="@string/scale_fragment_ToDegrees" />
+
+                <TextView
+                    android:id="@+id/seekBarToDegreesValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="bottom"
+                    android:textColor="@{rotate.toDegreesColor}"
+                    android:text="@{Integer.toString(rotate.toDegrees)}"
+                    android:textSize="26sp" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/seekBarToDegreesValueMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="@{Integer.toString(rotate.toDegreesMin)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <SeekBar
+                    android:id="@+id/skbToDegrees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="90"
+                    android:max="@{rotate.toDegreesMax}"
+                    android:min="@{rotate.toDegreesMin}"
+                    android:progress="@={rotate.toDegrees}"
+                    tools:ignore="UnusedAttribute" />
+
+                <TextView
+                    android:id="@+id/seekBarToDegreesValueMax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="@{Integer.toString(rotate.toDegreesMax)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llToDegrees"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txvDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:textColor="@color/blue"
+                    android:gravity="top"
+                    android:text="@string/scale_fragment_Duration" />
+
+                <TextView
+                    android:id="@+id/seekBarDurationValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="bottom"
+                    android:textColor="@{rotate.durationColor}"
+                    android:text="@{Integer.toString(rotate.duration)}"
+                    android:textSize="26sp" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/seekBarDurationValueMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="@{Integer.toString(rotate.durationMin)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <SeekBar
+                    android:id="@+id/skbDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="90"
+                    android:max="@{rotate.durationMax}"
+                    android:min="@{rotate.durationMin}"
+                    android:progress="@={rotate.duration}"
+                    tools:ignore="UnusedAttribute" />
+
+                <TextView
+                    android:id="@+id/seekBarDurationValueMax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="@{Integer.toString(rotate.durationMax)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

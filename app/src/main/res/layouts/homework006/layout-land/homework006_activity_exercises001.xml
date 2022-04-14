@@ -45,14 +45,14 @@
             android:orientation="horizontal"
             android:weightSum="3">
 
-            <fragment
+            <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/frRequests"
                 android:name="com.example.homeworkandroid.homework006.fragments.ListFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
 
-            <fragment
+            <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/frDetails"
                 android:name="com.example.homeworkandroid.homework006.fragments.DetailRequestFragment"
                 android:layout_width="wrap_content"

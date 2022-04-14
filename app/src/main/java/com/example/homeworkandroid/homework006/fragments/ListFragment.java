@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import com.example.homeworkandroid.R;
 import com.example.homeworkandroid.homework006.utils.Utils;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 
 
 public class ListFragment extends Fragment {
@@ -34,7 +36,7 @@ public class ListFragment extends Fragment {
     } // OnFragmentSendDataListener
 
     // ссылка на активность, в которой находится фрагмент
-    private OnFragmentSendDataListener activivtyRetranslator;
+    private OnFragmentSendDataListener activityRetranslator;
     String[] requests;
 
 
@@ -56,12 +58,14 @@ public class ListFragment extends Fragment {
         };
 
         try {
-            activivtyRetranslator = (OnFragmentSendDataListener) context;
+            activityRetranslator = (OnFragmentSendDataListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context
-                    + " должен реализовывать интерфейс OnFragmentInteractionListener");
+                    + " должен реализовывать интерфейс OnFragmentSendDataListener");
         } // try-catch
     } // onAttach
+
+    ListView countriesList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,7 +74,7 @@ public class ListFragment extends Fragment {
         View view = inflater.inflate(R.layout.homework006_fragment_list, container, false);
 
         // получаем элемент ListView
-        ListView countriesList = view.findViewById(R.id.requestList);
+        countriesList = view.findViewById(R.id.requestList);
 
         // создаем адаптер
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
@@ -82,23 +86,86 @@ public class ListFragment extends Fragment {
 
         // добавляем для списка слушатель
         countriesList.setOnItemClickListener((parent, v, position, id) -> {
-            // Посылаем данные Activity для ретрансляции в DatailFragment
-            this.position = position;
-            new Thread(runnable).start();
-        });
+            this.position = position + 1;
+            //в отдельном потоке
+            //            new Thread(runnable).start();
+            //через диалоги
+            dialog(position+1);
+        }
+        );
         return view;
     } // onCreateViewUtils
 
+    private void dialog(int position)
+    {
+        // создать диалог, передать ему строку - элемент списка
+        RequestDialogFragment dialog = new RequestDialogFragment();
+
+        // передача параметров в диалог - через Bundle
+        Bundle args = new Bundle();    // объект для передачи параметров в диалог
+
+        args.putInt("select",position);
+        switch(position)
+        {
+            case 1:
+                args.putString("text",getResources().getString(R.string.HW006_exercises001_getAllUsers));
+                args.putString("hint",getResources().getString(R.string.HW006_exercises001_getAllUsershint));
+                break;
+            case 2:
+                args.putString("text",getResources().getString(R.string.HW006_exercises001_getAllAddresses));
+                args.putString("hint",getResources().getString(R.string.HW006_exercises001_getAllAddresseshint));
+                break;
+            case 3:
+                args.putString("text",getResources().getString(R.string.HW006_exercises001_request01));
+                args.putString("hint",getResources().getString(R.string.HW006_exercises001_request01hint));
+                break;
+            case 4:
+                args.putString("text",getResources().getString(R.string.HW006_exercises001_request02));
+                args.putString("hint",getResources().getString(R.string.HW006_exercises001_request02hint));
+                break;
+            case 5:
+                args.putString("text",getResources().getString(R.string.HW006_exercises001_request03));
+                args.putString("hint",getResources().getString(R.string.HW006_exercises001_request03hint));
+                break;
+            case 6:
+                args.putString("text",getResources().getString(R.string.HW006_exercises001_request04));
+                args.putString("hint",getResources().getString(R.string.HW006_exercises001_request04hint));
+                break;
+            case 7:
+                args.putString("text",getResources().getString(R.string.HW006_exercises001_request05));
+                args.putString("hint",getResources().getString(R.string.HW006_exercises001_request05hint));
+                break;
+            case 8:
+                args.putString("text",getResources().getString(R.string.HW006_exercises001_request06));
+                args.putString("hint",getResources().getString(R.string.HW006_exercises001_request06hint));
+                break;
+            case 9:
+                args.putString("text",getResources().getString(R.string.HW006_exercises001_request07));
+                args.putString("hint",getResources().getString(R.string.HW006_exercises001_request07hint));
+                break;
+        }
+        // метод базового класса DialogFragment
+        dialog.setArguments(args);
+
+        // отображение диалогового окна
+        dialog.show(((AppCompatActivity)activityRetranslator).getSupportFragmentManager(), "dialogRequest");
+    }
     int position;
     private Runnable runnable = () -> {
-        try {
-            // для удобства восприятия
-            Utils.sleep(5_000);
-            activivtyRetranslator.onSendData(this.position);
 
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        // для удобства восприятия
+//            Utils.sleep(5_000);
+
+        countriesList.post(() ->
+                {
+                    try {
+                        // Посылаем данные Activity для ретрансляции в DatailFragment
+                        activityRetranslator.onSendData(this.position);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+        );
 
     };
 }

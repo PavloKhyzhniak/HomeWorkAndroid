@@ -279,5 +279,74 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="HW006_exercises001_getAllUsers">Получить всех пользователей</string>
     <string name="HW006_exercises001_getAllAddresses">Получить все адресса</string>
+    <string name="homework007">Home Work on 17.04.2022</string>
+    <string name="HW007_exercises001"><b>Exercises 001</b></string>
+    <string name="HW007_exercises002"><b>Exercises 002</b></string>
+    <string name="HW007_exercises003"><b>Exercises 003</b></string>
+    <string name="HW007_exercises003_text"><b>Задача 3.</b> \n\tРазработайте Андроид-приложение для демонстрации видов анимации на элементе интерфейса – <b>ImageView</b>.
+        \n\tИз контекстного меню элемента запускайте анимации для:
+        \n\t•\tМасштабирования
+        \n\t•\tВращения
+        \n\t•\tПеремещения
+        \n\t•\tПрозрачности
+        \n\t•\tКомбинация масштабирования и вращения</string>
+    <string name="HW007_exercises002_text"><b>Задача 2.</b> \n\tРазработайте Андроид-приложение для работы с файлом данных в формате <b>JSON</b>.
+        \n\tПриложение обрабатывает данные о пациентах – фамилия и инициалы, дата рождения, номер и серия паспорта, адрес проживания (улица, дом, квартира).
+        \n\tФайл данных разместить в локальной памяти приложения, загружать файл данных при старте главной активности приложения, выгружать данные в файл при финише главной активности.
+        \n\tТакже записывать данные в файл при добавлении/изменении или удалении пациента.  В главной активности выводить список пациентов в <b>RecyclerView</b>, использовать адаптер с кнопками редактирования и удаления пациента.
+        \n\tВ приложении использовать диалоги на фрагментах, обязательно – диалог для ввода/редактирования данных о пациенте. По командам меню упорядочивать данные по фамилии, по году рождения, по улице проживания.
+        \n\tКаждый из вариантов упорядочивания реализовать в отдельном <b>AsyncTask</b>. Выводить упорядоченные данные в диалогах, в <b>ListView</b> (использовать упрощенный макет для вывода – фамилия и инициалы, паспорт и дата рождения в одну строку).
+        \n\tПредусмотрите в меню и на активности кнопку добавления пациента. Продумайте разметку для вертикальной и горизонтальной ориентации устройства.</string>
+    <string name="HW007_exercises001_text"><b>Задача 1.</b> \n\tРазработайте Андроид-приложение для работы с файлом данных в формате <b>JSON</b>. Файл разместить в локальной памяти.
+        \n\tНа активности должны быть команды генерации файла данных, завершения работы приложения.
+        \n\tКонтент и выполняемые задачи должны сохраняться при поворотах устройства. Требуется вести учет заявок на авиабилеты. Каждая заявка содержит: пункт назначения, номер рейса, фамилию и инициалы пассажира, желаемую дату вылета.
+        \n\tПриложение должно обеспечивать выбор с помощью меню и выполнение одной из следующих функций:
+        \n\t•\tдобавление заявки в коллекцию;
+        \n\t•\tудаление заявки из коллекции;
+        \n\t•\tсериализация коллекции заявок в файл <b>JSON</b> – в отдельной задаче <b>AsyncTask</b>;
+        \n\t•\tдесериализация коллекции заявок из файла <b>JSON</b> – в отдельной задаче <b>AsyncTask</b>;
+        \n\t•\tвывод сведений о приложении и разработчике
+        \n\t•\tфрагмент статистики (размещен на главной активности) должен поддерживать выполнение запросов:
+        \n\t\to\tопределение количества заявок в заданном диапазоне дат
+        \n\t\to\tопределение количества заявок на заданный номер рейса</string>
+    <string name="homework007_text"><b>Теоретическая часть</b>
+        \n\t•\tРеализация многопоточной обработки при помощи класса AsyncTask
+        \n\t•\tСоздание и запуск задачи
+        \n\t•\tУведомление пользователя о процессе выполнения задачи
+        \n\t•\tПолучение результата из задачи
+        \n\t•\tПрерывание задачи
+        \n\t•\tСохранение задачи при поворотах устройства
+        \n\t•\t<b>Cell/</b>-анимация в Андроид
+        \n\t•\t<b>Tween</b>-анимация элементов интерфейса в Андроид
+        \n\t<b>Практическая часть</b> "</string>
+    <string name="btn_GoToHW007_Exercises001">Go To Exercises 001</string>
+    <string name="btn_GoToHW007_Exercises002">Go To Exercises 002</string>
+    <string name="btn_GoToHW007_Exercises003">Go To Exercises 003</string>
+    <string name="mni_aviasales">Aviasales</string>
+    <string name="mni_hospital">Hospital</string>
+    <string name="mni_animation">Animation</string>
+    <string name="mni_about">About</string>
+    <string name="homework007_app_name">Home Work 007</string>
+    <string name="mni_data">Data</string>
+    <string name="mni_time">Time</string>
+    <string name="HW006_exercises001_request01hint">Введите последовательность букв</string>
+    <string name="HW006_exercises001_request02hint">Введите ставку врача</string>
+    <string name="HW006_exercises001_request04hint">Введите последовательность букв</string>
+    <string name="HW006_exercises001_request07hint" />
+    <string name="HW006_exercises001_request06hint" />
+    <string name="HW006_exercises001_request05hint" />
+    <string name="HW006_exercises001_request03hint" />
+    <string name="HW006_exercises001_getAllAddresseshint" />
+    <string name="HW006_exercises001_getAllUsershint" />
+    <string name="btn_Scale">Scale</string>
+    <string name="btn_Rotate">Rotate</string>
+    <string name="btn_Transparent">Transparent</string>
+    <string name="btn_Visibility">Visibility</string>
+    <string name="btn_Combo">Combo</string>
+    <string name="scale_fragment_title">Scale</string>
+    <string name="scale_fragment_FromDegrees">fromDegrees</string>
+    <string name="scale_fragment_ToDegrees">toDegrees</string>
+    <string name="scale_fragment_Duration">duration</string>
+    <string name="zero">0</string>
 
 </resources>

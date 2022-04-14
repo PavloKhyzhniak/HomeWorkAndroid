@@ -16,6 +16,7 @@ import com.example.homeworkandroid.homework004.LoginPage;
 import com.example.homeworkandroid.homework004.MainActivityHW004;
 import com.example.homeworkandroid.homework005.MainActivityHW005;
 import com.example.homeworkandroid.homework006.MainActivityHW006;
+import com.example.homeworkandroid.homework007.MainActivityHW007;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -101,10 +102,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
                 break;
             case R.id.btnGoToHW007:
-//                myIntent = new Intent(this, MainActivityHW007.class);
-//                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                myIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//                startActivity(myIntent);
+                myIntent = new Intent(this, MainActivityHW007.class);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(myIntent);
                 break;
             case R.id.btnGoToHW008:
 //                myIntent = new Intent(this, MainActivityHW008.class);

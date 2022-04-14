@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".homework007.activity.Exercises003">
+
+    <ImageView
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imgElementAnimation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/llButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:id="@+id/btnScale"
+            android:text="@string/btn_Scale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnRotate"
+            android:text="@string/btn_Rotate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnTransparent"
+            android:text="@string/btn_Transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnVisibility"
+            android:text="@string/btn_Visibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnCombo"
+            android:text="@string/btn_Combo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+</LinearLayout>
+    <FrameLayout
+        android:id="@+id/frlFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/frRotate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.example.homeworkandroid.homework007.fragments.RotateFragment"
+            >
+
+        </androidx.fragment.app.FragmentContainerView>
+    </FrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>

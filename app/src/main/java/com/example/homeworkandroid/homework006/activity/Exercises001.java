@@ -11,12 +11,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentContainerView;
 
 import com.example.homeworkandroid.MainActivity;
 import com.example.homeworkandroid.R;
 import com.example.homeworkandroid.homework006.db.DatabaseRepository_SQLiteHospital;
 import com.example.homeworkandroid.homework006.fragments.DetailRequestFragment;
 import com.example.homeworkandroid.homework006.fragments.ListFragment;
+import com.example.homeworkandroid.homework006.fragments.RequestDialogFragment;
 import com.example.homeworkandroid.homework006.models.Address;
 import com.example.homeworkandroid.homework006.models.User;
 import com.example.homeworkandroid.homework006.modelview.DoctorPriceView;
@@ -26,10 +29,12 @@ import com.example.homeworkandroid.homework006.modelview.SpecializationAvgRateVi
 import com.example.homeworkandroid.homework006.modelview.VisitMaxPriceView;
 import com.example.homeworkandroid.homework006.modelview.VisitView;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Exercises001 extends AppCompatActivity implements ListFragment.OnFragmentSendDataListener, DetailRequestFragment.OnFragmentSendDataListener {
+public class Exercises001 extends AppCompatActivity implements ListFragment.OnFragmentSendDataListener,
+        RequestDialogFragment.OnFragmentSendDataListener,DetailRequestFragment.OnFragmentSendDataListener {
 
     private Button btnReturnToMain;
 
@@ -56,7 +61,7 @@ public class Exercises001 extends AppCompatActivity implements ListFragment.OnFr
         repository.open();
         ArrayList<String> collection = new ArrayList<>();
         try {
-            switch ((int) selectedItem + 1) {
+            switch ( selectedItem) {
                 case 1:
                     List<User> list = repository.getUsers();
                     if (list != null) {
@@ -140,8 +145,17 @@ public class Exercises001 extends AppCompatActivity implements ListFragment.OnFr
 
     // реализация интерфейса передачи данных из одного фрагмента в другой
     // через активность
-    public void onSendData(int selectedItem) {
+    public void onSendData(int selectedItem) throws ParseException {
+
+//        ArrayList<String> collection = workWithRepositoryWithoutThread(selectedItem);
         ArrayList<String> collection = workWithRepository(selectedItem);
+
+        this.onSendData(collection);
+
+    } // onSendData
+
+    @Override
+    public void onSendData(ArrayList<String> collection) throws ParseException {
         // если ориентация горизонтальная, передаем данные фрагменту
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
@@ -160,7 +174,7 @@ public class Exercises001 extends AppCompatActivity implements ListFragment.OnFr
             intent.putStringArrayListExtra(DetailRequestActivity.REQUEST_DATAS, collection);
             startActivity(intent);
         } // if
-    } // onSendData
+    }
 
     private void findViews() {
         // получить ссылки на элементы интерфейса

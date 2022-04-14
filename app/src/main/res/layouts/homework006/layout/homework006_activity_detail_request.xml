@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".homework006.activity.Exercises001">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frDetailsRequest"
         android:layout_margin="6dp"
         android:name="com.example.homeworkandroid.homework006.fragments.DetailRequestFragment"

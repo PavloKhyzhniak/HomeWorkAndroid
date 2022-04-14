@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".homework007.MainActivityHW007">
+
+    <LinearLayout
+        android:id="@+id/llTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:text="@string/homework007" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/llButton"
+        android:layout_below="@+id/llTitle">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="fill"
+                android:text="@string/homework007_text" />
+
+            <TextView
+                android:id="@+id/txvExercises001"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="fill"
+                android:text="@string/HW007_exercises001" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="fill"
+                android:text="@string/HW007_exercises001_text" />
+
+
+            <TextView
+                android:id="@+id/txvExercises002"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="fill"
+                android:text="@string/HW007_exercises002" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="fill"
+                android:text="@string/HW007_exercises002_text" />
+
+
+            <TextView
+                android:id="@+id/txvExercises003"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="fill"
+                android:text="@string/HW007_exercises003" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="fill"
+                android:text="@string/HW007_exercises003_text" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/llButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnGoToExercises001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_GoToHW007_Exercises001" />
+
+        <Button
+            android:id="@+id/btnGoToExercises002"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_GoToHW007_Exercises002" />
+
+        <Button
+            android:id="@+id/btnGoToExercises003"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_GoToHW007_Exercises003" />
+
+        <Button
+            android:id="@+id/btnReturnToMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/btn_ReturnToMain" />
+    </LinearLayout>
+
+</RelativeLayout>

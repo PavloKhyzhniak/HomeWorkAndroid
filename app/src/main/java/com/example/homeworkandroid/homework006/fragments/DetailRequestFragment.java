@@ -31,7 +31,7 @@ public class DetailRequestFragment extends Fragment {
     } // OnFragmentSendDataListener
 
     // ссылка на активность, в которой находится фрагмент
-    private OnFragmentSendDataListener activivtyRetranslator;
+    private OnFragmentSendDataListener activityRetranslator;
 
     // при подключении к активности, context -  ссылка на активнсоть
     @Override
@@ -39,10 +39,10 @@ public class DetailRequestFragment extends Fragment {
         super.onAttach(context);
 
         try {
-            activivtyRetranslator = (OnFragmentSendDataListener) context;
+            activityRetranslator = (OnFragmentSendDataListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
-                    + " должен реализовывать интерфейс OnFragmentInteractionListener");
+                    + " должен реализовывать интерфейс OnFragmentSendDataListener");
         } // try-catch
     } // onAttach
 
@@ -77,7 +77,7 @@ public class DetailRequestFragment extends Fragment {
             // получаем выбранный элемент
             String selectedItem = (String) parent.getItemAtPosition(position);
             // Посылаем данные Activity для ретрансляции в DatailFragment
-            activivtyRetranslator.onSendData(selectedItem);
+            activityRetranslator.onSendData(selectedItem);
         });
     }
 

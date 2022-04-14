@@ -32,7 +32,7 @@
         android:text="@string/HW006_exercises001_request" />
 
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frRequests"
         android:name="com.example.homeworkandroid.homework006.fragments.ListFragment"
         android:layout_width="match_parent"
