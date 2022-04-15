@@ -96,6 +96,72 @@ public class RotateAnimation extends BaseObservable {
     int durationMin;
     int durationMax;
 
+    int pivotX;
+    int pivotY;
+
+    int repeatCount;
+    boolean repeatCountInfinite = false;
+    boolean repeatMode = false;
+
+    @Bindable
+    public boolean isRepeatCountInfinite() {
+        return repeatCountInfinite;
+    }
+
+    public void setRepeatCountInfinite(boolean repeatCountInfinite) {
+        this.repeatCountInfinite = repeatCountInfinite;
+        if(this.repeatCountInfinite) {
+            this.repeatCount = 0xffffffff;
+            notifyPropertyChanged(BR.repeatCount);
+        }
+        notifyPropertyChanged(BR.repeatCountInfinite);
+    }
+
+    @Bindable
+    public int getRepeatCount() {
+        return repeatCount;
+    }
+
+    public void setRepeatCount(int repeatCount) {
+        if(repeatCount>=0)
+            this.repeatCount = repeatCount;
+        notifyPropertyChanged(BR.repeatCount);
+    }
+
+
+    @Bindable
+    public boolean isRepeatMode() {
+        return repeatMode;
+    }
+
+    public void setRepeatMode(boolean repeatMode) {
+        this.repeatMode = repeatMode;
+        notifyPropertyChanged(BR.repeatMode);
+    }
+
+    @Bindable
+    public int getPivotX() {
+        return pivotX;
+    }
+
+    public void setPivotX(int pivotX) {
+        if (pivotX >= 0)
+            this.pivotX = pivotX;
+        notifyPropertyChanged(BR.pivotX);
+    }
+
+    @Bindable
+    public int getPivotY() {
+        return pivotY;
+    }
+
+    public void setPivotY(int pivotY) {
+        if (pivotY >= 0)
+            this.pivotY = pivotY;
+        notifyPropertyChanged(BR.pivotY);
+    }
+
+
     public RotateAnimation(
             int fromDegrees,
             int fromDegreesMin,
@@ -139,7 +205,7 @@ public class RotateAnimation extends BaseObservable {
     }
 
     public void setFromDegrees(int fromDegrees) {
-        if (fromDegrees > 0) {
+        if (fromDegrees >= 0) {
             this.fromDegrees = fromDegrees;
             this.setFromDegreesColor(this.fromDegrees);
         }
@@ -152,7 +218,7 @@ public class RotateAnimation extends BaseObservable {
     }
 
     public void setFromDegreesMin(int fromDegreesMin) {
-        if (fromDegreesMin > 0)
+        if (fromDegreesMin >= 0)
             this.fromDegreesMin = fromDegreesMin;
         notifyPropertyChanged(BR.fromDegreesMin);
     }
@@ -163,7 +229,7 @@ public class RotateAnimation extends BaseObservable {
     }
 
     public void setFromDegreesMax(int fromDegreesMax) {
-        if (fromDegreesMax > 0)
+        if (fromDegreesMax >= 0)
             this.fromDegreesMax = fromDegreesMax;
         notifyPropertyChanged(BR.fromDegreesMax);
     }
@@ -174,7 +240,7 @@ public class RotateAnimation extends BaseObservable {
     }
 
     public void setToDegrees(int toDegrees) {
-        if (toDegrees > 0) {
+        if (toDegrees >= 0) {
             this.toDegrees = toDegrees;
             this.setToDegreesColor(this.toDegrees);
         }
@@ -187,7 +253,7 @@ public class RotateAnimation extends BaseObservable {
     }
 
     public void setToDegreesMin(int toDegreesMin) {
-        if (toDegreesMin > 0)
+        if (toDegreesMin >= 0)
             this.toDegreesMin = toDegreesMin;
         notifyPropertyChanged(BR.toDegreesMin);
     }
@@ -198,7 +264,7 @@ public class RotateAnimation extends BaseObservable {
     }
 
     public void setToDegreesMax(int toDegreesMax) {
-        if (toDegreesMax > 0)
+        if (toDegreesMax >= 0)
             this.toDegreesMax = toDegreesMax;
         notifyPropertyChanged(BR.toDegreesMax);
     }
@@ -209,7 +275,7 @@ public class RotateAnimation extends BaseObservable {
     }
 
     public void setDuration(int duration) {
-        if (duration > 0) {
+        if (duration >= 0) {
             this.duration = duration;
             this.setDurationColor(this.duration);
         }
@@ -222,7 +288,7 @@ public class RotateAnimation extends BaseObservable {
     }
 
     public void setDurationMin(int durationMin) {
-        if (durationMin > 0)
+        if (durationMin >= 0)
             this.durationMin = durationMin;
         notifyPropertyChanged(BR.durationMin);
     }
@@ -233,7 +299,7 @@ public class RotateAnimation extends BaseObservable {
     }
 
     public void setDurationMax(int durationMax) {
-        if (durationMax > 0)
+        if (durationMax >= 0)
             this.durationMax = durationMax;
         notifyPropertyChanged(BR.durationMax);
     }

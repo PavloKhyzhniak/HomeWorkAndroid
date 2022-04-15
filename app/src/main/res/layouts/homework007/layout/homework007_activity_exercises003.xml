@@ -1,72 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homework007.activity.Exercises003">
 
     <ImageView
+        android:id="@+id/imgElementAnimation"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/imgElementAnimation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:src="@drawable/doom_eternal_figure_slayer_mini_collectible_600x600" />
 
     <LinearLayout
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/llButtonMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/btnReturnToMain"
+        android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/llButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnScale"
-            android:text="@string/btn_Scale"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btnRotate"
-            android:text="@string/btn_Rotate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btnTransparent"
-            android:text="@string/btn_Transparent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btnVisibility"
-            android:text="@string/btn_Visibility"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btnCombo"
-            android:text="@string/btn_Combo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-</LinearLayout>
-    <FrameLayout
-        android:id="@+id/frlFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/frRotate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:name="com.example.homeworkandroid.homework007.fragments.RotateFragment"
-            >
+            <Button
+                android:id="@+id/btnScale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_Scale" />
 
-        </androidx.fragment.app.FragmentContainerView>
-    </FrameLayout>
+            <Button
+                android:id="@+id/btnRotate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_Rotate" />
+
+            <Button
+                android:id="@+id/btnTransparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="@string/btn_Transparent" />
+
+            <Button
+                android:id="@+id/btnVisibility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="@string/btn_Visibility" />
+
+            <Button
+                android:id="@+id/btnCombo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_Combo" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/frlFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:visibility="invisible"
+                    android:id="@+id/frRotate"
+                    android:name="com.example.homeworkandroid.homework007.fragments.RotateFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/homework007_fragment_rotate" />
+
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:visibility="invisible"
+                    android:id="@+id/frScale"
+                    android:name="com.example.homeworkandroid.homework007.fragments.ScaleFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/homework007_fragment_scale" />
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:visibility="invisible"
+                    android:id="@+id/frCombo"
+                    android:name="com.example.homeworkandroid.homework007.fragments.ComboFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/homework007_fragment_combo" />
+
+            </FrameLayout>
+        </ScrollView>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnReturnToMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end"
+        android:text="@string/btn_ReturnToMain" />
 </RelativeLayout>

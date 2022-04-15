@@ -5,6 +5,7 @@
         android:id="@+id/mniJSONaviasales"
         android:title="@string/mni_aviasales" />
     <item
+        android:enabled="false"
         android:id="@+id/mniJSONhospital"
         android:title="@string/mni_hospital" />
     <item

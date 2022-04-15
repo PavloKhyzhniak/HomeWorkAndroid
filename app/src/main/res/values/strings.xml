@@ -344,9 +344,30 @@
     <string name="btn_Visibility">Visibility</string>
     <string name="btn_Combo">Combo</string>
     <string name="scale_fragment_title">Scale</string>
-    <string name="scale_fragment_FromDegrees">fromDegrees</string>
-    <string name="scale_fragment_ToDegrees">toDegrees</string>
-    <string name="scale_fragment_Duration">duration</string>
+    <string name="rotate_fragment_FromDegrees">fromDegrees</string>
+    <string name="rotate_fragment_ToDegrees">toDegrees</string>
+    <string name="rotate_fragment_Duration">duration</string>
     <string name="zero">0</string>
+    <string name="rotate_fragment_PivotX">pivotX</string>
+    <string name="_0procent">0%</string>
+    <string name="_50procent">50%</string>
+    <string name="_100procent">100%</string>
+    <string name="rotate_fragment_PivotY">pivotY</string>
+    <string name="restart">Restart</string>
+    <string name="repeat">Repeat</string>
+    <string name="rotate_fragment_RepeatMode">repeatMode</string>
+    <string name="rotate_fragment_RepeatCount">repeatCount</string>
+    <string name="_infinite">infinite</string>
+    <string name="rotate_fragment_title">Rotate</string>
+
+    <string name="scale_fragment_FromXScale">fromXScale</string>
+    <string name="scale_fragment_ToXScale">toXScale</string>
+    <string name="scale_fragment_FromYScale">fromYScale</string>
+    <string name="scale_fragment_ToYScale">toYScale</string>
+    <string name="scale_fragment_Duration">duration</string>
+    <string name="scale_fragment_PivotX">pivotX</string>
+    <string name="scale_fragment_PivotY">pivotY</string>
+    <string name="scale_fragment_RepeatMode">repeatMode</string>
+    <string name="scale_fragment_RepeatCount">repeatCount</string>
 
 </resources>

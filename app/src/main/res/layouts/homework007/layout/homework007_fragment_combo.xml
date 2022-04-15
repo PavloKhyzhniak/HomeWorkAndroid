@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    class="com.example.homeworkandroid.homework007.models.ComboAnimation">
+
+    <data class="ComboAnimation">
+
+        <variable
+            name="combo"
+            type="com.example.homeworkandroid.homework007.models.ComboAnimation" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".homework007.fragments.ComboFragment">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/frRotate"
+            android:name="com.example.homeworkandroid.homework007.fragments.RotateFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/homework007_fragment_rotate" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/frScale"
+            android:name="com.example.homeworkandroid.homework007.fragments.ScaleFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/homework007_fragment_scale" />
+
+    </LinearLayout>
+</layout>

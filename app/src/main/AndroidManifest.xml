@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeWorkAndroid">
         <activity
+            android:name=".homework007.activity.AboutActivity"
+            android:exported="false" />
+        <activity
             android:name=".homework007.activity.Exercises003"
             android:exported="false" />
         <activity

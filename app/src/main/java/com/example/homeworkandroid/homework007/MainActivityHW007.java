@@ -20,6 +20,7 @@ import android.widget.TimePicker;
 
 import com.example.homeworkandroid.MainActivity;
 import com.example.homeworkandroid.R;
+import com.example.homeworkandroid.homework007.activity.AboutActivity;
 import com.example.homeworkandroid.homework007.activity.Exercises001;
 import com.example.homeworkandroid.homework007.activity.Exercises002;
 import com.example.homeworkandroid.homework007.activity.Exercises003;
@@ -90,8 +91,7 @@ public class MainActivityHW007 extends AppCompatActivity {
     }
 
     private void gotoExercisesClick(View view) {
-        switch(view.getId())
-        {
+        switch (view.getId()) {
             case R.id.btnGoToExercises001:
             case R.id.txvExercises001:
                 Intent myIntent = new Intent(this, Exercises001.class);
@@ -101,10 +101,10 @@ public class MainActivityHW007 extends AppCompatActivity {
                 break;
             case R.id.btnGoToExercises002:
             case R.id.txvExercises002:
-                myIntent = new Intent(this, Exercises002.class);
-                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                myIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(myIntent);
+//                myIntent = new Intent(this, Exercises002.class);
+//                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                myIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//                startActivity(myIntent);
                 break;
             case R.id.btnGoToExercises003:
             case R.id.txvExercises003:
@@ -165,10 +165,24 @@ public class MainActivityHW007 extends AppCompatActivity {
                 item.setTitle(currentTime);
                 break;
             case R.id.mniJSONaviasales:
+                Intent myIntent = new Intent(this, Exercises001.class);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(myIntent);
+                break;
             case R.id.mniJSONhospital:
+                break;
             case R.id.mniAnimation:
+                myIntent = new Intent(this, Exercises003.class);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(myIntent);
+                break;
             case R.id.mniAbout:
-//                gotoExercisesClick(null);
+                myIntent = new Intent(this, AboutActivity.class);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(myIntent);
                 break;
             case R.id.mniReturn:
                 startActivity(new Intent(this, MainActivity.class));
@@ -182,8 +196,8 @@ public class MainActivityHW007 extends AppCompatActivity {
 
 // endregion
 
-// объект для работы с датой и временем
-Calendar dateAndTime = Calendar.getInstance();
+    // объект для работы с датой и временем
+    Calendar dateAndTime = Calendar.getInstance();
 
     // установка обработчика изменения/выбора времени
     TimePickerDialog.OnTimeSetListener timeSetListener = (TimePicker view, int hourOfDay, int minute)

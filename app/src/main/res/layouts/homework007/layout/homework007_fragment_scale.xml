@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    class="com.example.homeworkandroid.homework007.models.RotateAnimation"
-    android:id="@+id/fragment_rotate">
+    class="com.example.homeworkandroid.homework007.models.ScaleAnimation"
+    android:id="@+id/fragment_scale">
 
-    <data class="RotateAnimation">
+    <data class="ScaleAnimation">
 
         <variable
-            name="rotate"
-            type="com.example.homeworkandroid.homework007.models.RotateAnimation" />
+            name="scale"
+            type="com.example.homeworkandroid.homework007.models.ScaleAnimation" />
 
-        <import type="com.example.homeworkandroid.homework007.models.RotateAnimation.Converter" />
+        <import type="com.example.homeworkandroid.homework007.models.ScaleAnimation.Converter" />
 
         <import type="android.R.dimen" />
 
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".homework007.fragments.RotateFragment">
+        tools:context=".homework007.fragments.ScaleFragment">
 
         <TextView
             android:id="@+id/txvTitle"
@@ -31,10 +31,10 @@
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/rotate_fragment_title" />
+            android:text="@string/scale_fragment_title" />
 
         <LinearLayout
-            android:id="@+id/llFromDegrees"
+            android:id="@+id/llFromXScale"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txvTitle"
@@ -47,22 +47,22 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txvFromDegrees"
+                    android:id="@+id/txvFromXScale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:gravity="top"
-                    android:text="@string/rotate_fragment_FromDegrees"
+                    android:text="@string/scale_fragment_FromXScale"
                     android:textColor="@color/blue" />
 
                 <TextView
-                    android:id="@+id/seekBarFromDegreesValue"
+                    android:id="@+id/seekBarFromXScaleValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="bottom"
-                    android:text="@{Integer.toString(rotate.fromDegrees)}"
-                    android:textColor="@{rotate.fromDegreesColor}"
+                    android:text="@{Float.toString((float)scale.fromXScale/100)}"
+                    android:textColor="@{scale.fromXScaleColor}"
                     android:textSize="26sp" />
 
             </FrameLayout>
@@ -74,37 +74,37 @@
                 android:weightSum="100">
 
                 <TextView
-                    android:id="@+id/seekBarFromDegreesValueMin"
+                    android:id="@+id/seekBarFromXScaleValueMin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_weight="5"
                     android:gravity="center"
-                    android:text="@{Integer.toString(rotate.fromDegreesMin)}"
+                    android:text="@{Integer.toString(scale.fromXScaleMin)}"
                     android:textAlignment="center"
                     android:textSize="20sp" />
 
                 <SeekBar
-                    android:id="@+id/skbFromDegrees"
+                    android:id="@+id/skbFromXScale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="90"
-                    android:max="@{rotate.fromDegreesMax}"
-                    android:min="@{rotate.fromDegreesMin}"
-                    android:progress="@={rotate.fromDegrees}"
+                    android:max="@{scale.fromXScaleMax*100}"
+                    android:min="@{scale.fromXScaleMin*100}"
+                    android:progress="@={scale.fromXScale}"
                     tools:ignore="UnusedAttribute" />
 
                 <TextView
-                    android:id="@+id/seekBarFromDegreesValueMax"
+                    android:id="@+id/seekBarFromXScaleValueMax"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_weight="5"
                     android:gravity="center"
-                    android:text="@{Integer.toString(rotate.fromDegreesMax)}"
+                    android:text="@{Integer.toString(scale.fromXScaleMax)}"
                     android:textAlignment="center"
                     android:textSize="20sp" />
 
@@ -113,10 +113,10 @@
 
 
         <LinearLayout
-            android:id="@+id/llToDegrees"
+            android:id="@+id/llToXScale"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llFromDegrees"
+            android:layout_below="@+id/llFromXScale"
             android:orientation="vertical">
 
 
@@ -126,22 +126,22 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txvToDegrees"
+                    android:id="@+id/txvToXSCale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:gravity="top"
-                    android:text="@string/rotate_fragment_ToDegrees"
+                    android:text="@string/scale_fragment_ToXScale"
                     android:textColor="@color/blue" />
 
                 <TextView
-                    android:id="@+id/seekBarToDegreesValue"
+                    android:id="@+id/seekBarToXScaleValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="bottom"
-                    android:text="@{Integer.toString(rotate.toDegrees)}"
-                    android:textColor="@{rotate.toDegreesColor}"
+                    android:text="@{Float.toString((float)scale.toXScale/100)}"
+                    android:textColor="@{scale.toXScaleColor}"
                     android:textSize="26sp" />
 
             </FrameLayout>
@@ -153,37 +153,115 @@
                 android:weightSum="100">
 
                 <TextView
-                    android:id="@+id/seekBarToDegreesValueMin"
+                    android:id="@+id/seekBarToXScaleValueMin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_weight="5"
                     android:gravity="center"
-                    android:text="@{Integer.toString(rotate.toDegreesMin)}"
+                    android:text="@{Integer.toString(scale.toXScaleMin)}"
                     android:textAlignment="center"
                     android:textSize="20sp" />
 
                 <SeekBar
-                    android:id="@+id/skbToDegrees"
+                    android:id="@+id/skbToXScale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="90"
-                    android:max="@{rotate.toDegreesMax}"
-                    android:min="@{rotate.toDegreesMin}"
-                    android:progress="@={rotate.toDegrees}"
+                    android:max="@{scale.toXScaleMax*100}"
+                    android:min="@{scale.toXScaleMin*100}"
+                    android:progress="@={scale.toXScale}"
                     tools:ignore="UnusedAttribute" />
 
                 <TextView
-                    android:id="@+id/seekBarToDegreesValueMax"
+                    android:id="@+id/seekBarToXScaleValueMax"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_weight="5"
                     android:gravity="center"
-                    android:text="@{Integer.toString(rotate.toDegreesMax)}"
+                    android:text="@{Integer.toString(scale.toXScaleMax)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llFromYScale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llToXScale"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txvFromYScale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:gravity="top"
+                    android:text="@string/scale_fragment_FromYScale"
+                    android:textColor="@color/blue" />
+
+                <TextView
+                    android:id="@+id/seekBarFromYScaleValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="bottom"
+                    android:text="@{Float.toString((float)scale.fromYScale/100)}"
+                    android:textColor="@{scale.fromYScaleColor}"
+                    android:textSize="26sp" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/seekBarFromYScaleValueMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="@{Integer.toString(scale.fromYScaleMin)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <SeekBar
+                    android:id="@+id/skbFromYScale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="90"
+                    android:max="@{scale.fromYScaleMax*100}"
+                    android:min="@{scale.fromYScaleMin*100}"
+                    android:progress="@={scale.fromYScale}"
+                    tools:ignore="UnusedAttribute" />
+
+                <TextView
+                    android:id="@+id/seekBarFromYScaleValueMax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="@{Integer.toString(scale.fromYScaleMax)}"
                     android:textAlignment="center"
                     android:textSize="20sp" />
 
@@ -192,10 +270,88 @@
 
 
         <LinearLayout
+            android:id="@+id/llToYScale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llFromYScale"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txvToYSCale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:gravity="top"
+                    android:text="@string/scale_fragment_ToYScale"
+                    android:textColor="@color/blue" />
+
+                <TextView
+                    android:id="@+id/seekBarToYScaleValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="bottom"
+                    android:text="@{Float.toString((float)scale.toYScale/100)}"
+                    android:textColor="@{scale.toYScaleColor}"
+                    android:textSize="26sp" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/seekBarToYScaleValueMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="@{Integer.toString(scale.toYScaleMin)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <SeekBar
+                    android:id="@+id/skbToYScale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="90"
+                    android:max="@{scale.toYScaleMax*100}"
+                    android:min="@{scale.toYScaleMin*100}"
+                    android:progress="@={scale.toYScale}"
+                    tools:ignore="UnusedAttribute" />
+
+                <TextView
+                    android:id="@+id/seekBarToYScaleValueMax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="@{Integer.toString(scale.toYScaleMax)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/llDuration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llToDegrees"
+            android:layout_below="@+id/llToYScale"
             android:orientation="vertical">
 
 
@@ -210,7 +366,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:gravity="top"
-                    android:text="@string/rotate_fragment_Duration"
+                    android:text="@string/scale_fragment_Duration"
                     android:textColor="@color/blue" />
 
                 <TextView
@@ -219,8 +375,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="bottom"
-                    android:text="@{Integer.toString(rotate.duration)}"
-                    android:textColor="@{rotate.durationColor}"
+                    android:text="@{Integer.toString(scale.duration)}"
+                    android:textColor="@{scale.durationColor}"
                     android:textSize="26sp" />
 
             </FrameLayout>
@@ -238,7 +394,7 @@
                     android:layout_gravity="start"
                     android:layout_weight="5"
                     android:gravity="center"
-                    android:text="@{Integer.toString(rotate.durationMin)}"
+                    android:text="@{Integer.toString(scale.durationMin)}"
                     android:textAlignment="center"
                     android:textSize="20sp" />
 
@@ -250,9 +406,9 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="90"
-                    android:max="@{rotate.durationMax}"
-                    android:min="@{rotate.durationMin}"
-                    android:progress="@={rotate.duration}"
+                    android:max="@{scale.durationMax}"
+                    android:min="@{scale.durationMin}"
+                    android:progress="@={scale.duration}"
                     tools:ignore="UnusedAttribute" />
 
                 <TextView
@@ -262,7 +418,7 @@
                     android:layout_gravity="end"
                     android:layout_weight="5"
                     android:gravity="center"
-                    android:text="@{Integer.toString(rotate.durationMax)}"
+                    android:text="@{Integer.toString(scale.durationMax)}"
                     android:textAlignment="center"
                     android:textSize="20sp" />
 
@@ -286,7 +442,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:gravity="top"
-                    android:text="@string/rotate_fragment_PivotX"
+                    android:text="@string/scale_fragment_PivotX"
                     android:textColor="@color/blue" />
 
                 <TextView
@@ -296,7 +452,7 @@
                     android:layout_gravity="center|top"
                     android:layout_marginTop="-10dp"
                     android:gravity="top"
-                    android:text="@{Integer.toString(rotate.pivotX*25)}"
+                    android:text="@{Integer.toString(scale.pivotX*25)}"
                     android:textSize="26sp" />
 
                 <SeekBar
@@ -307,7 +463,7 @@
                     android:layout_gravity="center"
                     android:max="4"
                     android:min="0"
-                    android:progress="@={rotate.pivotX}"
+                    android:progress="@={scale.pivotX}"
                     tools:targetApi="o" />
 
 
@@ -357,7 +513,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:gravity="top"
-                    android:text="@string/rotate_fragment_PivotY"
+                    android:text="@string/scale_fragment_PivotY"
                     android:textColor="@color/blue" />
 
                 <TextView
@@ -367,7 +523,7 @@
                     android:layout_gravity="center|top"
                     android:layout_marginTop="-10dp"
                     android:gravity="top"
-                    android:text="@{Integer.toString(rotate.pivotY*25)}"
+                    android:text="@{Integer.toString(scale.pivotY*25)}"
                     android:textSize="26sp" />
 
                 <SeekBar
@@ -378,7 +534,7 @@
                     android:layout_gravity="center"
                     android:max="4"
                     android:min="0"
-                    android:progress="@={rotate.pivotY}"
+                    android:progress="@={scale.pivotY}"
                     tools:targetApi="o" />
 
 
@@ -435,11 +591,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:enabled="@{!rotate.repeatCountInfinite}"
+                    android:enabled="@{!scale.repeatCountInfinite}"
                     android:inputType="numberDecimal"
                     android:maxWidth="200dp"
                     android:minWidth="100dp"
-                    android:text="@={Converter.convertIntToString(rotate.repeatCount),default = 0}"
+                    android:text="@={Converter.convertIntToString(scale.repeatCount),default = 0}"
                     android:textAlignment="center"
                     android:textSize="26sp" />
 
@@ -447,10 +603,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/edtRepeatCount"
-                    android:checked="@={rotate.repeatCountInfinite}"
+                    android:checked="@={scale.repeatCountInfinite}"
                     android:text="@string/_infinite"
-                    android:textColor="@{!rotate.repeatCountInfinite ? @color/blue:@color/gold}"
-                    android:textSize="@{!rotate.repeatCountInfinite ? @dimen/text_20sp:@dimen/text_26sp,default = @dimen/text_20sp}" />
+                    android:textColor="@{!scale.repeatCountInfinite ? @color/blue:@color/gold}"
+                    android:textSize="@{!scale.repeatCountInfinite ? @dimen/text_20sp:@dimen/text_26sp,default = @dimen/text_20sp}" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -483,8 +639,8 @@
                     android:layout_toStartOf="@+id/swtRepeatMode"
                     android:text="@string/restart"
                     android:textAlignment="center"
-                    android:textColor="@{rotate.repeatMode ? @color/blue:@color/gold}"
-                    android:textSize="@{!rotate.repeatMode ? @dimen/text_26sp:@dimen/text_20sp,default = @dimen/text_20sp}" />
+                    android:textColor="@{scale.repeatMode ? @color/blue:@color/gold}"
+                    android:textSize="@{!scale.repeatMode ? @dimen/text_26sp:@dimen/text_20sp,default = @dimen/text_20sp}" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swtRepeatMode"
@@ -492,7 +648,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
-                    android:checked="@={rotate.repeatMode,default = false}"
+                    android:checked="@={scale.repeatMode,default = false}"
                     android:gravity="center" />
 
                 <TextView
@@ -503,8 +659,8 @@
                     android:layout_toEndOf="@+id/swtRepeatMode"
                     android:text="@string/repeat"
                     android:textAlignment="center"
-                    android:textColor="@{rotate.repeatMode ? @color/gold:@color/blue}"
-                    android:textSize="@{rotate.repeatMode ? @dimen/text_26sp:@dimen/text_20sp,default = @dimen/text_20sp}" />
+                    android:textColor="@{scale.repeatMode ? @color/gold:@color/blue}"
+                    android:textSize="@{scale.repeatMode ? @dimen/text_26sp:@dimen/text_20sp,default = @dimen/text_20sp}" />
 
 
             </RelativeLayout>
