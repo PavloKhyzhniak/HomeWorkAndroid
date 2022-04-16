@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/drawable/btn_register.xml" value="0.17" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/drawable/btn_sign_in.xml" value="0.17" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/drawable/edit.xml" value="0.1255" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/activity_animal.xml" value="0.18262411347517732" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/activity_animal_adapter.xml" value="0.19114583333333332" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/activity_animal_adapter_item.xml" value="0.19114583333333332" />
@@ -36,6 +37,7 @@
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/homework006_fragment_list.xml" value="0.35643115942028986" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/homework007_activity_about.xml" value="0.30932971014492755" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/homework007_fragment_combo.xml" value="0.30932971014492755" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/homework007_fragment_edit_aviasales_dialog.xml" value="0.5" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/register_window.xml" value="0.19114583333333332" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/sign_in_window.xml" value="0.19114583333333332" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layout/tvshop_item.xml" value="0.19114583333333332" />
@@ -78,9 +80,12 @@
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework006/layout/homework006_fragment_request_dialog.xml" value="0.35989583333333336" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework007/layout/fragment_combo.xml" value="0.1818642350557244" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework007/layout/homework007_activity_about.xml" value="0.2265625" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework007/layout/homework007_activity_exercises001.xml" value="0.2265625" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework007/layout/homework007_activity_exercises003.xml" value="0.19270833333333334" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework007/layout/homework007_activity_main_hw007.xml" value="0.21614583333333334" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework007/layout/homework007_aviasales_item.xml" value="0.75" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework007/layout/homework007_fragment_combo.xml" value="0.36277173913043476" />
+        <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework007/layout/homework007_fragment_info_aviasales_dialog.xml" value="0.39349112426035504" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework007/layout/homework007_fragment_rotate.xml" value="0.338865836791148" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/layouts/homework007/layout/homework007_fragment_scale.xml" value="0.33" />
         <entry key="..\:/Android/WorkProj/HomeWorkAndroid/app/src/main/res/menu/back_menu_tvshop.xml" value="0.2" />

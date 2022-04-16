@@ -164,7 +164,7 @@ public class Exercises003 extends AppCompatActivity {
                 com.example.homeworkandroid.homework007.models.ComboAnimation model = fragmentCombo.comboViewModel.getModel();
 
                 com.example.homeworkandroid.homework007.models.RotateAnimation modelRotate =
-                        ((RotateFragment) fragmentCombo.getChildFragmentManager().findFragmentById(R.id.frRotate)).rotateViewModel.getModel();
+                        ((RotateFragment) fragmentCombo.getChildFragmentManager().findFragmentById(R.id.frComboRotate)).rotateViewModel.getModel();
 
                 //подготовим анимацию с настройками из модели
                 RotateAnimation rotate = new RotateAnimation(modelRotate.getFromDegrees(), modelRotate.getToDegrees(), Animation.RELATIVE_TO_SELF, modelRotate.getPivotX() / 100.0f, Animation.RELATIVE_TO_SELF, modelRotate.getPivotY() / 100.0f);
@@ -174,7 +174,7 @@ public class Exercises003 extends AppCompatActivity {
                 rotate.setInterpolator(new LinearInterpolator());
 
                 com.example.homeworkandroid.homework007.models.ScaleAnimation modelScale =
-                        ((ScaleFragment) fragmentCombo.getChildFragmentManager().findFragmentById(R.id.frScale)).scaleViewModel.getModel();
+                        ((ScaleFragment) fragmentCombo.getChildFragmentManager().findFragmentById(R.id.frComboScale)).scaleViewModel.getModel();
 
                 //подготовим анимацию с настройками из модели
                 ScaleAnimation scale = new ScaleAnimation(modelScale.getFromXScale() / 100f, modelScale.getToXScale() / 100f,

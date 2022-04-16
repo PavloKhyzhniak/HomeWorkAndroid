@@ -369,5 +369,20 @@
     <string name="scale_fragment_PivotY">pivotY</string>
     <string name="scale_fragment_RepeatMode">repeatMode</string>
     <string name="scale_fragment_RepeatCount">repeatCount</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_load">Load</string>
+    <string name="LastName">LastName</string>
+    <string name="FirstName">FirstName</string>
+    <string name="FlightNumber">FlightNumber</string>
+    <string name="DepartureDate">DepartureDate</string>
+    <string name="Destination">Destination</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <string name="hint_lastname">last name</string>
+    <string name="hint_firstname">first name</string>
+    <string name="hint_flightnumber">flight number</string>
+    <string name="hint_departuredate">departure date</string>
+    <string name="hint_destination">destination</string>
+    <string name="info_aviasales">Info</string>
 
 </resources>

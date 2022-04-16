@@ -51,15 +51,16 @@ public class ComboFragment extends Fragment {
         ComboAnimation binding = DataBindingUtil.inflate(inflater, R.layout.homework007_fragment_combo, container, false);
         final com.example.homeworkandroid.homework007.models.ComboAnimation comboAnimation = new com.example.homeworkandroid.homework007.models.ComboAnimation(this.getContext());
 
-        final com.example.homeworkandroid.homework007.models.RotateAnimation rotateAnimation = new com.example.homeworkandroid.homework007.models.RotateAnimation(this.getContext());
-        final com.example.homeworkandroid.homework007.models.ScaleAnimation scaleAnimation = new com.example.homeworkandroid.homework007.models.ScaleAnimation(this.getContext());
+        final com.example.homeworkandroid.homework007.models.RotateAnimation rotateComboAnimation = new com.example.homeworkandroid.homework007.models.RotateAnimation(this.getContext());
+        final com.example.homeworkandroid.homework007.models.ScaleAnimation scaleComboAnimation = new com.example.homeworkandroid.homework007.models.ScaleAnimation(this.getContext());
 
-        comboAnimation.setRotateAnimation(rotateAnimation);
-        comboAnimation.setScaleAnimation(scaleAnimation);
+        comboAnimation.setRotateAnimation(rotateComboAnimation);
+        comboAnimation.setScaleAnimation(scaleComboAnimation);
+
+        comboViewModel.setModel(comboAnimation);
 
         binding.setCombo(comboAnimation);
 
-        comboViewModel.setModel(comboAnimation);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -75,11 +76,11 @@ public class ComboFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        ScaleAnimation bindingScale = DataBindingUtil.bind(getActivity().findViewById(R.id.frScale).findViewById(R.id.fragment_scale));
+        ScaleAnimation bindingScale = DataBindingUtil.bind(getActivity().findViewById(R.id.frComboScale).findViewById(R.id.fragment_scale));
         assert bindingScale != null;
         bindingScale.setScale(comboViewModel.getModel().getScaleAnimation());
 
-        RotateAnimation bindingRotate = DataBindingUtil.bind(getActivity().findViewById(R.id.frRotate).findViewById(R.id.fragment_rotate));
+        RotateAnimation bindingRotate = DataBindingUtil.bind(getActivity().findViewById(R.id.frComboRotate).findViewById(R.id.fragment_rotate));
         assert bindingRotate != null;
         bindingRotate.setRotate(comboViewModel.getModel().getRotateAnimation());
     }

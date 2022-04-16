@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    class="com.example.homeworkandroid.homework007.models.ComboAnimation">
+    class="com.example.homeworkandroid.homework007.models.ComboAnimation"
+    android:id="@+id/fragment_combo">
 
     <data class="ComboAnimation">
 
@@ -20,14 +21,14 @@
         tools:context=".homework007.fragments.ComboFragment">
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/frRotate"
+            android:id="@+id/frComboRotate"
             android:name="com.example.homeworkandroid.homework007.fragments.RotateFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout="@layout/homework007_fragment_rotate" />
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/frScale"
+            android:id="@+id/frComboScale"
             android:name="com.example.homeworkandroid.homework007.fragments.ScaleFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
