@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    class="com.example.homeworkandroid.homework007.models.ScaleAnimation"
+    class="com.example.homeworkandroid.homework007.models.ScaleAnimationModel"
     android:id="@+id/fragment_scale">
 
     <data class="ScaleAnimation">
 
         <variable
             name="scale"
-            type="com.example.homeworkandroid.homework007.models.ScaleAnimation" />
+            type="com.example.homeworkandroid.homework007.models.ScaleAnimationModel" />
 
-        <import type="com.example.homeworkandroid.homework007.models.ScaleAnimation.Converter" />
+        <import type="com.example.homeworkandroid.homework007.models.ScaleAnimationModel.Converter" />
 
         <import type="android.R.dimen" />
 
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="bottom"
-                    android:text="@{Float.toString((float)scale.fromXScale/100)}"
+                    android:text="@{Float.toString((float)scale.fromXScale/scale.Scalescale)}"
                     android:textColor="@{scale.fromXScaleColor}"
                     android:textSize="26sp" />
 
@@ -92,8 +92,8 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="90"
-                    android:max="@{scale.fromXScaleMax*100}"
-                    android:min="@{scale.fromXScaleMin*100}"
+                    android:max="@{scale.fromXScaleMax*scale.Scalescale}"
+                    android:min="@{scale.fromXScaleMin*scale.Scalescale}"
                     android:progress="@={scale.fromXScale}"
                     tools:ignore="UnusedAttribute" />
 
@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="bottom"
-                    android:text="@{Float.toString((float)scale.toXScale/100)}"
+                    android:text="@{Float.toString((float)scale.toXScale/scale.Scalescale)}"
                     android:textColor="@{scale.toXScaleColor}"
                     android:textSize="26sp" />
 
@@ -171,8 +171,8 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="90"
-                    android:max="@{scale.toXScaleMax*100}"
-                    android:min="@{scale.toXScaleMin*100}"
+                    android:max="@{scale.toXScaleMax*scale.Scalescale}"
+                    android:min="@{scale.toXScaleMin*scale.Scalescale}"
                     android:progress="@={scale.toXScale}"
                     tools:ignore="UnusedAttribute" />
 
@@ -218,7 +218,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="bottom"
-                    android:text="@{Float.toString((float)scale.fromYScale/100)}"
+                    android:text="@{Float.toString((float)scale.fromYScale/scale.Scalescale)}"
                     android:textColor="@{scale.fromYScaleColor}"
                     android:textSize="26sp" />
 
@@ -249,8 +249,8 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="90"
-                    android:max="@{scale.fromYScaleMax*100}"
-                    android:min="@{scale.fromYScaleMin*100}"
+                    android:max="@{scale.fromYScaleMax*scale.Scalescale}"
+                    android:min="@{scale.fromYScaleMin*scale.Scalescale}"
                     android:progress="@={scale.fromYScale}"
                     tools:ignore="UnusedAttribute" />
 
@@ -297,7 +297,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="bottom"
-                    android:text="@{Float.toString((float)scale.toYScale/100)}"
+                    android:text="@{Float.toString((float)scale.toYScale/scale.Scalescale)}"
                     android:textColor="@{scale.toYScaleColor}"
                     android:textSize="26sp" />
 
@@ -328,8 +328,8 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="90"
-                    android:max="@{scale.toYScaleMax*100}"
-                    android:min="@{scale.toYScaleMin*100}"
+                    android:max="@{scale.toYScaleMax*scale.Scalescale}"
+                    android:min="@{scale.toYScaleMin*scale.Scalescale}"
                     android:progress="@={scale.toYScale}"
                     tools:ignore="UnusedAttribute" />
 
@@ -452,7 +452,7 @@
                     android:layout_gravity="center|top"
                     android:layout_marginTop="-10dp"
                     android:gravity="top"
-                    android:text="@{Integer.toString(scale.pivotX*25)}"
+                    android:text="@{Integer.toString(scale.pivotX*scale.PivotXscale)}"
                     android:textSize="26sp" />
 
                 <SeekBar
@@ -523,7 +523,7 @@
                     android:layout_gravity="center|top"
                     android:layout_marginTop="-10dp"
                     android:gravity="top"
-                    android:text="@{Integer.toString(scale.pivotY*25)}"
+                    android:text="@{Integer.toString(scale.pivotY*scale.PivotYscale)}"
                     android:textSize="26sp" />
 
                 <SeekBar

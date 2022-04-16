@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.homeworkandroid.R;
 import com.example.homeworkandroid.databinding.RotateAnimation;
+import com.example.homeworkandroid.homework007.models.RotateAnimationModel;
 import com.example.homeworkandroid.homework007.viewmodel.RotateViewModel;
 
 public class RotateFragment extends Fragment {
@@ -30,20 +32,21 @@ public class RotateFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.homework007_fragment_rotate, container, false);
 
         RotateAnimation binding = DataBindingUtil.inflate(inflater, R.layout.homework007_fragment_rotate, container, false);
-        final com.example.homeworkandroid.homework007.models.RotateAnimation rotateAnimation = new com.example.homeworkandroid.homework007.models.RotateAnimation(this.getContext());
-        binding.setRotate(rotateAnimation);
+
+        RotateAnimationModel rotateAnimationModel = new RotateAnimationModel(this.getContext());
+        binding.setRotate(rotateAnimationModel);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                rotateViewModel.setModel(rotateAnimation);
+                rotateViewModel.setModel(rotateAnimationModel);
             }
         }, 1000);
 

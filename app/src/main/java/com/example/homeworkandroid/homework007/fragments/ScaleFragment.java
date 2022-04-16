@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.homeworkandroid.R;
 import com.example.homeworkandroid.databinding.ScaleAnimation;
+import com.example.homeworkandroid.homework007.models.ScaleAnimationModel;
 import com.example.homeworkandroid.homework007.viewmodel.ScaleViewModel;
 
 
@@ -38,13 +39,13 @@ public class ScaleFragment extends Fragment {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.homework007_fragment_scale, container, false);
         ScaleAnimation binding = DataBindingUtil.inflate(inflater, R.layout.homework007_fragment_scale, container, false);
-        final com.example.homeworkandroid.homework007.models.ScaleAnimation scaleAnimation = new com.example.homeworkandroid.homework007.models.ScaleAnimation(this.getContext());
-        binding.setScale(scaleAnimation);
+        ScaleAnimationModel scaleAnimationModel = new ScaleAnimationModel(this.getContext());
+        binding.setScale(scaleAnimationModel);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                scaleViewModel.setModel(scaleAnimation);
+                scaleViewModel.setModel(scaleAnimationModel);
             }
         }, 1000);
 

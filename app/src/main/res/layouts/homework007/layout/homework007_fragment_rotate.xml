@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    class="com.example.homeworkandroid.homework007.models.RotateAnimation"
+    class="com.example.homeworkandroid.homework007.models.RotateAnimationModel"
     android:id="@+id/fragment_rotate">
 
     <data class="RotateAnimation">
 
         <variable
             name="rotate"
-            type="com.example.homeworkandroid.homework007.models.RotateAnimation" />
+            type="com.example.homeworkandroid.homework007.models.RotateAnimationModel" />
 
-        <import type="com.example.homeworkandroid.homework007.models.RotateAnimation.Converter" />
+        <import type="com.example.homeworkandroid.homework007.models.RotateAnimationModel.Converter" />
 
         <import type="android.R.dimen" />
 
@@ -296,7 +296,7 @@
                     android:layout_gravity="center|top"
                     android:layout_marginTop="-10dp"
                     android:gravity="top"
-                    android:text="@{Integer.toString(rotate.pivotX*25)}"
+                    android:text="@{Integer.toString(rotate.pivotX*rotate.PivotXscale)}"
                     android:textSize="26sp" />
 
                 <SeekBar
@@ -367,7 +367,7 @@
                     android:layout_gravity="center|top"
                     android:layout_marginTop="-10dp"
                     android:gravity="top"
-                    android:text="@{Integer.toString(rotate.pivotY*25)}"
+                    android:text="@{Integer.toString(rotate.pivotY*rotate.PivotYscale)}"
                     android:textSize="26sp" />
 
                 <SeekBar

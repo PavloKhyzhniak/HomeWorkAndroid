@@ -384,5 +384,6 @@
     <string name="hint_departuredate">departure date</string>
     <string name="hint_destination">destination</string>
     <string name="info_aviasales">Info</string>
+    <string name="edit_aviasales">Edit</string>
 
 </resources>

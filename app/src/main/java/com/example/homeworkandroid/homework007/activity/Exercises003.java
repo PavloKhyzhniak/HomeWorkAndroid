@@ -1,10 +1,6 @@
 package com.example.homeworkandroid.homework007.activity;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,10 +12,8 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,11 +24,9 @@ import com.example.homeworkandroid.R;
 import com.example.homeworkandroid.homework007.fragments.ComboFragment;
 import com.example.homeworkandroid.homework007.fragments.RotateFragment;
 import com.example.homeworkandroid.homework007.fragments.ScaleFragment;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import com.example.homeworkandroid.homework007.models.ComboAnimationModel;
+import com.example.homeworkandroid.homework007.models.RotateAnimationModel;
+import com.example.homeworkandroid.homework007.models.ScaleAnimationModel;
 
 public class Exercises003 extends AppCompatActivity {
 
@@ -106,12 +98,12 @@ public class Exercises003 extends AppCompatActivity {
 
                 //получаем модель настроек выбранной анимации
                 assert fragmentScale != null;
-                com.example.homeworkandroid.homework007.models.ScaleAnimation model = fragmentScale.scaleViewModel.getModel();
+                ScaleAnimationModel model = fragmentScale.scaleViewModel.getModel();
 
                 //подготовим анимацию с настройками из модели
-                ScaleAnimation scale = new ScaleAnimation(model.getFromXScale() / 100f, model.getToXScale() / 100f,
-                        model.getFromYScale() / 100f, model.getToYScale() / 100f,
-                        Animation.RELATIVE_TO_SELF, model.getPivotX() / 100.0f, Animation.RELATIVE_TO_SELF, model.getPivotY() / 100.0f);
+                ScaleAnimation scale = new ScaleAnimation(model.getFromXScale() / ScaleAnimationModel.Scalescale, model.getToXScale() / ScaleAnimationModel.Scalescale,
+                        model.getFromYScale() / ScaleAnimationModel.Scalescale, model.getToYScale() / ScaleAnimationModel.Scalescale,
+                        Animation.RELATIVE_TO_SELF, model.getPivotX() * ScaleAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, model.getPivotY() * ScaleAnimationModel.PivotYscale / 100.0f);
                 scale.setDuration(model.getDuration());
                 scale.setRepeatMode(model.isRepeatMode() ? 2 : 1);
                 scale.setRepeatCount(model.getRepeatCount());
@@ -132,10 +124,10 @@ public class Exercises003 extends AppCompatActivity {
 
                 //получаем модель настроек выбранной анимации
                 assert fragmentRotate != null;
-                com.example.homeworkandroid.homework007.models.RotateAnimation model = fragmentRotate.rotateViewModel.getModel();
+                RotateAnimationModel model = fragmentRotate.rotateViewModel.getModel();
 
                 //подготовим анимацию с настройками из модели
-                RotateAnimation rotate = new RotateAnimation(model.getFromDegrees(), model.getToDegrees(), Animation.RELATIVE_TO_SELF, model.getPivotX() / 100.0f, Animation.RELATIVE_TO_SELF, model.getPivotY() / 100.0f);
+                RotateAnimation rotate = new RotateAnimation(model.getFromDegrees(), model.getToDegrees(), Animation.RELATIVE_TO_SELF, model.getPivotX() * RotateAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, model.getPivotY() * RotateAnimationModel.PivotYscale / 100.0f);
                 rotate.setDuration(model.getDuration());
                 rotate.setRepeatMode(model.isRepeatMode() ? 2 : 1);
                 rotate.setRepeatCount(model.getRepeatCount());
@@ -161,25 +153,23 @@ public class Exercises003 extends AppCompatActivity {
                 //получаем модель настроек выбранной анимации
                 assert fragmentCombo != null;
                 // не работает связь с моделью комбо!!!! берем прям из фрагментов
-                com.example.homeworkandroid.homework007.models.ComboAnimation model = fragmentCombo.comboViewModel.getModel();
+                ComboAnimationModel model = fragmentCombo.comboViewModel.getModel();
 
-                com.example.homeworkandroid.homework007.models.RotateAnimation modelRotate =
-                        ((RotateFragment) fragmentCombo.getChildFragmentManager().findFragmentById(R.id.frComboRotate)).rotateViewModel.getModel();
+                RotateAnimationModel modelRotate = model.getRotateAnimation();
 
                 //подготовим анимацию с настройками из модели
-                RotateAnimation rotate = new RotateAnimation(modelRotate.getFromDegrees(), modelRotate.getToDegrees(), Animation.RELATIVE_TO_SELF, modelRotate.getPivotX() / 100.0f, Animation.RELATIVE_TO_SELF, modelRotate.getPivotY() / 100.0f);
+                RotateAnimation rotate = new RotateAnimation(modelRotate.getFromDegrees(), modelRotate.getToDegrees(), Animation.RELATIVE_TO_SELF, modelRotate.getPivotX() * RotateAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, modelRotate.getPivotY() * RotateAnimationModel.PivotYscale / 100.0f);
                 rotate.setDuration(modelRotate.getDuration());
                 rotate.setRepeatMode(modelRotate.isRepeatMode() ? 2 : 1);
                 rotate.setRepeatCount(modelRotate.getRepeatCount());
                 rotate.setInterpolator(new LinearInterpolator());
 
-                com.example.homeworkandroid.homework007.models.ScaleAnimation modelScale =
-                        ((ScaleFragment) fragmentCombo.getChildFragmentManager().findFragmentById(R.id.frComboScale)).scaleViewModel.getModel();
+                ScaleAnimationModel modelScale = model.getScaleAnimation();
 
                 //подготовим анимацию с настройками из модели
-                ScaleAnimation scale = new ScaleAnimation(modelScale.getFromXScale() / 100f, modelScale.getToXScale() / 100f,
-                        modelScale.getFromYScale() / 100f, modelScale.getToYScale() / 100f,
-                        Animation.RELATIVE_TO_SELF, modelScale.getPivotX() / 100.0f, Animation.RELATIVE_TO_SELF, modelScale.getPivotY() / 100.0f);
+                ScaleAnimation scale = new ScaleAnimation(modelScale.getFromXScale() / ScaleAnimationModel.Scalescale, modelScale.getToXScale() / ScaleAnimationModel.Scalescale,
+                        modelScale.getFromYScale() / ScaleAnimationModel.Scalescale, modelScale.getToYScale() / ScaleAnimationModel.Scalescale,
+                        Animation.RELATIVE_TO_SELF, modelScale.getPivotX() * ScaleAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, modelScale.getPivotY() * ScaleAnimationModel.PivotYscale / 100.0f);
                 scale.setDuration(modelScale.getDuration());
                 scale.setRepeatMode(modelScale.isRepeatMode() ? 2 : 1);
                 scale.setRepeatCount(modelScale.getRepeatCount());
@@ -194,7 +184,6 @@ public class Exercises003 extends AppCompatActivity {
             break;
         }
     }
-
 
 
     // region Работа с главным меню активности

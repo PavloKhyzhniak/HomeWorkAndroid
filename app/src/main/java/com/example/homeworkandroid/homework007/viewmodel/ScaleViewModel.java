@@ -2,19 +2,19 @@ package com.example.homeworkandroid.homework007.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.homeworkandroid.homework007.models.ScaleAnimation;
+import com.example.homeworkandroid.homework007.models.ScaleAnimationModel;
 
 public class ScaleViewModel extends ViewModel {
-        // creating object of Model class
-        private ScaleAnimation model;
+    // creating object of Model class
+    private ScaleAnimationModel model;
 
-        public ScaleAnimation getModel() {
-            return model;
-        }
+    public ScaleAnimationModel getModel() {
+        return model;
+    }
 
-        public void setModel(ScaleAnimation model) {
-            this.model = model;
-            model.notifyChange();
+    public void setModel(ScaleAnimationModel model) {
+        this.model = model;
+        model.notifyChange();
 
-        }
+    }
 }

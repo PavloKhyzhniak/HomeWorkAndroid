@@ -13,7 +13,7 @@ import androidx.databinding.InverseMethod;
 import com.example.homeworkandroid.BR;
 import com.example.homeworkandroid.R;
 
-public class RotateAnimation extends BaseObservable {
+public class RotateAnimationModel extends BaseObservable {
     public static class Converter {
 
         public static int convertStringToInt(String text) {
@@ -98,6 +98,8 @@ public class RotateAnimation extends BaseObservable {
 
     int pivotX;
     int pivotY;
+    public static int PivotXscale = 25;
+    public static int PivotYscale = 25;
 
     int repeatCount;
     boolean repeatCountInfinite = false;
@@ -110,7 +112,7 @@ public class RotateAnimation extends BaseObservable {
 
     public void setRepeatCountInfinite(boolean repeatCountInfinite) {
         this.repeatCountInfinite = repeatCountInfinite;
-        if(this.repeatCountInfinite) {
+        if (this.repeatCountInfinite) {
             this.repeatCount = 0xffffffff;
             notifyPropertyChanged(BR.repeatCount);
         }
@@ -123,7 +125,7 @@ public class RotateAnimation extends BaseObservable {
     }
 
     public void setRepeatCount(int repeatCount) {
-        if(repeatCount>=0)
+        if (repeatCount >= 0)
             this.repeatCount = repeatCount;
         notifyPropertyChanged(BR.repeatCount);
     }
@@ -162,7 +164,7 @@ public class RotateAnimation extends BaseObservable {
     }
 
 
-    public RotateAnimation(
+    public RotateAnimationModel(
             int fromDegrees,
             int fromDegreesMin,
             int fromDegreesMax,
@@ -186,7 +188,7 @@ public class RotateAnimation extends BaseObservable {
 
     Context context;
 
-    public RotateAnimation(Context context) {
+    public RotateAnimationModel(Context context) {
         this.context = context;
         fromDegrees = 60;
         fromDegreesMin = 0;

@@ -68,6 +68,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:visibility="invisible"
+                    android:id="@+id/frCombo"
+                    android:name="com.example.homeworkandroid.homework007.fragments.ComboFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/homework007_fragment_combo" />
+
                 <androidx.fragment.app.FragmentContainerView
                     android:visibility="invisible"
                     android:id="@+id/frRotate"
@@ -85,13 +94,6 @@
                     android:layout_height="wrap_content"
                     tools:layout="@layout/homework007_fragment_scale" />
 
-                <androidx.fragment.app.FragmentContainerView
-                    android:visibility="invisible"
-                    android:id="@+id/frCombo"
-                    android:name="com.example.homeworkandroid.homework007.fragments.ComboFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:layout="@layout/homework007_fragment_combo" />
 
             </FrameLayout>
         </ScrollView>

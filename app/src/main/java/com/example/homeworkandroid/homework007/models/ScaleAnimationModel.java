@@ -11,7 +11,7 @@ import androidx.databinding.InverseMethod;
 import com.example.homeworkandroid.BR;
 import com.example.homeworkandroid.R;
 
-public class ScaleAnimation extends BaseObservable {
+public class ScaleAnimationModel extends BaseObservable {
     public static class Converter {
 
         public static int convertStringToInt(String text) {
@@ -118,12 +118,15 @@ public class ScaleAnimation extends BaseObservable {
     int toYScale;
     int toYScaleMin;
     int toYScaleMax;
+    public static int Scalescale = 100;
     int duration;
     int durationMin;
     int durationMax;
 
     int pivotX;
     int pivotY;
+    public static int PivotXscale = 25;
+    public static int PivotYscale = 25;
 
     int repeatCount;
     boolean repeatCountInfinite = false;
@@ -188,7 +191,7 @@ public class ScaleAnimation extends BaseObservable {
     }
 
 
-    public ScaleAnimation(
+    public ScaleAnimationModel(
             int fromXScale,
             int fromXScaleMin,
             int fromXScaleMax,
@@ -224,7 +227,7 @@ public class ScaleAnimation extends BaseObservable {
 
     Context context;
 
-    public ScaleAnimation(Context context) {
+    public ScaleAnimationModel(Context context) {
         this.context = context;
         fromXScale = 50;
         fromXScaleMin = 0;

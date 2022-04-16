@@ -2,17 +2,17 @@ package com.example.homeworkandroid.homework007.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.homeworkandroid.homework007.models.ComboAnimation;
+import com.example.homeworkandroid.homework007.models.ComboAnimationModel;
 
 public class ComboViewModel extends ViewModel {
     // creating object of Model class
-    private ComboAnimation model;
+    private ComboAnimationModel model;
 
-    public ComboAnimation getModel() {
+    public ComboAnimationModel getModel() {
         return model;
     }
 
-    public void setModel(ComboAnimation model) {
+    public void setModel(ComboAnimationModel model) {
         this.model = model;
         model.notifyChange();
     }

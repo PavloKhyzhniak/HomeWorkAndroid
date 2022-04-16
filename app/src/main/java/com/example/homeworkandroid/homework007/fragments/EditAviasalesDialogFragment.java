@@ -82,7 +82,7 @@ public class EditAviasalesDialogFragment extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
         builder
-                .setTitle("@string/edit_aviasales")
+                .setTitle(getResources().getString(R.string.edit_aviasales))
                 .setIcon(R.drawable.ic_hand_key_background)  // иконка из ресурсов нашего приложения
                 .setView(R.layout.homework007_fragment_edit_aviasales_dialog)       // добавить разметку - работает только с API21 и старше
 //                .setPositiveButton("ОК", onClickListener)   // для кнопок можно установить текст и обработчик

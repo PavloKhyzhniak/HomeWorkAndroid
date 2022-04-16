@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    class="com.example.homeworkandroid.homework007.models.ComboAnimation"
+    class="com.example.homeworkandroid.homework007.models.ComboAnimationModel"
     android:id="@+id/fragment_combo">
 
     <data class="ComboAnimation">
 
         <variable
             name="combo"
-            type="com.example.homeworkandroid.homework007.models.ComboAnimation" />
+            type="com.example.homeworkandroid.homework007.models.ComboAnimationModel" />
 
     </data>
 
