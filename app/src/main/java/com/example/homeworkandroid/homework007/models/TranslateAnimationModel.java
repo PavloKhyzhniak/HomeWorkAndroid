@@ -201,18 +201,18 @@ public class TranslateAnimationModel extends BaseObservable {
 
     public TranslateAnimationModel(Context context) {
         this.context = context;
-        fromXDelta = 60;
+        fromXDelta = 0;
         fromXDeltaMin = 0;
-        fromXDeltaMax = 360;
-        toXDelta = 120;
+        fromXDeltaMax = 800;
+        toXDelta = 100;
         toXDeltaMin = 0;
-        toXDeltaMax = 360;
-        fromYDelta = 60;
+        toXDeltaMax = 800;
+        fromYDelta = 100;
         fromYDeltaMin = 0;
-        fromYDeltaMax = 360;
-        toYDelta = 120;
+        fromYDeltaMax = 800;
+        toYDelta = 100;
         toYDeltaMin = 0;
-        toYDeltaMax = 360;
+        toYDeltaMax = 800;
         duration = 3000;
         durationMin = 100;
         durationMax = 10000;

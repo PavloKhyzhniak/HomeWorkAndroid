@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_rotate"
+    android:id="@+id/fragment_translate"
     class="com.example.homeworkandroid.homework007.models.TranslateAnimationModel">
 
     <data class="TranslateAnimation">
@@ -18,527 +19,465 @@
 
     </data>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".homework007.fragments.TranslateFragment">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75"
+            android:id="@+id/glRight"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"
+            android:id="@+id/glCenter"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25"
+            android:id="@+id/glLeft"/>
+
 
         <TextView
             android:id="@+id/txvTitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/translate_fragment_title" />
+            android:text="@string/translate_fragment_title"
+            app:layout_constraintBaseline_toBaselineOf="@id/glCenter"
+            app:layout_constraintEnd_toEndOf="@+id/glRight"
+            app:layout_constraintStart_toStartOf="@id/glLeft" />
 
-        <LinearLayout
-            android:id="@+id/llFromXDelta"
-            android:layout_width="match_parent"
+
+        <TextView
+            android:id="@+id/txvFromXDelta"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txvTitle"
-            android:orientation="vertical">
+            android:gravity="top"
+            android:text="@string/translate_fragment_FromXDelta"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvTitle"
+            />
 
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/txvFromXDelta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:gravity="top"
-                    android:text="@string/translate_fragment_FromXDelta"
-                    android:textColor="@color/blue" />
-
-                <TextView
-                    android:id="@+id/seekBarFromXDeltaValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="bottom"
-                    android:text="@{Integer.toString(translate.fromXDelta)}"
-                    android:textColor="@{translate.fromXDeltaColor}"
-                    android:textSize="26sp" />
-
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/seekBarFromXDeltaValueMin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:text="@{Integer.toString(translate.fromXDeltaMin)}"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-                <SeekBar
-                    android:id="@+id/skbFromXDelta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_weight="90"
-                    android:max="@{translate.fromXDeltaMax}"
-                    android:min="@{translate.fromXDeltaMin}"
-                    android:progress="@={translate.fromXDelta}"
-                    tools:ignore="UnusedAttribute" />
-
-                <TextView
-                    android:id="@+id/seekBarFromXDeltaValueMax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:text="@{Integer.toString(translate.fromXDeltaMax)}"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/llToXDelta"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/seekBarFromXDeltaValue"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llFromXDelta"
-            android:orientation="vertical">
+            android:gravity="bottom"
+            android:text="@{Integer.toString(translate.fromXDelta)}"
+            android:textColor="@{translate.fromXDeltaColor}"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toStartOf="@+id/glRight"
+            app:layout_constraintStart_toStartOf="@+id/glLeft"
+            app:layout_constraintTop_toTopOf="@+id/txvFromXDelta"
+             />
 
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/txvToXDelta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:gravity="top"
-                    android:text="@string/translate_fragment_ToXDelta"
-                    android:textColor="@color/blue" />
-
-                <TextView
-                    android:id="@+id/seekBarToXDeltaValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="bottom"
-                    android:text="@{Integer.toString(translate.toXDelta)}"
-                    android:textColor="@{translate.toXDeltaColor}"
-                    android:textSize="26sp" />
-
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/seekBarToXDeltaValueMin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:text="@{Integer.toString(translate.toXDeltaMin)}"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-                <SeekBar
-                    android:id="@+id/skbToXDelta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_weight="90"
-                    android:max="@{translate.toXDeltaMax}"
-                    android:min="@{translate.toXDeltaMin}"
-                    android:progress="@={translate.toXDelta}"
-                    tools:ignore="UnusedAttribute" />
-
-                <TextView
-                    android:id="@+id/seekBarToXDeltaValueMax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:text="@{Integer.toString(translate.toXDeltaMax)}"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llFromYDelta"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/seekBarFromXDeltaValueMin"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llToXDelta"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:text="@{Integer.toString(translate.fromXDeltaMin)}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/skbFromXDelta"
+            app:layout_constraintEnd_toStartOf="@+id/glLeft"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/skbFromXDelta"
+             />
 
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/txvFromYDelta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:gravity="top"
-                    android:text="@string/translate_fragment_FromYDelta"
-                    android:textColor="@color/blue" />
-
-                <TextView
-                    android:id="@+id/seekBarFromYDeltaValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="bottom"
-                    android:text="@{Integer.toString(translate.fromYDelta)}"
-                    android:textColor="@{translate.fromYDeltaColor}"
-                    android:textSize="26sp" />
-
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/seekBarFromYDeltaValueMin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:text="@{Integer.toString(translate.fromYDeltaMin)}"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-                <SeekBar
-                    android:id="@+id/skbFromYDelta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_weight="90"
-                    android:max="@{translate.fromYDeltaMax}"
-                    android:min="@{translate.fromYDeltaMin}"
-                    android:progress="@={translate.fromYDelta}"
-                    tools:ignore="UnusedAttribute" />
-
-                <TextView
-                    android:id="@+id/seekBarFromYDeltaValueMax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:text="@{Integer.toString(translate.fromYDeltaMax)}"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/llToYDelta"
-            android:layout_width="match_parent"
+        <SeekBar
+            android:id="@+id/skbFromXDelta"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llFromYDelta"
-            android:orientation="vertical">
+            android:max="@{translate.fromXDeltaMax}"
+            android:min="@{translate.fromXDeltaMin}"
+            android:progress="@={translate.fromXDelta}"
 
+            app:layout_constraintEnd_toEndOf="@+id/glRight"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/txvFromXDelta"
+            tools:ignore="UnusedAttribute" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/txvToYDelta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:gravity="top"
-                    android:text="@string/translate_fragment_ToYDelta"
-                    android:textColor="@color/blue" />
-
-                <TextView
-                    android:id="@+id/seekBarToYDeltaValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="bottom"
-                    android:text="@{Integer.toString(translate.toYDelta)}"
-                    android:textColor="@{translate.toYDeltaColor}"
-                    android:textSize="26sp" />
-
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/seekBarToYDeltaValueMin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:text="@{Integer.toString(translate.toYDeltaMin)}"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-                <SeekBar
-                    android:id="@+id/skbToYDelta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_weight="90"
-                    android:max="@{translate.toYDeltaMax}"
-                    android:min="@{translate.toYDeltaMin}"
-                    android:progress="@={translate.toYDelta}"
-                    tools:ignore="UnusedAttribute" />
-
-                <TextView
-                    android:id="@+id/seekBarToYDeltaValueMax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:text="@{Integer.toString(translate.toYDeltaMax)}"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llDuration"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/seekBarFromXDeltaValueMax"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llToYDelta"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:text="@{Integer.toString(translate.fromXDeltaMax)}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/skbFromXDelta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/glRight"
+            app:layout_constraintTop_toTopOf="@+id/skbFromXDelta"
+             />
 
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/txvDuration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:gravity="top"
-                    android:text="@string/translate_fragment_Duration"
-                    android:textColor="@color/blue" />
-
-                <TextView
-                    android:id="@+id/seekBarDurationValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="bottom"
-                    android:text="@{Integer.toString(translate.duration)}"
-                    android:textColor="@{translate.durationColor}"
-                    android:textSize="26sp" />
-
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/seekBarDurationValueMin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:text="@{Integer.toString(translate.durationMin)}"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-                <SeekBar
-                    android:id="@+id/skbDuration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_weight="90"
-                    android:max="@{translate.durationMax}"
-                    android:min="@{translate.durationMin}"
-                    android:progress="@={translate.duration}"
-                    tools:ignore="UnusedAttribute" />
-
-                <TextView
-                    android:id="@+id/seekBarDurationValueMax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:text="@{Integer.toString(translate.durationMax)}"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llRepeatCount"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/txvToXDelta"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llDuration"
-            android:orientation="vertical">
+            android:gravity="top"
+            android:text="@string/translate_fragment_ToXDelta"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/skbFromXDelta"/>
 
-            <TextView
-                android:id="@+id/txvRepeatCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:gravity="top"
-                android:text="@string/translate_fragment_RepeatCount"
-                android:textColor="@color/blue" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/edtRepeatCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:autofillHints=""
-                    android:enabled="@{!translate.repeatCountInfinite}"
-                    android:inputType="numberDecimal"
-                    android:labelFor="@+id/txvRepeatCount"
-                    android:maxWidth="200dp"
-                    android:minWidth="100dp"
-                    android:text="@={Converter.convertIntToString(translate.repeatCount),default = 0}"
-                    android:textAlignment="center"
-                    android:textSize="26sp"
-                    tools:ignore="LabelFor" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@+id/edtRepeatCount"
-                    android:checked="@={translate.repeatCountInfinite}"
-                    android:text="@string/_infinite"
-                    android:textColor="@{!translate.repeatCountInfinite ? @color/blue:@color/gold}"
-                    android:textSize="@{!translate.repeatCountInfinite ? @dimen/text_20sp:@dimen/text_26sp,default = @dimen/text_20sp}" />
-            </RelativeLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llRepeatMode"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/seekBarToXDeltaValue"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llRepeatCount"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txvRepeatMode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:gravity="top"
-                android:text="@string/translate_fragment_RepeatMode"
-                android:textColor="@color/blue" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="start|center"
-                    android:layout_toStartOf="@+id/swtRepeatMode"
-                    android:text="@string/restart"
-                    android:textAlignment="center"
-                    android:textColor="@{translate.repeatMode ? @color/blue:@color/gold}"
-                    android:textSize="@{!translate.repeatMode ? @dimen/text_26sp:@dimen/text_20sp,default = @dimen/text_20sp}"
-                    tools:ignore="RelativeOverlap" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swtRepeatMode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:checked="@={translate.repeatMode,default = false}"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="end|center"
-                    android:layout_toEndOf="@+id/swtRepeatMode"
-                    android:text="@string/repeat"
-                    android:textAlignment="center"
-                    android:textColor="@{translate.repeatMode ? @color/gold:@color/blue}"
-                    android:textSize="@{translate.repeatMode ? @dimen/text_26sp:@dimen/text_20sp,default = @dimen/text_20sp}" />
+            android:gravity="bottom"
+            android:text="@{Integer.toString(translate.toXDelta)}"
+            android:textColor="@{translate.toXDeltaColor}"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toStartOf="@+id/glRight"
+            app:layout_constraintStart_toStartOf="@+id/glLeft"
+            app:layout_constraintTop_toTopOf="@+id/txvToXDelta" />
 
 
-            </RelativeLayout>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/seekBarToXDeltaValueMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{Integer.toString(translate.toXDeltaMin)}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/skbToXDelta"
+            app:layout_constraintEnd_toStartOf="@+id/glLeft"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/skbToXDelta" />
+
+        <SeekBar
+            android:id="@+id/skbToXDelta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="@{translate.toXDeltaMax}"
+            android:min="@{translate.toXDeltaMin}"
+            android:progress="@={translate.toXDelta}"
+            tools:ignore="UnusedAttribute"
+            app:layout_constraintEnd_toEndOf="@+id/glRight"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/txvToXDelta" />
+
+        <TextView
+            android:id="@+id/seekBarToXDeltaValueMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{Integer.toString(translate.toXDeltaMax)}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/skbToXDelta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/glRight"
+            app:layout_constraintTop_toTopOf="@+id/skbToXDelta" />
 
 
-        <View
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/txvFromYDelta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:text="@string/translate_fragment_FromYDelta"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/skbToXDelta" />
+
+        <TextView
+            android:id="@+id/seekBarFromYDeltaValue"
+            android:layout_width="2dp"
             android:layout_height="40dp"
-            android:layout_below="@id/llRepeatMode" />
+            android:gravity="bottom"
+            android:text="@{Integer.toString(translate.fromYDelta)}"
+            android:textColor="@{translate.fromYDeltaColor}"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toStartOf="@+id/glRight"
+            app:layout_constraintStart_toStartOf="@+id/glLeft"
+            app:layout_constraintTop_toTopOf="@+id/txvFromYDelta" />
 
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/seekBarFromYDeltaValueMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{Integer.toString(translate.fromYDeltaMin)}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/skbFromYDelta"
+            app:layout_constraintEnd_toStartOf="@+id/glLeft"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/skbFromYDelta"/>
+
+        <SeekBar
+            android:id="@+id/skbFromYDelta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="@{translate.fromYDeltaMax}"
+            android:min="@{translate.fromYDeltaMin}"
+            android:progress="@={translate.fromYDelta}"
+
+            tools:ignore="UnusedAttribute"
+            app:layout_constraintEnd_toEndOf="@+id/glRight"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/txvFromYDelta" />
+
+
+        <TextView
+            android:id="@+id/seekBarFromYDeltaValueMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{Integer.toString(translate.fromYDeltaMax)}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/skbFromYDelta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/glRight"
+            app:layout_constraintTop_toTopOf="@+id/skbFromYDelta" />
+
+        <TextView
+            android:id="@+id/txvToYDelta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:text="@string/translate_fragment_ToYDelta"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/skbFromYDelta" />
+
+        <TextView
+            android:id="@+id/seekBarToYDeltaValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="@{Integer.toString(translate.toYDelta)}"
+            android:textColor="@{translate.toYDeltaColor}"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toStartOf="@+id/glRight"
+            app:layout_constraintStart_toStartOf="@+id/glLeft"
+            app:layout_constraintTop_toTopOf="@+id/txvToYDelta" />
+
+
+        <TextView
+            android:id="@+id/seekBarToYDeltaValueMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{Integer.toString(translate.toYDeltaMin)}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/skbToYDelta"
+            app:layout_constraintEnd_toStartOf="@+id/glLeft"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/skbToYDelta" />
+
+        <SeekBar
+            android:id="@+id/skbToYDelta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="@{translate.toYDeltaMax}"
+            android:min="@{translate.toYDeltaMin}"
+            android:progress="@={translate.toYDelta}"
+
+            tools:ignore="UnusedAttribute"
+            app:layout_constraintEnd_toEndOf="@+id/glRight"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/txvToYDelta" />
+
+        <TextView
+            android:id="@+id/seekBarToYDeltaValueMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{Integer.toString(translate.toYDeltaMax)}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/skbToYDelta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/glRight"
+            app:layout_constraintTop_toTopOf="@+id/skbToYDelta" />
+
+
+        <TextView
+            android:id="@+id/txvDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:text="@string/translate_fragment_Duration"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/skbToYDelta" />
+
+        <TextView
+            android:id="@+id/seekBarDurationValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="@{Integer.toString(translate.duration)}"
+            android:textColor="@{translate.durationColor}"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toStartOf="@+id/glRight"
+            app:layout_constraintStart_toStartOf="@+id/glLeft"
+            app:layout_constraintTop_toTopOf="@+id/txvDuration"/>
+
+
+        <TextView
+            android:id="@+id/seekBarDurationValueMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{Integer.toString(translate.durationMin)}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/skbDuration"
+            app:layout_constraintEnd_toStartOf="@+id/glLeft"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/skbDuration" />
+
+        <SeekBar
+            android:id="@+id/skbDuration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="@{translate.durationMax}"
+            android:min="@{translate.durationMin}"
+            android:progress="@={translate.duration}"
+
+            tools:ignore="UnusedAttribute"
+            app:layout_constraintEnd_toEndOf="@+id/glRight"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/txvDuration" />
+
+        <TextView
+            android:id="@+id/seekBarDurationValueMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{Integer.toString(translate.durationMax)}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/skbDuration"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/glRight"
+            app:layout_constraintTop_toTopOf="@+id/skbDuration" />
+
+
+        <TextView
+            android:id="@+id/txvRepeatCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:text="@string/translate_fragment_RepeatCount"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/skbDuration" />
+
+
+        <EditText
+            android:id="@+id/edtRepeatCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:enabled="@{!translate.repeatCountInfinite}"
+            android:inputType="numberDecimal"
+            android:labelFor="@+id/txvRepeatCount"
+            android:maxWidth="200dp"
+            android:minWidth="100dp"
+            android:text="@={Converter.convertIntToString(translate.repeatCount),default = 0}"
+            android:textAlignment="center"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvRepeatCount"
+            tools:ignore="LabelFor" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={translate.repeatCountInfinite}"
+            android:text="@string/_infinite"
+            android:textColor="@{!translate.repeatCountInfinite ? @color/blue:@color/gold}"
+            android:textSize="@{!translate.repeatCountInfinite ? @dimen/text_20sp:@dimen/text_26sp,default = @dimen/text_20sp}"
+            app:layout_constraintBottom_toBottomOf="@+id/edtRepeatCount"
+            app:layout_constraintStart_toEndOf="@+id/edtRepeatCount"
+            app:layout_constraintTop_toTopOf="@+id/edtRepeatCount"
+            />
+
+
+        <TextView
+            android:id="@+id/txvRepeatMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="top"
+            android:text="@string/translate_fragment_RepeatMode"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtRepeatCount"
+             />
+
+
+        <TextView
+
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/restart"
+            android:textAlignment="center"
+            android:textColor="@{translate.repeatMode ? @color/blue:@color/gold}"
+            android:textSize="@{!translate.repeatMode ? @dimen/text_26sp:@dimen/text_20sp,default = @dimen/text_20sp}"
+            app:layout_constraintBottom_toBottomOf="@+id/swtRepeatMode"
+            app:layout_constraintEnd_toStartOf="@+id/swtRepeatMode"
+            app:layout_constraintTop_toTopOf="@+id/swtRepeatMode"
+            tools:ignore="RelativeOverlap"
+            />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swtRepeatMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={translate.repeatMode,default = false}"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvRepeatMode"
+             />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/repeat"
+            android:textAlignment="center"
+            android:textColor="@{translate.repeatMode ? @color/gold:@color/blue}"
+            android:textSize="@{translate.repeatMode ? @dimen/text_26sp:@dimen/text_20sp,default = @dimen/text_20sp}"
+            app:layout_constraintBottom_toBottomOf="@+id/swtRepeatMode"
+            app:layout_constraintStart_toEndOf="@+id/swtRepeatMode"
+            app:layout_constraintTop_toTopOf="@+id/swtRepeatMode"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </layout>
