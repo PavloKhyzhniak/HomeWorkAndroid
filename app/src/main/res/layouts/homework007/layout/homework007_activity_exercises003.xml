@@ -39,17 +39,15 @@
                 android:text="@string/btn_Rotate" />
 
             <Button
-                android:id="@+id/btnTransparent"
+                android:id="@+id/btnTranslate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-                android:text="@string/btn_Transparent" />
+                android:text="@string/btn_Translate" />
 
             <Button
                 android:id="@+id/btnVisibility"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false"
                 android:text="@string/btn_Visibility" />
 
             <Button
@@ -76,6 +74,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:layout="@layout/homework007_fragment_combo" />
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:visibility="invisible"
+                    android:id="@+id/frTranslate"
+                    android:name="com.example.homeworkandroid.homework007.fragments.TranslateFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/homework007_fragment_translate" />
 
                 <androidx.fragment.app.FragmentContainerView
                     android:visibility="invisible"

@@ -66,7 +66,7 @@ public class AviasalesAdapter extends ArrayAdapter<Aviasales> {
         viewHolder.txvLastName.setText(item.getLastName());
         viewHolder.txvFirstName.setText(item.getFirstName());
         viewHolder.txvFlightNumber.setText(String.format(Locale.UK, "%d", item.getFlightNumber()));
-        viewHolder.txvDepartureDate.setText(String.format(Locale.UK, new SimpleDateFormat("yyyy-MM-dd hh:mm").format(item.getDepartureDate())));
+        viewHolder.txvDepartureDate.setText(String.format(Locale.UK, new SimpleDateFormat(Aviasales.date_pattern).format(item.getDepartureDate())));
 
         viewHolder.ibtnEdit.setOnClickListener(v -> dialogEdit(position));
 

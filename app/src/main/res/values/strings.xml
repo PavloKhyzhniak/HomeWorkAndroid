@@ -385,5 +385,14 @@
     <string name="hint_destination">destination</string>
     <string name="info_aviasales">Info</string>
     <string name="edit_aviasales">Edit</string>
+    <string name="translate_fragment_title">Transparent</string>
+    <string name="translate_fragment_FromXDelta">fromXDelta</string>
+    <string name="translate_fragment_ToXDelta">toXDelta</string>
+    <string name="translate_fragment_FromYDelta">fromYDelta</string>
+    <string name="translate_fragment_ToYDelta">toYDelta</string>
+    <string name="translate_fragment_Duration">duration</string>
+    <string name="translate_fragment_RepeatCount">repeatCount</string>
+    <string name="translate_fragment_RepeatMode">repeatMode</string>
+    <string name="btn_Translate">Translate</string>
 
 </resources>

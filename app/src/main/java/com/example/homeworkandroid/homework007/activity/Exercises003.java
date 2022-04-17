@@ -11,6 +11,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -24,9 +25,11 @@ import com.example.homeworkandroid.R;
 import com.example.homeworkandroid.homework007.fragments.ComboFragment;
 import com.example.homeworkandroid.homework007.fragments.RotateFragment;
 import com.example.homeworkandroid.homework007.fragments.ScaleFragment;
+import com.example.homeworkandroid.homework007.fragments.TranslateFragment;
 import com.example.homeworkandroid.homework007.models.ComboAnimationModel;
 import com.example.homeworkandroid.homework007.models.RotateAnimationModel;
 import com.example.homeworkandroid.homework007.models.ScaleAnimationModel;
+import com.example.homeworkandroid.homework007.models.TranslateAnimationModel;
 
 public class Exercises003 extends AppCompatActivity {
 
@@ -52,7 +55,7 @@ public class Exercises003 extends AppCompatActivity {
 
         btnScale = findViewById(R.id.btnScale);
         btnRotate = findViewById(R.id.btnRotate);
-        btnTransparent = findViewById(R.id.btnTransparent);
+        btnTransparent = findViewById(R.id.btnTranslate);
         btnVisibility = findViewById(R.id.btnVisibility);
         btnCombo = findViewById(R.id.btnCombo);
 
@@ -136,8 +139,30 @@ public class Exercises003 extends AppCompatActivity {
                 imgElementAnimation.startAnimation(rotate);
             }
             break;
-            case R.id.btnTransparent:
-                break;
+            case R.id.btnTranslate: {
+                FragmentContainerView fr = findViewById(R.id.frTranslate);
+                fr.setVisibility(View.VISIBLE);
+
+                imgElementAnimation.clearAnimation();
+
+                // получаем ссылку на фрагмент-приемник
+                TranslateFragment fragmentTranslate = (TranslateFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.frTranslate);
+
+                //получаем модель настроек выбранной анимации
+                assert fragmentTranslate != null;
+                TranslateAnimationModel model = fragmentTranslate.translateViewModel.getModel();
+
+                //подготовим анимацию с настройками из модели
+                TranslateAnimation translate = new TranslateAnimation(model.getFromXDelta(), model.getToXDelta(),model.getFromYDelta(), model.getToYDelta());
+                translate.setDuration(model.getDuration());
+                translate.setRepeatMode(model.isRepeatMode() ? 2 : 1);
+                translate.setRepeatCount(model.getRepeatCount());
+                translate.setInterpolator(new LinearInterpolator());
+
+                imgElementAnimation.startAnimation(translate);
+            }
+            break;
             case R.id.btnVisibility:
                 break;
             case R.id.btnCombo: {
@@ -152,7 +177,6 @@ public class Exercises003 extends AppCompatActivity {
 
                 //получаем модель настроек выбранной анимации
                 assert fragmentCombo != null;
-                // не работает связь с моделью комбо!!!! берем прям из фрагментов
                 ComboAnimationModel model = fragmentCombo.comboViewModel.getModel();
 
                 RotateAnimationModel modelRotate = model.getRotateAnimation();
