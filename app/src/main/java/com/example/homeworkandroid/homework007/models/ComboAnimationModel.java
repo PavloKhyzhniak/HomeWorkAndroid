@@ -12,19 +12,6 @@ public class ComboAnimationModel extends BaseObservable {
     ScaleAnimationModel scaleAnimationModel;
 
     @Bindable
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-        notifyPropertyChanged(BR.name);
-    }
-
-    String name;
-
-
-    @Bindable
     public RotateAnimationModel getRotateAnimation() {
         return rotateAnimationModel;
     }

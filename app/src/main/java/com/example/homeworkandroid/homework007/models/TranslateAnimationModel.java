@@ -11,7 +11,7 @@ import androidx.databinding.InverseMethod;
 import com.example.homeworkandroid.BR;
 import com.example.homeworkandroid.R;
 
-public class TranslateAnimationModel extends BaseObservable {
+public class TranslateAnimationModel extends BaseAnimationModel {
     public static class Converter {
 
         public static int convertStringToInt(String text) {
@@ -121,46 +121,6 @@ public class TranslateAnimationModel extends BaseObservable {
     int duration;
     int durationMin;
     int durationMax;
-
-    int repeatCount;
-    boolean repeatCountInfinite = false;
-    boolean repeatMode = false;
-
-    @Bindable
-    public boolean isRepeatCountInfinite() {
-        return repeatCountInfinite;
-    }
-
-    public void setRepeatCountInfinite(boolean repeatCountInfinite) {
-        this.repeatCountInfinite = repeatCountInfinite;
-        if (this.repeatCountInfinite) {
-            this.repeatCount = 0xffffffff;
-            notifyPropertyChanged(BR.repeatCount);
-        }
-        notifyPropertyChanged(BR.repeatCountInfinite);
-    }
-
-    @Bindable
-    public int getRepeatCount() {
-        return repeatCount;
-    }
-
-    public void setRepeatCount(int repeatCount) {
-        if (repeatCount >= 0)
-            this.repeatCount = repeatCount;
-        notifyPropertyChanged(BR.repeatCount);
-    }
-
-
-    @Bindable
-    public boolean isRepeatMode() {
-        return repeatMode;
-    }
-
-    public void setRepeatMode(boolean repeatMode) {
-        this.repeatMode = repeatMode;
-        notifyPropertyChanged(BR.repeatMode);
-    }
 
 
     public TranslateAnimationModel(
@@ -392,6 +352,5 @@ public class TranslateAnimationModel extends BaseObservable {
             this.durationMax = durationMax;
         notifyPropertyChanged(BR.durationMax);
     }
-
 
 }

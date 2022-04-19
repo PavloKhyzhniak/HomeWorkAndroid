@@ -11,7 +11,7 @@ import androidx.databinding.InverseMethod;
 import com.example.homeworkandroid.BR;
 import com.example.homeworkandroid.R;
 
-public class ScaleAnimationModel extends BaseObservable {
+public class ScaleAnimationModel extends BaseAnimationModel {
     public static class Converter {
 
         public static int convertStringToInt(String text) {
@@ -128,45 +128,7 @@ public class ScaleAnimationModel extends BaseObservable {
     public static int PivotXscale = 25;
     public static int PivotYscale = 25;
 
-    int repeatCount;
-    boolean repeatCountInfinite = false;
-    boolean repeatMode = false;
 
-    @Bindable
-    public boolean isRepeatCountInfinite() {
-        return repeatCountInfinite;
-    }
-
-    public void setRepeatCountInfinite(boolean repeatCountInfinite) {
-        this.repeatCountInfinite = repeatCountInfinite;
-        if (this.repeatCountInfinite) {
-            this.repeatCount = 0xffffffff;
-            notifyPropertyChanged(BR.repeatCount);
-        }
-        notifyPropertyChanged(BR.repeatCountInfinite);
-    }
-
-    @Bindable
-    public int getRepeatCount() {
-        return repeatCount;
-    }
-
-    public void setRepeatCount(int repeatCount) {
-        if (repeatCount >= 0)
-            this.repeatCount = repeatCount;
-        notifyPropertyChanged(BR.repeatCount);
-    }
-
-
-    @Bindable
-    public boolean isRepeatMode() {
-        return repeatMode;
-    }
-
-    public void setRepeatMode(boolean repeatMode) {
-        this.repeatMode = repeatMode;
-        notifyPropertyChanged(BR.repeatMode);
-    }
 
     @Bindable
     public int getPivotX() {

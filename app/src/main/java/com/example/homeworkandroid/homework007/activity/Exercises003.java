@@ -1,10 +1,15 @@
 package com.example.homeworkandroid.homework007.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -17,36 +22,68 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableField;
 import androidx.fragment.app.FragmentContainerView;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.homeworkandroid.MainActivity;
 import com.example.homeworkandroid.R;
+import com.example.homeworkandroid.homework007.adapters.ViewAnimationAdapter;
 import com.example.homeworkandroid.homework007.fragments.ComboFragment;
 import com.example.homeworkandroid.homework007.fragments.RotateFragment;
 import com.example.homeworkandroid.homework007.fragments.ScaleFragment;
 import com.example.homeworkandroid.homework007.fragments.TranslateFragment;
+import com.example.homeworkandroid.homework007.models.BaseAnimationModel;
 import com.example.homeworkandroid.homework007.models.ComboAnimationModel;
 import com.example.homeworkandroid.homework007.models.RotateAnimationModel;
 import com.example.homeworkandroid.homework007.models.ScaleAnimationModel;
 import com.example.homeworkandroid.homework007.models.TranslateAnimationModel;
+import com.example.homeworkandroid.homework007.models.ViewAnimationModel;
+import com.example.homeworkandroid.homework007.viewmodel.ScaleViewModel;
+import com.example.homeworkandroid.homework007.viewmodel.ViewAnimationViewModel;
 
 public class Exercises003 extends AppCompatActivity {
 
     private Button btnReturnToMain,
             btnScale, btnRotate, btnTransparent, btnVisibility, btnCombo;
 
+    FrameLayout frlFragment;
+
     ImageView imgElementAnimation;
 
+    ViewAnimationViewModel viewAnimationViewModel;
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homework007_activity_exercises003);
+
+
+        viewAnimationViewModel = new ViewModelProvider(this).get(ViewAnimationViewModel.class);
+
+        com.example.homeworkandroid.databinding.Homework007ActivityExercises003Binding binding = DataBindingUtil.setContentView(this, R.layout.homework007_activity_exercises003);
+
+        ViewAnimationModel viewAnimationModel = new ViewAnimationModel();
+        binding.setVm(viewAnimationModel);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                viewAnimationViewModel.setModel(viewAnimationModel);
+            }
+        }, 1000);
+
+        setContentView(binding.getRoot());
 
         findViews();
 
         setListeners();
-
     }
 
     private void findViews() {
@@ -59,9 +96,12 @@ public class Exercises003 extends AppCompatActivity {
         btnVisibility = findViewById(R.id.btnVisibility);
         btnCombo = findViewById(R.id.btnCombo);
 
+        frlFragment = findViewById(R.id.frlFragment);
+
         imgElementAnimation = findViewById(R.id.imgElementAnimation);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private void setListeners() {
         btnReturnToMain.setOnClickListener(this::OnClickListener);
 
@@ -71,6 +111,8 @@ public class Exercises003 extends AppCompatActivity {
         btnVisibility.setOnClickListener(this::OnClickListener);
         btnCombo.setOnClickListener(this::OnClickListener);
     }
+
+    boolean refreshAnimation = false;
 
     @SuppressLint("NonConstantResourceId")
     private void OnClickListener(View v) {
@@ -115,11 +157,33 @@ public class Exercises003 extends AppCompatActivity {
                 imgElementAnimation.startAnimation(scale);
             }
             break;
+//            case R.id.btnRotate: {
+//                FragmentContainerView fr = findViewById(R.id.frRotate);
+//                fr.setVisibility(View.VISIBLE);
+//
+//                imgElementAnimation.clearAnimation();
+//
+//                // получаем ссылку на фрагмент-приемник
+//                RotateFragment fragmentRotate = (RotateFragment) getSupportFragmentManager()
+//                        .findFragmentById(R.id.frRotate);
+//
+//                //получаем модель настроек выбранной анимации
+//                assert fragmentRotate != null;
+//                RotateAnimationModel model = fragmentRotate.rotateViewModel.getModel();
+//
+//                //подготовим анимацию с настройками из модели
+//                RotateAnimation rotate = new RotateAnimation(model.getFromDegrees(), model.getToDegrees(), Animation.RELATIVE_TO_SELF, model.getPivotX() * RotateAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, model.getPivotY() * RotateAnimationModel.PivotYscale / 100.0f);
+//                rotate.setDuration(model.getDuration());
+//                rotate.setRepeatMode(model.isRepeatMode() ? 2 : 1);
+//                rotate.setRepeatCount(model.getRepeatCount());
+//                rotate.setInterpolator(new LinearInterpolator());
+//
+//                imgElementAnimation.startAnimation(rotate);
+//            }
+//            break;
             case R.id.btnRotate: {
                 FragmentContainerView fr = findViewById(R.id.frRotate);
                 fr.setVisibility(View.VISIBLE);
-
-                imgElementAnimation.clearAnimation();
 
                 // получаем ссылку на фрагмент-приемник
                 RotateFragment fragmentRotate = (RotateFragment) getSupportFragmentManager()
@@ -129,14 +193,15 @@ public class Exercises003 extends AppCompatActivity {
                 assert fragmentRotate != null;
                 RotateAnimationModel model = fragmentRotate.rotateViewModel.getModel();
 
-                //подготовим анимацию с настройками из модели
-                RotateAnimation rotate = new RotateAnimation(model.getFromDegrees(), model.getToDegrees(), Animation.RELATIVE_TO_SELF, model.getPivotX() * RotateAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, model.getPivotY() * RotateAnimationModel.PivotYscale / 100.0f);
-                rotate.setDuration(model.getDuration());
-                rotate.setRepeatMode(model.isRepeatMode() ? 2 : 1);
-                rotate.setRepeatCount(model.getRepeatCount());
-                rotate.setInterpolator(new LinearInterpolator());
+                ViewAnimationAdapter.modelsBase = new BaseAnimationModel[]{model};
 
-                imgElementAnimation.startAnimation(rotate);
+                viewAnimationViewModel.getModel().setRefreshAnimation(false);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        viewAnimationViewModel.getModel().setRefreshAnimation(true);
+                    }
+                }, 100);
             }
             break;
             case R.id.btnTranslate: {
@@ -154,7 +219,7 @@ public class Exercises003 extends AppCompatActivity {
                 TranslateAnimationModel model = fragmentTranslate.translateViewModel.getModel();
 
                 //подготовим анимацию с настройками из модели
-                TranslateAnimation translate = new TranslateAnimation(model.getFromXDelta(), model.getToXDelta(),model.getFromYDelta(), model.getToYDelta());
+                TranslateAnimation translate = new TranslateAnimation(model.getFromXDelta(), model.getToXDelta(), model.getFromYDelta(), model.getToYDelta());
                 translate.setDuration(model.getDuration());
                 translate.setRepeatMode(model.isRepeatMode() ? 2 : 1);
                 translate.setRepeatCount(model.getRepeatCount());
