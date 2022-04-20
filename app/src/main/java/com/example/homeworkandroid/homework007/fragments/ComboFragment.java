@@ -13,9 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.homeworkandroid.R;
-import com.example.homeworkandroid.databinding.ComboAnimation;
-import com.example.homeworkandroid.databinding.RotateAnimation;
-import com.example.homeworkandroid.databinding.ScaleAnimation;
+import com.example.homeworkandroid.databinding.ComboAnimationBinding;
+import com.example.homeworkandroid.databinding.RotateAnimationBinding;
+import com.example.homeworkandroid.databinding.ScaleAnimationBinding;
 import com.example.homeworkandroid.homework007.models.ComboAnimationModel;
 import com.example.homeworkandroid.homework007.models.RotateAnimationModel;
 import com.example.homeworkandroid.homework007.models.ScaleAnimationModel;
@@ -56,7 +56,7 @@ public class ComboFragment extends Fragment {
 
         context = this.getContext();
 
-        ComboAnimation binding = DataBindingUtil.inflate(inflater, R.layout.homework007_fragment_combo, container, false);
+        ComboAnimationBinding binding = DataBindingUtil.inflate(inflater, R.layout.homework007_fragment_combo, container, false);
         ComboAnimationModel comboAnimationModel = new ComboAnimationModel(this.getContext());
 
         comboViewModel.setModel(comboAnimationModel);
@@ -70,7 +70,7 @@ public class ComboFragment extends Fragment {
                 RotateFragment fragmentRotate = (RotateFragment) ((AppCompatActivity)context).getSupportFragmentManager()
                         .findFragmentById(R.id.frCombo).getChildFragmentManager().findFragmentById(R.id.frComboRotate);
 
-                RotateAnimation bindingRotate = DataBindingUtil.bind(fragmentRotate.getView());
+                RotateAnimationBinding bindingRotate = DataBindingUtil.bind(fragmentRotate.getView());
                 RotateAnimationModel rotateAnimationModel = new RotateAnimationModel(context);
                 assert bindingRotate != null;
                 bindingRotate.setRotate(rotateAnimationModel);
@@ -81,7 +81,7 @@ public class ComboFragment extends Fragment {
                 ScaleFragment fragmentScale = (ScaleFragment) ((AppCompatActivity)context).getSupportFragmentManager()
                         .findFragmentById(R.id.frCombo).getChildFragmentManager().findFragmentById(R.id.frComboScale);
 
-                ScaleAnimation bindingScale = DataBindingUtil.bind(fragmentScale.getView());
+                ScaleAnimationBinding bindingScale = DataBindingUtil.bind(fragmentScale.getView());
                 ScaleAnimationModel scaleAnimationModel = new ScaleAnimationModel(context);
                 assert bindingScale != null;
                 bindingScale.setScale(scaleAnimationModel);

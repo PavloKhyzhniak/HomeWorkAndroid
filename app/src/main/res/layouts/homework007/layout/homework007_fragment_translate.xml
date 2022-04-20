@@ -5,7 +5,7 @@
     android:id="@+id/fragment_translate"
     class="com.example.homeworkandroid.homework007.models.TranslateAnimationModel">
 
-    <data class="TranslateAnimation">
+    <data class="TranslateAnimationBinding">
 
         <variable
             name="translate"

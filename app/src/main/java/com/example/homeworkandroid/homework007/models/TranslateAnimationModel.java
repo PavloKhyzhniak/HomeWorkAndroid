@@ -2,11 +2,17 @@ package com.example.homeworkandroid.homework007.models;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.view.animation.Animation;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
 
 import androidx.core.content.res.ResourcesCompat;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.InverseMethod;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
 import com.example.homeworkandroid.BR;
 import com.example.homeworkandroid.R;
@@ -122,6 +128,21 @@ public class TranslateAnimationModel extends BaseAnimationModel {
     int durationMin;
     int durationMax;
 
+    private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
+
+    @Bindable
+    public TranslateAnimation getAnimation()
+    {
+        //подготовим анимацию с настройками из модели
+        TranslateAnimation translate = new TranslateAnimation(getFromXDelta(), getToXDelta(), getFromYDelta(), getToYDelta());
+        translate.setInterpolator(INTERPOLATOR);
+        translate.setDuration(getDuration());
+        translate.setRepeatMode(isRepeatMode() ? 2 : 1);
+        translate.setRepeatCount(getRepeatCount());
+        translate.setInterpolator(new LinearInterpolator());
+
+        return translate;
+    }
 
     public TranslateAnimationModel(
             int fromXDelta,

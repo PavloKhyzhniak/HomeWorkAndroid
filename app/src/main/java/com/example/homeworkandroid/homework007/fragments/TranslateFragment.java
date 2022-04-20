@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.homeworkandroid.R;
-import com.example.homeworkandroid.databinding.TranslateAnimation;
+import com.example.homeworkandroid.databinding.TranslateAnimationBinding;
 import com.example.homeworkandroid.homework007.models.TranslateAnimationModel;
 import com.example.homeworkandroid.homework007.viewmodel.TransparentViewModel;
 
@@ -39,7 +39,7 @@ public class TranslateFragment extends Fragment {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.homework007_fragment_rotate, container, false);
 
-        TranslateAnimation binding = DataBindingUtil.inflate(inflater, R.layout.homework007_fragment_translate, container, false);
+        TranslateAnimationBinding binding = DataBindingUtil.inflate(inflater, R.layout.homework007_fragment_translate, container, false);
 
         TranslateAnimationModel translateAnimationModel = new TranslateAnimationModel(this.getContext());
         binding.setTranslate(translateAnimationModel);

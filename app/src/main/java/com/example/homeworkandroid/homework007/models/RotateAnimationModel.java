@@ -4,11 +4,17 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 
 import androidx.core.content.res.ResourcesCompat;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.InverseMethod;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
 import com.example.homeworkandroid.BR;
 import com.example.homeworkandroid.R;
@@ -60,7 +66,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
     public void setFromDegreesColor(int fromDegrees) {
         this.fromDegreesColor = Converter.convertDegreesToColor(fromDegrees, this.context);
         notifyPropertyChanged(BR.fromDegreesColor);
-
     }
 
     @Bindable
@@ -71,7 +76,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
     public void setToDegreesColor(int toDegrees) {
         this.toDegreesColor = Converter.convertDegreesToColor(toDegrees, this.context);
         notifyPropertyChanged(BR.toDegreesColor);
-
     }
 
     @Bindable
@@ -82,7 +86,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
     public void setDurationColor(int duration) {
         this.durationColor = Converter.convertDurationToColor(duration, this.context);
         notifyPropertyChanged(BR.durationColor);
-
     }
 
     int fromDegreesColor;
@@ -96,13 +99,26 @@ public class RotateAnimationModel extends BaseAnimationModel {
     int toDegreesMin;
     int toDegreesMax;
 
-
     int pivotX;
     int pivotY;
     public static int PivotXscale = 25;
     public static int PivotYscale = 25;
 
+    private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
+    RotateAnimation rotate;
+    @Bindable
+    public RotateAnimation getAnimation()
+    {
+        //подготовим анимацию с настройками из модели
+        rotate = new RotateAnimation(getFromDegrees(), getToDegrees(), Animation.RELATIVE_TO_SELF, getPivotX() * RotateAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, getPivotY() * RotateAnimationModel.PivotYscale / 100.0f);
+        rotate.setInterpolator(INTERPOLATOR);
+        rotate.setDuration(getDuration());
+        rotate.setRepeatMode(isRepeatMode() ? 2 : 1);
+        rotate.setRepeatCount(getRepeatCount());
+        rotate.setInterpolator(new LinearInterpolator());
 
+        return rotate;
+    }
     @Bindable
     public int getPivotX() {
         return pivotX;
@@ -112,7 +128,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
         if (pivotX >= 0)
             this.pivotX = pivotX;
         notifyPropertyChanged(BR.pivotX);
-
     }
 
     @Bindable
@@ -124,7 +139,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
         if (pivotY >= 0)
             this.pivotY = pivotY;
         notifyPropertyChanged(BR.pivotY);
-
     }
 
 
@@ -154,10 +168,10 @@ public class RotateAnimationModel extends BaseAnimationModel {
 
     public RotateAnimationModel(Context context) {
         this.context = context;
-        fromDegrees = 60;
+        fromDegrees = 0;
         fromDegreesMin = 0;
         fromDegreesMax = 360;
-        toDegrees = 120;
+        toDegrees = 360;
         toDegreesMin = 0;
         toDegreesMax = 360;
         duration = 3000;
@@ -176,7 +190,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
             this.setFromDegreesColor(this.fromDegrees);
         }
         notifyPropertyChanged(BR.fromDegrees);
-
     }
 
     @Bindable
@@ -199,7 +212,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
         if (fromDegreesMax >= 0)
             this.fromDegreesMax = fromDegreesMax;
         notifyPropertyChanged(BR.fromDegreesMax);
-
     }
 
     @Bindable
@@ -213,7 +225,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
             this.setToDegreesColor(this.toDegrees);
         }
         notifyPropertyChanged(BR.toDegrees);
-
     }
 
     @Bindable
@@ -225,7 +236,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
         if (toDegreesMin >= 0)
             this.toDegreesMin = toDegreesMin;
         notifyPropertyChanged(BR.toDegreesMin);
-
     }
 
     @Bindable
@@ -237,7 +247,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
         if (toDegreesMax >= 0)
             this.toDegreesMax = toDegreesMax;
         notifyPropertyChanged(BR.toDegreesMax);
-
     }
 
     int duration;
@@ -255,7 +264,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
             this.setDurationColor(this.duration);
         }
         notifyPropertyChanged(BR.duration);
-
     }
 
     @Bindable
@@ -267,7 +275,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
         if (durationMin >= 0)
             this.durationMin = durationMin;
         notifyPropertyChanged(BR.durationMin);
-
     }
 
     @Bindable
@@ -279,8 +286,6 @@ public class RotateAnimationModel extends BaseAnimationModel {
         if (durationMax >= 0)
             this.durationMax = durationMax;
         notifyPropertyChanged(BR.durationMax);
-
     }
-
 
 }

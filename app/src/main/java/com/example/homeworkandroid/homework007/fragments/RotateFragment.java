@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.homeworkandroid.R;
-import com.example.homeworkandroid.databinding.RotateAnimation;
+import com.example.homeworkandroid.databinding.RotateAnimationBinding;
 import com.example.homeworkandroid.homework007.models.RotateAnimationModel;
 import com.example.homeworkandroid.homework007.viewmodel.RotateViewModel;
 
@@ -38,7 +38,7 @@ public class RotateFragment extends Fragment {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.homework007_fragment_rotate, container, false);
 
-        RotateAnimation binding = DataBindingUtil.inflate(inflater, R.layout.homework007_fragment_rotate, container, false);
+        RotateAnimationBinding binding = DataBindingUtil.inflate(inflater, R.layout.homework007_fragment_rotate, container, false);
 
         RotateAnimationModel rotateAnimationModel = new RotateAnimationModel(this.getContext());
         binding.setRotate(rotateAnimationModel);

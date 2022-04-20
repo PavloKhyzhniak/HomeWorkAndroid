@@ -4,7 +4,7 @@
     class="com.example.homeworkandroid.homework007.models.ScaleAnimationModel"
     android:id="@+id/fragment_scale">
 
-    <data class="ScaleAnimation">
+    <data class="ScaleAnimationBinding">
 
         <variable
             name="scale"
@@ -92,8 +92,8 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="90"
-                    android:max="@{scale.fromXScaleMax*scale.Scalescale}"
-                    android:min="@{scale.fromXScaleMin*scale.Scalescale}"
+                    android:max="@{Converter.convertFloatToInt(scale.fromXScaleMax,scale.Scalescale),default = 100}"
+                    android:min="@{Converter.convertFloatToInt(scale.fromXScaleMin,scale.Scalescale),default = 0}"
                     android:progress="@={scale.fromXScale}"
                     tools:ignore="UnusedAttribute" />
 
@@ -171,8 +171,8 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="90"
-                    android:max="@{scale.toXScaleMax*scale.Scalescale}"
-                    android:min="@{scale.toXScaleMin*scale.Scalescale}"
+                    android:max="@{Converter.convertFloatToInt(scale.toXScaleMax,scale.Scalescale),default = 100}"
+                    android:min="@{Converter.convertFloatToInt(scale.toXScaleMin,scale.Scalescale),default = 0}"
                     android:progress="@={scale.toXScale}"
                     tools:ignore="UnusedAttribute" />
 
@@ -249,8 +249,8 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="90"
-                    android:max="@{scale.fromYScaleMax*scale.Scalescale}"
-                    android:min="@{scale.fromYScaleMin*scale.Scalescale}"
+                    android:max="@{Converter.convertFloatToInt(scale.fromYScaleMax,scale.Scalescale),default = 100}"
+                    android:min="@{Converter.convertFloatToInt(scale.fromYScaleMin,scale.Scalescale),default = 0}"
                     android:progress="@={scale.fromYScale}"
                     tools:ignore="UnusedAttribute" />
 
@@ -328,8 +328,8 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="90"
-                    android:max="@{scale.toYScaleMax*scale.Scalescale}"
-                    android:min="@{scale.toYScaleMin*scale.Scalescale}"
+                    android:max="@{Converter.convertFloatToInt(scale.toYScaleMax,scale.Scalescale),default = 100}"
+                    android:min="@{Converter.convertFloatToInt(scale.toYScaleMin,scale.Scalescale),default = 0}"
                     android:progress="@={scale.toYScale}"
                     tools:ignore="UnusedAttribute" />
 

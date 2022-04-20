@@ -4,7 +4,7 @@
     class="com.example.homeworkandroid.homework007.models.ComboAnimationModel"
     android:id="@+id/fragment_combo">
 
-    <data class="ComboAnimation">
+    <data class="ComboAnimationBinding">
 
         <variable
             name="combo"

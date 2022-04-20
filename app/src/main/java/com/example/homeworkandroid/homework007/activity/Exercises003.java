@@ -131,6 +131,32 @@ public class Exercises003 extends AppCompatActivity {
                 startActivity(myIntent);
                 finish();
                 break;
+//            case R.id.btnScale: {
+//                FragmentContainerView fr = findViewById(R.id.frScale);
+//                fr.setVisibility(View.VISIBLE);
+//
+//                imgElementAnimation.clearAnimation();
+//
+//                // получаем ссылку на фрагмент-приемник
+//                ScaleFragment fragmentScale = (ScaleFragment) getSupportFragmentManager()
+//                        .findFragmentById(R.id.frScale);
+//
+//                //получаем модель настроек выбранной анимации
+//                assert fragmentScale != null;
+//                ScaleAnimationModel model = fragmentScale.scaleViewModel.getModel();
+//
+//                //подготовим анимацию с настройками из модели
+//                ScaleAnimation scale = new ScaleAnimation(model.getFromXScale() / ScaleAnimationModel.Scalescale, model.getToXScale() / ScaleAnimationModel.Scalescale,
+//                        model.getFromYScale() / ScaleAnimationModel.Scalescale, model.getToYScale() / ScaleAnimationModel.Scalescale,
+//                        Animation.RELATIVE_TO_SELF, model.getPivotX() * ScaleAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, model.getPivotY() * ScaleAnimationModel.PivotYscale / 100.0f);
+//                scale.setDuration(model.getDuration());
+//                scale.setRepeatMode(model.isRepeatMode() ? 2 : 1);
+//                scale.setRepeatCount(model.getRepeatCount());
+//                scale.setInterpolator(new LinearInterpolator());
+//
+//                imgElementAnimation.startAnimation(scale);
+//            }
+//            break;
             case R.id.btnScale: {
                 FragmentContainerView fr = findViewById(R.id.frScale);
                 fr.setVisibility(View.VISIBLE);
@@ -145,16 +171,15 @@ public class Exercises003 extends AppCompatActivity {
                 assert fragmentScale != null;
                 ScaleAnimationModel model = fragmentScale.scaleViewModel.getModel();
 
-                //подготовим анимацию с настройками из модели
-                ScaleAnimation scale = new ScaleAnimation(model.getFromXScale() / ScaleAnimationModel.Scalescale, model.getToXScale() / ScaleAnimationModel.Scalescale,
-                        model.getFromYScale() / ScaleAnimationModel.Scalescale, model.getToYScale() / ScaleAnimationModel.Scalescale,
-                        Animation.RELATIVE_TO_SELF, model.getPivotX() * ScaleAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, model.getPivotY() * ScaleAnimationModel.PivotYscale / 100.0f);
-                scale.setDuration(model.getDuration());
-                scale.setRepeatMode(model.isRepeatMode() ? 2 : 1);
-                scale.setRepeatCount(model.getRepeatCount());
-                scale.setInterpolator(new LinearInterpolator());
+                ViewAnimationAdapter.modelsBase = new BaseAnimationModel[]{model};
 
-                imgElementAnimation.startAnimation(scale);
+                viewAnimationViewModel.getModel().setRefreshAnimation(false);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        viewAnimationViewModel.getModel().setRefreshAnimation(true);
+                    }
+                }, 100);
             }
             break;
 //            case R.id.btnRotate: {
@@ -204,6 +229,30 @@ public class Exercises003 extends AppCompatActivity {
                 }, 100);
             }
             break;
+//            case R.id.btnTranslate: {
+//                FragmentContainerView fr = findViewById(R.id.frTranslate);
+//                fr.setVisibility(View.VISIBLE);
+//
+//                imgElementAnimation.clearAnimation();
+//
+//                // получаем ссылку на фрагмент-приемник
+//                TranslateFragment fragmentTranslate = (TranslateFragment) getSupportFragmentManager()
+//                        .findFragmentById(R.id.frTranslate);
+//
+//                //получаем модель настроек выбранной анимации
+//                assert fragmentTranslate != null;
+//                TranslateAnimationModel model = fragmentTranslate.translateViewModel.getModel();
+//
+//                //подготовим анимацию с настройками из модели
+//                TranslateAnimation translate = new TranslateAnimation(model.getFromXDelta(), model.getToXDelta(), model.getFromYDelta(), model.getToYDelta());
+//                translate.setDuration(model.getDuration());
+//                translate.setRepeatMode(model.isRepeatMode() ? 2 : 1);
+//                translate.setRepeatCount(model.getRepeatCount());
+//                translate.setInterpolator(new LinearInterpolator());
+//
+//                imgElementAnimation.startAnimation(translate);
+//            }
+//            break;
             case R.id.btnTranslate: {
                 FragmentContainerView fr = findViewById(R.id.frTranslate);
                 fr.setVisibility(View.VISIBLE);
@@ -218,18 +267,60 @@ public class Exercises003 extends AppCompatActivity {
                 assert fragmentTranslate != null;
                 TranslateAnimationModel model = fragmentTranslate.translateViewModel.getModel();
 
-                //подготовим анимацию с настройками из модели
-                TranslateAnimation translate = new TranslateAnimation(model.getFromXDelta(), model.getToXDelta(), model.getFromYDelta(), model.getToYDelta());
-                translate.setDuration(model.getDuration());
-                translate.setRepeatMode(model.isRepeatMode() ? 2 : 1);
-                translate.setRepeatCount(model.getRepeatCount());
-                translate.setInterpolator(new LinearInterpolator());
+                ViewAnimationAdapter.modelsBase = new BaseAnimationModel[]{model};
 
-                imgElementAnimation.startAnimation(translate);
+                viewAnimationViewModel.getModel().setRefreshAnimation(false);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        viewAnimationViewModel.getModel().setRefreshAnimation(true);
+                    }
+                }, 100);
             }
             break;
             case R.id.btnVisibility:
                 break;
+//            case R.id.btnCombo: {
+//                FragmentContainerView fr = findViewById(R.id.frCombo);
+//                fr.setVisibility(View.VISIBLE);
+//
+//                imgElementAnimation.clearAnimation();
+//
+//                // получаем ссылку на фрагмент-приемник
+//                ComboFragment fragmentCombo = (ComboFragment) getSupportFragmentManager()
+//                        .findFragmentById(R.id.frCombo);
+//
+//                //получаем модель настроек выбранной анимации
+//                assert fragmentCombo != null;
+//                ComboAnimationModel model = fragmentCombo.comboViewModel.getModel();
+//
+//                RotateAnimationModel modelRotate = model.getRotateAnimation();
+//
+//                //подготовим анимацию с настройками из модели
+//                RotateAnimation rotate = new RotateAnimation(modelRotate.getFromDegrees(), modelRotate.getToDegrees(), Animation.RELATIVE_TO_SELF, modelRotate.getPivotX() * RotateAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, modelRotate.getPivotY() * RotateAnimationModel.PivotYscale / 100.0f);
+//                rotate.setDuration(modelRotate.getDuration());
+//                rotate.setRepeatMode(modelRotate.isRepeatMode() ? 2 : 1);
+//                rotate.setRepeatCount(modelRotate.getRepeatCount());
+//                rotate.setInterpolator(new LinearInterpolator());
+//
+//                ScaleAnimationModel modelScale = model.getScaleAnimation();
+//
+//                //подготовим анимацию с настройками из модели
+//                ScaleAnimation scale = new ScaleAnimation(modelScale.getFromXScale() / ScaleAnimationModel.Scalescale, modelScale.getToXScale() / ScaleAnimationModel.Scalescale,
+//                        modelScale.getFromYScale() / ScaleAnimationModel.Scalescale, modelScale.getToYScale() / ScaleAnimationModel.Scalescale,
+//                        Animation.RELATIVE_TO_SELF, modelScale.getPivotX() * ScaleAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, modelScale.getPivotY() * ScaleAnimationModel.PivotYscale / 100.0f);
+//                scale.setDuration(modelScale.getDuration());
+//                scale.setRepeatMode(modelScale.isRepeatMode() ? 2 : 1);
+//                scale.setRepeatCount(modelScale.getRepeatCount());
+//                scale.setInterpolator(new LinearInterpolator());
+//
+//                AnimationSet animSet = new AnimationSet(true);
+//                animSet.addAnimation(scale);
+//                animSet.addAnimation(rotate);
+//
+//                imgElementAnimation.startAnimation(animSet);
+//            }
+//            break;
             case R.id.btnCombo: {
                 FragmentContainerView fr = findViewById(R.id.frCombo);
                 fr.setVisibility(View.VISIBLE);
@@ -245,30 +336,17 @@ public class Exercises003 extends AppCompatActivity {
                 ComboAnimationModel model = fragmentCombo.comboViewModel.getModel();
 
                 RotateAnimationModel modelRotate = model.getRotateAnimation();
-
-                //подготовим анимацию с настройками из модели
-                RotateAnimation rotate = new RotateAnimation(modelRotate.getFromDegrees(), modelRotate.getToDegrees(), Animation.RELATIVE_TO_SELF, modelRotate.getPivotX() * RotateAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, modelRotate.getPivotY() * RotateAnimationModel.PivotYscale / 100.0f);
-                rotate.setDuration(modelRotate.getDuration());
-                rotate.setRepeatMode(modelRotate.isRepeatMode() ? 2 : 1);
-                rotate.setRepeatCount(modelRotate.getRepeatCount());
-                rotate.setInterpolator(new LinearInterpolator());
-
                 ScaleAnimationModel modelScale = model.getScaleAnimation();
 
-                //подготовим анимацию с настройками из модели
-                ScaleAnimation scale = new ScaleAnimation(modelScale.getFromXScale() / ScaleAnimationModel.Scalescale, modelScale.getToXScale() / ScaleAnimationModel.Scalescale,
-                        modelScale.getFromYScale() / ScaleAnimationModel.Scalescale, modelScale.getToYScale() / ScaleAnimationModel.Scalescale,
-                        Animation.RELATIVE_TO_SELF, modelScale.getPivotX() * ScaleAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, modelScale.getPivotY() * ScaleAnimationModel.PivotYscale / 100.0f);
-                scale.setDuration(modelScale.getDuration());
-                scale.setRepeatMode(modelScale.isRepeatMode() ? 2 : 1);
-                scale.setRepeatCount(modelScale.getRepeatCount());
-                scale.setInterpolator(new LinearInterpolator());
+                ViewAnimationAdapter.modelsBase = new BaseAnimationModel[]{modelRotate,modelScale};
 
-                AnimationSet animSet = new AnimationSet(true);
-                animSet.addAnimation(scale);
-                animSet.addAnimation(rotate);
-
-                imgElementAnimation.startAnimation(animSet);
+                viewAnimationViewModel.getModel().setRefreshAnimation(false);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        viewAnimationViewModel.getModel().setRefreshAnimation(true);
+                    }
+                }, 100);
             }
             break;
         }

@@ -2,14 +2,20 @@ package com.example.homeworkandroid.homework007.models;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.view.animation.Animation;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.ScaleAnimation;
 
 import androidx.core.content.res.ResourcesCompat;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.InverseMethod;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
 import com.example.homeworkandroid.BR;
 import com.example.homeworkandroid.R;
+import com.example.homeworkandroid.databinding.ScaleAnimationBinding;
 
 public class ScaleAnimationModel extends BaseAnimationModel {
     public static class Converter {
@@ -21,6 +27,10 @@ public class ScaleAnimationModel extends BaseAnimationModel {
         @InverseMethod(value = "convertStringToInt")
         public static String convertIntToString(int value) {
             return Integer.toString(value);
+        }
+
+        public static int convertFloatToInt(Integer valInt, Float valFloat) {
+            return (int)(valInt*valFloat);
         }
 
 
@@ -118,7 +128,7 @@ public class ScaleAnimationModel extends BaseAnimationModel {
     int toYScale;
     int toYScaleMin;
     int toYScaleMax;
-    public static int Scalescale = 100;
+    public static float Scalescale = 100.0f;
     int duration;
     int durationMin;
     int durationMax;
@@ -128,7 +138,22 @@ public class ScaleAnimationModel extends BaseAnimationModel {
     public static int PivotXscale = 25;
     public static int PivotYscale = 25;
 
+    private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
 
+    @Bindable
+    public ScaleAnimation getAnimation() {
+        //подготовим анимацию с настройками из модели
+        ScaleAnimation scale = new ScaleAnimation(getFromXScale() / ScaleAnimationModel.Scalescale, getToXScale() / ScaleAnimationModel.Scalescale,
+                getFromYScale() / ScaleAnimationModel.Scalescale, getToYScale() / ScaleAnimationModel.Scalescale,
+                Animation.RELATIVE_TO_SELF, getPivotX() * ScaleAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, getPivotY() * ScaleAnimationModel.PivotYscale / 100.0f);
+        scale.setInterpolator(INTERPOLATOR);
+        scale.setDuration(getDuration());
+        scale.setRepeatMode(isRepeatMode() ? 2 : 1);
+        scale.setRepeatCount(getRepeatCount());
+        scale.setInterpolator(new LinearInterpolator());
+
+        return scale;
+    }
 
     @Bindable
     public int getPivotX() {
@@ -191,16 +216,16 @@ public class ScaleAnimationModel extends BaseAnimationModel {
 
     public ScaleAnimationModel(Context context) {
         this.context = context;
-        fromXScale = 50;
+        fromXScale = 100;
         fromXScaleMin = 0;
         fromXScaleMax = 4;
-        toXScale = 100;
+        toXScale = 150;
         toXScaleMin = 0;
         toXScaleMax = 4;
-        fromYScale = 50;
+        fromYScale = 100;
         fromYScaleMin = 0;
         fromYScaleMax = 4;
-        toYScale = 100;
+        toYScale = 150;
         toYScaleMin = 0;
         toYScaleMax = 4;
         duration = 3000;
@@ -384,6 +409,5 @@ public class ScaleAnimationModel extends BaseAnimationModel {
             this.durationMax = durationMax;
         notifyPropertyChanged(BR.durationMax);
     }
-
 
 }
