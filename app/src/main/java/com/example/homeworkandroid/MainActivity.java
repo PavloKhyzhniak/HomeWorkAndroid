@@ -17,11 +17,13 @@ import com.example.homeworkandroid.homework004.MainActivityHW004;
 import com.example.homeworkandroid.homework005.MainActivityHW005;
 import com.example.homeworkandroid.homework006.MainActivityHW006;
 import com.example.homeworkandroid.homework007.MainActivityHW007;
+import com.example.homeworkandroid.homework008.MainActivityHW008;
+import com.example.homeworkandroid.homework009.MainActivityHW009;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btnGotoHW001, btnGotoHW002, btnGotoHW003, btnGotoHW004, btnGotoHW005
-            , btnGotoHW006, btnGotoHW007, btnGotoHW008
+            , btnGotoHW006, btnGotoHW007, btnGotoHW008, btnGotoHW009
             , btnExit;
     private ImageButton ibtnGotoLoginHW004;
 
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         btnGotoHW006 = findViewById(R.id.btnGoToHW006);
         btnGotoHW007 = findViewById(R.id.btnGoToHW007);
         btnGotoHW008 = findViewById(R.id.btnGoToHW008);
+        btnGotoHW009 = findViewById(R.id.btnGoToHW009);
 
         // связь с обработчиком собыия клика по кнопке
         btnExit.setOnClickListener(this::onButtonClick);
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         btnGotoHW006.setOnClickListener(this::onButtonClick);
         btnGotoHW007.setOnClickListener(this::onButtonClick);
         btnGotoHW008.setOnClickListener(this::onButtonClick);
+        btnGotoHW009.setOnClickListener(this::onButtonClick);
 
     }
     @SuppressLint("NonConstantResourceId")
@@ -108,10 +112,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
                 break;
             case R.id.btnGoToHW008:
-//                myIntent = new Intent(this, MainActivityHW008.class);
-//                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                myIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//                startActivity(myIntent);
+                myIntent = new Intent(this, MainActivityHW008.class);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(myIntent);
+                break;
+            case R.id.btnGoToHW009:
+                myIntent = new Intent(this, MainActivityHW009.class);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(myIntent);
                 break;
             case R.id.btnExit:
                 finish();

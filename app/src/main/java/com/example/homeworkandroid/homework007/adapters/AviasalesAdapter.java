@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 import com.example.homeworkandroid.R;
 import com.example.homeworkandroid.homework007.fragments.EditAviasalesDialogFragment;
@@ -24,7 +23,6 @@ import com.example.homeworkandroid.homework007.models.Aviasales;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 
 // адаптер для вывода товара в ListView
 public class AviasalesAdapter extends ArrayAdapter<Aviasales> {

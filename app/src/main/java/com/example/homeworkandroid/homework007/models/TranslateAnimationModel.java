@@ -1,7 +1,11 @@
 package com.example.homeworkandroid.homework007.models;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
@@ -144,6 +148,30 @@ public class TranslateAnimationModel extends BaseAnimationModel {
         return translate;
     }
 
+    public static final long DELAY = 400;
+
+    public AnimatorSet getAnimator(View view)
+    {
+        //подготовим анимацию с настройками из модели
+        AnimatorSet set = new AnimatorSet();
+        set.setDuration(getDuration());
+        set.setInterpolator(INTERPOLATOR);
+        ObjectAnimator objX = ObjectAnimator.ofFloat(view, View.SCALE_X, getFromXDelta(), getToXDelta());
+        objX.setRepeatMode(isRepeatMode() ? ValueAnimator.REVERSE : ValueAnimator.RESTART);
+        objX.setRepeatCount(getRepeatCount());
+        objX.setDuration(getDuration());
+        objX.setInterpolator(INTERPOLATOR);
+
+        ObjectAnimator objY = ObjectAnimator.ofFloat(view, View.SCALE_Y, getFromYDelta(), getToYDelta());
+        objY.setRepeatMode(isRepeatMode() ? ValueAnimator.REVERSE : ValueAnimator.RESTART);
+        objY.setRepeatCount(getRepeatCount());
+        objY.setDuration(getDuration());
+        objY.setInterpolator(INTERPOLATOR);
+
+        set.playTogether(objX,objY);
+        set.setStartDelay(DELAY);
+        return set;
+    }
     public TranslateAnimationModel(
             int fromXDelta,
             int fromXDeltaMin,

@@ -1,7 +1,11 @@
 package com.example.homeworkandroid.homework007.models;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
@@ -140,6 +144,7 @@ public class ScaleAnimationModel extends BaseAnimationModel {
 
     private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
 
+
     @Bindable
     public ScaleAnimation getAnimation() {
         //подготовим анимацию с настройками из модели
@@ -153,6 +158,31 @@ public class ScaleAnimationModel extends BaseAnimationModel {
         scale.setInterpolator(new LinearInterpolator());
 
         return scale;
+    }
+
+    public static final long DELAY = 400;
+
+    public AnimatorSet getAnimator(View view)
+    {
+        //подготовим анимацию с настройками из модели
+        AnimatorSet set = new AnimatorSet();
+        set.setDuration(getDuration());
+        set.setInterpolator(INTERPOLATOR);
+        ObjectAnimator objX = ObjectAnimator.ofFloat(view, View.SCALE_X, getFromXScale() / ScaleAnimationModel.Scalescale, getToXScale() / ScaleAnimationModel.Scalescale);
+        objX.setRepeatMode(isRepeatMode() ? ValueAnimator.REVERSE : ValueAnimator.RESTART);
+        objX.setRepeatCount(getRepeatCount());
+        objX.setDuration(getDuration());
+        objX.setInterpolator(INTERPOLATOR);
+
+        ObjectAnimator objY = ObjectAnimator.ofFloat(view, View.SCALE_Y, getFromYScale() / ScaleAnimationModel.Scalescale, getToYScale() / ScaleAnimationModel.Scalescale);
+        objY.setRepeatMode(isRepeatMode() ? ValueAnimator.REVERSE : ValueAnimator.RESTART);
+        objY.setRepeatCount(getRepeatCount());
+        objY.setDuration(getDuration());
+        objY.setInterpolator(INTERPOLATOR);
+
+        set.playTogether(objX,objY);
+        set.setStartDelay(DELAY);
+        return set;
     }
 
     @Bindable

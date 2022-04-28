@@ -1,35 +1,24 @@
 package com.example.homeworkandroid.homework007.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentContainerView;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
-import android.view.animation.ScaleAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.homeworkandroid.MainActivity;
 import com.example.homeworkandroid.R;
-import com.example.homeworkandroid.homework006.fragments.RequestDialogFragment;
 import com.example.homeworkandroid.homework007.adapters.AviasalesAdapter;
-import com.example.homeworkandroid.homework007.fragments.ComboFragment;
 import com.example.homeworkandroid.homework007.fragments.EditAviasalesDialogFragment;
 import com.example.homeworkandroid.homework007.fragments.InfoAviasalesDialogFragment;
-import com.example.homeworkandroid.homework007.fragments.RotateFragment;
-import com.example.homeworkandroid.homework007.fragments.ScaleFragment;
 import com.example.homeworkandroid.homework007.models.Aviasales;
 import com.example.homeworkandroid.homework007.models.CollectionAviasales;
 import com.example.homeworkandroid.homework007.models.JsonHelper;
@@ -64,19 +53,19 @@ public class Exercises001 extends AppCompatActivity implements InfoAviasalesDial
         setListeners();
 
         refreshAdapter();
-
-        // устанавливаем для списка адаптер
-        lsvItemsList.setAdapter(itemsAdapter);
-
     }
 
 
     private void refreshAdapter()
     {
-//        itemsAdapter = new ArrayAdapter<>(this, R.layout.simple_list_item_1,
+
+//                itemsAdapter = new ArrayAdapter<>(this, R.layout.simple_list_item_1,
 //                collectionAviasales.getItemsList());
         itemsAdapter = new AviasalesAdapter(this, R.layout.homework007_aviasales_item,
                 collectionAviasales.getItemsList());
+
+        // устанавливаем для списка адаптер
+        lsvItemsList.setAdapter(itemsAdapter);
     }
 
     private void findViews() {
@@ -114,7 +103,6 @@ public class Exercises001 extends AppCompatActivity implements InfoAviasalesDial
 
             refreshAdapter();
 
-            lsvItemsList.setAdapter(itemsAdapter);
             str = "Данные восстановлены";
         } else {
             str = "Не удалось восстановить данные";

@@ -1,9 +1,13 @@
 package com.example.homeworkandroid.homework007.models;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.Interpolator;
@@ -105,12 +109,11 @@ public class RotateAnimationModel extends BaseAnimationModel {
     public static int PivotYscale = 25;
 
     private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
-    RotateAnimation rotate;
+
     @Bindable
-    public RotateAnimation getAnimation()
-    {
+    public RotateAnimation getAnimation() {
         //подготовим анимацию с настройками из модели
-        rotate = new RotateAnimation(getFromDegrees(), getToDegrees(), Animation.RELATIVE_TO_SELF, getPivotX() * RotateAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, getPivotY() * RotateAnimationModel.PivotYscale / 100.0f);
+        RotateAnimation rotate = new RotateAnimation(getFromDegrees(), getToDegrees(), Animation.RELATIVE_TO_SELF, getPivotX() * RotateAnimationModel.PivotXscale / 100.0f, Animation.RELATIVE_TO_SELF, getPivotY() * RotateAnimationModel.PivotYscale / 100.0f);
         rotate.setInterpolator(INTERPOLATOR);
         rotate.setDuration(getDuration());
         rotate.setRepeatMode(isRepeatMode() ? 2 : 1);
@@ -118,7 +121,25 @@ public class RotateAnimationModel extends BaseAnimationModel {
         rotate.setInterpolator(new LinearInterpolator());
 
         return rotate;
+}
+    public static final long DELAY = 400;
+
+    public AnimatorSet getAnimator(View view) {
+        //подготовим анимацию с настройками из модели
+        AnimatorSet set = new AnimatorSet();
+        set.setDuration(getDuration());
+        set.setInterpolator(INTERPOLATOR);
+        ObjectAnimator obj = ObjectAnimator.ofFloat(view, View.ROTATION, getFromDegrees(), getToDegrees());
+        obj.setRepeatMode(isRepeatMode() ? ValueAnimator.REVERSE : ValueAnimator.RESTART);
+        obj.setRepeatCount(getRepeatCount());
+        obj.setDuration(getDuration());
+        obj.setInterpolator(INTERPOLATOR);
+
+        set.playTogether(obj);
+        set.setStartDelay(DELAY);
+        return set;
     }
+
     @Bindable
     public int getPivotX() {
         return pivotX;

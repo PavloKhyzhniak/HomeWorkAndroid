@@ -24,7 +24,6 @@ public class TVShopAdapterActivity extends AppCompatActivity {
 
     // коллекция данных
     private List<TVShop> tvShopList;
-    private RecyclerView rcvModTVShop;
     private TVShopAdapter adapter;
 
     @Override
@@ -36,7 +35,7 @@ public class TVShopAdapterActivity extends AppCompatActivity {
         tvShopList = getIntent().getParcelableArrayListExtra(TVShop.class.getCanonicalName());
 
         // работа с RecyclerView
-        rcvModTVShop = findViewById(R.id.rcvModTVShop);
+        RecyclerView rcvModTVShop = findViewById(R.id.rcvModTVShop);
         adapter = new TVShopAdapter(this, tvShopList);
         rcvModTVShop.setAdapter(adapter);
     }

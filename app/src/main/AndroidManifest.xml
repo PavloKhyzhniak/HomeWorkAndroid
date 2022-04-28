@@ -11,6 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeWorkAndroid">
+
+        <service
+            android:name=".homework008.services.ServiceHW008"
+
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <activity
+            android:name=".homework008.activity.Exercises001"
+            android:exported="false" />
+        <activity
+            android:name=".homework009.MainActivityHW009"
+            android:exported="false" />
+        <activity
+            android:name=".homework008.MainActivityHW008"
+            android:exported="false" />
         <activity
             android:name=".homework007.activity.AboutActivity"
             android:exported="false" />

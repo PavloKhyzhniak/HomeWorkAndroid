@@ -131,8 +131,16 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/btnGoToHW007"
                     android:layout_centerHorizontal="true"
-                    android:enabled="false"
                     android:text="@string/btn_GoToHW008" />
+
+                <Button
+                    android:id="@+id/btnGoToHW009"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btnGoToHW008"
+                    android:layout_centerHorizontal="true"
+                    android:enabled="false"
+                    android:text="@string/btn_GoToHW009" />
 
             </RelativeLayout>
         </ScrollView>

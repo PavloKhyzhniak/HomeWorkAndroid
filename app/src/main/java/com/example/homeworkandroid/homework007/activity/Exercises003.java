@@ -1,34 +1,21 @@
 package com.example.homeworkandroid.homework007.activity;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
-import android.view.animation.ScaleAnimation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.BaseObservable;
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ObservableArrayList;
-import androidx.databinding.ObservableField;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -45,7 +32,6 @@ import com.example.homeworkandroid.homework007.models.RotateAnimationModel;
 import com.example.homeworkandroid.homework007.models.ScaleAnimationModel;
 import com.example.homeworkandroid.homework007.models.TranslateAnimationModel;
 import com.example.homeworkandroid.homework007.models.ViewAnimationModel;
-import com.example.homeworkandroid.homework007.viewmodel.ScaleViewModel;
 import com.example.homeworkandroid.homework007.viewmodel.ViewAnimationViewModel;
 
 public class Exercises003 extends AppCompatActivity {
@@ -162,6 +148,8 @@ public class Exercises003 extends AppCompatActivity {
                 fr.setVisibility(View.VISIBLE);
 
                 imgElementAnimation.clearAnimation();
+
+//                AnimatorExample.likeAnimation(R.drawable.doom_eternal_figure_slayer_mini_collectible_600x600,imgElementAnimation);
 
                 // получаем ссылку на фрагмент-приемник
                 ScaleFragment fragmentScale = (ScaleFragment) getSupportFragmentManager()

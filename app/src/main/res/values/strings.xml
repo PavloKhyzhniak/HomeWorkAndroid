@@ -265,7 +265,7 @@
         \n\tПлатный прием пациентов (консультации специалистов) проводится врачами разных специальностей (хирург, терапевт, кардиолог, офтальмолог и т.д.). Несколько врачей могут иметь одну и ту же специальность.При оформлении приема должна быть сформирована квитанция об оплате приема, в которой указывается информация о пациенте, о враче, который консультирует пациента, о стоимости приема, о дате приема.Пациент оплачивает за прием некоторую сумму, которая устанавливается персонально для каждого врача.
         \n\tЗа каждый прием врачу отчисляется фиксированный процент от стоимости приема.Процент отчисления от стоимости приема на зарплату врача также устанавливается персонально для каждого врача.Размер начисляемой врачу заработной платы за каждый прием вычисляется по формуле: <b>Стоимость приема * Процент отчисления от стоимости приема</b> на зарплату врача.Из этой суммы вычитается подоходный налог, составляющий <b>13%</b> от суммы.</string>
     <string name="btn_GoToHW007">Home Work on 17.04.2022</string>
-    <string name="btn_GoToHW008">Home Work on 15.05.2022</string>
+    <string name="btn_GoToHW008">Home Work on 01.05.2022</string>
     <string name="btn_GoToHW006_Exercises001">Go to Exercises 001</string>
     <string name="HW006_exercises001_request">ЗАПРОСЫ</string>
     <string name="HW006_exercises001_request01">Выбирает информацию о пациентах с фамилиями, начинающимися на заданную параметром последовательность букв</string>
@@ -318,8 +318,9 @@
         \n\t•\tСохранение задачи при поворотах устройства
         \n\t•\t<b>Cell/</b>-анимация в Андроид
         \n\t•\t<b>Tween</b>-анимация элементов интерфейса в Андроид
-        \n\t<b>Практическая часть</b> "</string>
+        \n\t<b>Практическая часть</b> </string>
     <string name="btn_GoToHW007_Exercises001">Go To Exercises 001</string>
+    <string name="btn_GoToHW008_Exercises001">Go To Exercises 001</string>
     <string name="btn_GoToHW007_Exercises002">Go To Exercises 002</string>
     <string name="btn_GoToHW007_Exercises003">Go To Exercises 003</string>
     <string name="mni_aviasales">Aviasales</string>
@@ -394,5 +395,39 @@
     <string name="translate_fragment_RepeatCount">repeatCount</string>
     <string name="translate_fragment_RepeatMode">repeatMode</string>
     <string name="btn_Translate">Translate</string>
+    <string name="btn_GoToHW009">Home Work on 09.05.2022</string>
+    <string name="homework008">Home Work on 01.05.2022</string>
+    <string name="homework008_text">\n\t<b>Теоретическая часть</b>
+        \n\t•\tПонятие о сервисах в Андроид
+        \n\t•\tРеализация сервисов в Андроид
+        \n\t•\tЗапуск и завершение сервиса в Андроид
+        \n\t•\tМногопоточная реализация сервисов, исполнение потоков из пула потоков
+        \n\t•\tПередача параметров в сервисы
+        \n\t•\tВозврат данных из сервиса, <b>PendingIntent</b>
+        \n\t•\tФильтры интентов
+        \n\t•\tПолучение данных из сервиса в активность при помощи <b>BroadcastReceiver</b>
+        \n\t•\tОтправка уведомлений из сервиса, виды уведомлений
+        \n\t•\tОпределение момента запуска и останова сервиса
+        \n\t•\tПривязка сервиса к активности
+        \n\t•\tВызов методов сервиса из активности
+        \n\t•\tКлассы <b>Timer</b> и <b>TimerTask</b> для запуска задач по расписанию
+        \n\t•\tАвтозагрузка сервисов
+        \n\t•\tЗагрузка файлов <b>HTML</b> из сети, из файлов, из строк в элемент <b>WebView</b>
+        \n\t•\tЗагрузка данных при помощи классов <b>HttpUrlConnection</b> (для протокола <b>HTTP</b>) и <b>HttpsUrlConnection</b> (для протокола <b>HTTPS</b>)
+        \n\t<b>Практическая часть</b></string>
+    <string name="HW008_exercises001"><b>Exercises 001</b></string>
+    <string name="HW008_exercises001_text"><b>Задача 1.</b> \n\tРазработайте Андроид-приложение с сервисом.
+        \n\tПредусмотрите команды запуска и завершения сервиса
+        \n\tЗапуск обработки сервиса выполнять каждые 3 секунды.
+        \n\tПри помощи методов сервиса из активности добавлять в <b>ArrayList</b> (от 3х до 7и элементов) сервиса объект, описывающий сообщение (текст, отправитель, признак вложенного файла).
+        \n\tСервис вычисляет в отдельном потоке и возвращает суммарную длину текстов сообщений, количество сообщений с вложениями.
+        \n\tПо окончании обработки выводить уведомление с результатами обработки.
+        \n\tВ дополнительной активности выводите в формате <b>HTML</b> сведения о приложении и разработчике.</string>
+    <string name="btn_run_service">Run Service</string>
+    <string name="btn_stop_service">Stop Service</string>
+    <string name="mni_service">Service</string>
 
+
+    <string name="channel_name">homework008_service</string>
+    <string name="channel_description">homework008_service</string>
 </resources>

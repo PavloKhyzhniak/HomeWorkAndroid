@@ -3,6 +3,10 @@ package com.example.homeworkandroid.homework007.adapters;
 //import android.databinding.BindingAdapter;
 //        import android.support.v4.view.animation.FastOutSlowInInterpolator;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -23,10 +27,14 @@ import com.example.homeworkandroid.homework007.models.RotateAnimationModel;
 import com.example.homeworkandroid.homework007.models.ScaleAnimationModel;
 import com.example.homeworkandroid.homework007.models.TranslateAnimationModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ViewAnimationAdapter {
     private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
 
     public static BaseAnimationModel[] modelsBase;
+    private static AnimatorSet set;
 
     @BindingAdapter("isBusy")
     public static void setIsBusy(View view, boolean isBusy) {
@@ -35,6 +43,7 @@ public class ViewAnimationAdapter {
             view.clearAnimation();
             view.startAnimation(createAnimation());
         } else if (animation != null) {
+            set = null;
             animation.cancel();
             view.setAnimation(null);
         }
@@ -75,4 +84,5 @@ public class ViewAnimationAdapter {
 
         return animSet;
     }
+
 }

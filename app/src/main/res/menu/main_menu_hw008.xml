@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/mniService"
+        android:title="@string/mni_service" />
+    <item
+        android:id="@+id/mniExit"
+        android:title="@string/mni_exit"/>
+    <item
+        android:id="@+id/mniBack"
+        android:icon="@drawable/arrow_left"
+        android:title="@string/btn_back"
+        app:showAsAction="always" />
+</menu>

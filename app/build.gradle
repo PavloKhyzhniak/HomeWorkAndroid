@@ -36,6 +36,8 @@ android {
         main {
             res {
                 srcDirs 'src\\main\\res',
+                        'src\\main\\res\\layouts\\homework010',
+                        'src\\main\\res\\layouts\\homework009',
                         'src\\main\\res\\layouts\\homework008',
                         'src\\main\\res\\layouts\\homework007',
                         'src\\main\\res\\layouts\\homework006',
