@@ -105,6 +105,7 @@ public class MainActivityHW008 extends AppCompatActivity {
                 startActivity(myIntent);
                 break;
             case R.id.mniReturn:
+            case R.id.mniBack:
                 startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.mniExit:

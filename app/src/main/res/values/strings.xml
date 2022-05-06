@@ -320,7 +320,6 @@
         \n\t•\t<b>Tween</b>-анимация элементов интерфейса в Андроид
         \n\t<b>Практическая часть</b> </string>
     <string name="btn_GoToHW007_Exercises001">Go To Exercises 001</string>
-    <string name="btn_GoToHW008_Exercises001">Go To Exercises 001</string>
     <string name="btn_GoToHW007_Exercises002">Go To Exercises 002</string>
     <string name="btn_GoToHW007_Exercises003">Go To Exercises 003</string>
     <string name="mni_aviasales">Aviasales</string>
@@ -395,7 +394,7 @@
     <string name="translate_fragment_RepeatCount">repeatCount</string>
     <string name="translate_fragment_RepeatMode">repeatMode</string>
     <string name="btn_Translate">Translate</string>
-    <string name="btn_GoToHW009">Home Work on 09.05.2022</string>
+    <string name="btn_GoToHW009">Home Work on 08.05.2022</string>
     <string name="homework008">Home Work on 01.05.2022</string>
     <string name="homework008_text">\n\t<b>Теоретическая часть</b>
         \n\t•\tПонятие о сервисах в Андроид
@@ -423,6 +422,7 @@
         \n\tСервис вычисляет в отдельном потоке и возвращает суммарную длину текстов сообщений, количество сообщений с вложениями.
         \n\tПо окончании обработки выводить уведомление с результатами обработки.
         \n\tВ дополнительной активности выводите в формате <b>HTML</b> сведения о приложении и разработчике.</string>
+    <string name="btn_GoToHW008_Exercises001">Go To Exercises 001</string>
     <string name="btn_run_service">Run Service</string>
     <string name="btn_stop_service">Stop Service</string>
     <string name="mni_service">Service</string>
@@ -430,4 +430,36 @@
 
     <string name="channel_name">homework008_service</string>
     <string name="channel_description">homework008_service</string>
+
+    <string name="homework009">Home Work on 08.05.2022</string>
+    <string name="homework009_text">\n\t<b>Теоретическая часть</b>
+        \n\t•	Использование библиотеки <b>Retrofit2</b> для доступа к данным из <b>Web</b>
+\n\t•	Отображение данных в многостраничном режиме при помощи компонента <b>ViewPager2</b>
+\n\t•	Сохранение данных приложения при помощи класса <b>SharedPreferences</b>
+\n\t•	Настройки приложения при помощи <b>PreferenceScreen</b>
+\n\t•	Использование настроек приложения при помощи класса <b>PreferenceFragmentCompat</b>
+\n\t•	Контент-провайдеры в <b>Android</b>
+\n\t•	Работа с контент-провайдером на примере списка контактов
+\n\t•	Создание собственного провайдера контента
+    \n\t<b>Практическая часть</b></string>
+    <string name="HW009_exercises001"><b>Exercises 001</b></string>
+    <string name="HW009_exercises001_text"><b>Задача 1.</b> \n\tРазработайте Андроид-приложение для закрепления пройденного на занятии материала.
+        \n\tПриложение должно запрашивать данные из веб-сервиса <b>https://jsonplaceholder.typicode.com/</b>. Параметры запросов вводите в диалоге, используйте меню активности для запуска запросов. Запросы для реализации:
+\n\t•	<b>GET /albums/</b> – выводить информацию обо всех альбомах, использовать адаптер (выводить при запуске приложения, если задано в настройках), сохранять записи в таблице БД
+\n\t•	<b>GET /albums/id</b> – выводить информацию об альбоме по заданному числовому идентификатору (идентификатор вводить в диалоге), предусмотреть команду удаления записи в таблице локальной БД
+\n\t•	<b>GET /photos/</b> – выводить информацию о фотографиях, использовать адаптер, включить в адаптер мини-изображение. По клику на элемент списка выводить большое изображение в отдельной активности, сохранять записи в таблице локальной БД
+\n\t•	<b>GET /photos/id/</b> – выводить информацию о фотографии, в т.ч. изображение, в отдельной активности, предусмотреть команду удаления записи в таблице локальной БД
+\n\t•	Выводить фотографии с идентификаторами в заданном диапазоне при помощи   <b>ViewPager2</b>, диапазон идентификаторов задавайте диалогом
+\n\tПредусмотрите окно настроек приложения. В настройках требуется задавать:
+\n\t•	выводить или не выводить список альбомов при старте приложения
+\n\t•	выполнять запросы к локальной БД вместо запросов к веб-сервису
+\n\t•	обновлять локальные таблицы при запросах к веб-сервису
+\n\t•	задать заголовок списка альбомов
+\n\t•	задать заголовок списка фотографий
+\n\tВ дополнительной активности выводите в формате <b>HTML</b> сведения о приложении и разработчике.</string>
+    <string name="btn_GoToHW009_Exercises001">Go To Exercises 001</string>
+    <string name="btn_GoToHW010">HOME WORK ON 15.05.2022</string>
+    <string name="mni_exercises001">Exercises001</string>
+    <string name="btn_get_albums">Albums</string>
+    <string name="btn_get_photos">Photos</string>
 </resources>
