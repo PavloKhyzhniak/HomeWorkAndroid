@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Config;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,16 +18,26 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.homeworkandroid.MainActivity;
 import com.example.homeworkandroid.R;
-import com.example.homeworkandroid.homework008.adapters.MessagesAdapter;
-import com.example.homeworkandroid.homework008.models.CollectionMessage;
-import com.example.homeworkandroid.homework008.models.Message;
+import com.example.homeworkandroid.homework009.adapters.AlbumsAdapter;
+import com.example.homeworkandroid.homework009.adapters.PhotosAdapter;
 import com.example.homeworkandroid.homework009.api.API_jsonplaceholder_Albums;
 import com.example.homeworkandroid.homework009.api.API_jsonplaceholder_Photos;
 import com.example.homeworkandroid.homework009.models.Album;
 import com.example.homeworkandroid.homework009.models.Photo;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -52,6 +63,7 @@ public class Exercises001 extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homework009_activity_exercises001);
 
+        mRequestQueue = Volley.newRequestQueue(this);// очередь запросов
 
         findViews();
 
@@ -99,20 +111,20 @@ public class Exercises001 extends AppCompatActivity implements AdapterView.OnIte
             public void onResponse(Call<List<Album>> call, Response<List<Album>> response) {
 
                 List<Album> collection = response.body();
-                String[] titles = new String[collection.size()];
-                int i = 0;
+//                String[] titles = new String[collection.size()];
+//                int i = 0;
+//
+//                for (Album item : collection) {
+//                    titles[i] =  item.getTitle();
+//                    i++;
+//                } // for i
 
-                for (Album item : collection) {
-                    titles[i] =  item.getTitle();
-                    i++;
-                } // for i
-
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
-                        android.R.layout.simple_list_item_1, titles);
-                lsvItemsList.setAdapter(adapter);
-//                itemsAdapterAlbum = new AlbumsAdapter(this, R.layout.homework009_album_item,
-//                        collection);
-//                lsvItemsList.setAdapter(itemsAdapterAlbum);
+//                ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
+//                        android.R.layout.simple_list_item_1, titles);
+//                lsvItemsList.setAdapter(adapter);
+                itemsAdapterAlbum = new AlbumsAdapter(getApplicationContext(), R.layout.homework009_album_item,
+                        collection);
+                lsvItemsList.setAdapter(itemsAdapterAlbum);
 
                 // назначить обработчка клика на элемент списка
 //                lsvItemsList.setOnItemClickListener(Exercises001.this);
@@ -137,6 +149,73 @@ public class Exercises001 extends AppCompatActivity implements AdapterView.OnIte
         });
     }
 
+    private List<Album> getAlbums(JSONArray j){
+        List<Album> collection = new ArrayList<>();
+        for(int i=0;i<j.length();i++){
+            try {
+                JSONObject json = j.getJSONObject(i);
+
+                Album new_album = new Album();
+                new_album.setTitle(json.getString(Album.TAG_TITLE));
+                new_album.setID(json.getInt(Album.TAG_ID));
+                new_album.setUserID(json.getInt(Album.TAG_USERID));
+
+                collection.add(new_album);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return collection;
+    }
+
+    private RequestQueue mRequestQueue; // очередь запросов
+    public void GetAlbumsVolley()
+    {
+        String url = "https://jsonplaceholder.typicode.com/albums/"; //url, из которого мы будем брать JSON-объект
+
+        final JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, //GET - API-запрос для получение данных
+                url, null, new com.android.volley.Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                List<Album> collection = getAlbums(response);
+//                String[] titles = new String[collection.size()];
+//                int i = 0;
+//
+//                for (Album item : collection) {
+//                    titles[i] =  item.getTitle();
+//                    i++;
+//                } // for i
+
+//                ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
+//                        android.R.layout.simple_list_item_1, titles);
+//                lsvItemsList.setAdapter(adapter);
+                itemsAdapterAlbum = new AlbumsAdapter(getApplicationContext(), R.layout.homework009_album_item,
+                        collection);
+                lsvItemsList.setAdapter(itemsAdapterAlbum);
+
+                // назначить обработчка клика на элемент списка
+//                lsvItemsList.setOnItemClickListener(Exercises001.this);
+                lsvItemsList.setOnItemClickListener((adapterView, view, position, l) -> {
+                    // получить ссылку на выбранный комментарий
+                    Album item = collection.get(position);
+                    String body = item.getTitle() + "\n------------------------\n" +
+                            item.getUserID();
+                    // вывести название и тело комментария
+                    Toast
+                            .makeText(getApplicationContext(), body, Toast.LENGTH_LONG)
+                            .show();
+                });
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+            }
+        });
+
+        mRequestQueue.add(request); // добавляем запрос в очередь
+    }
+
     public void GetPhotos()
     {
         Retrofit retrofitAPI_jsonplaceholder_Photos = new Retrofit.Builder()
@@ -151,24 +230,34 @@ public class Exercises001 extends AppCompatActivity implements AdapterView.OnIte
         call.enqueue(new Callback<List<Photo>>() {
 
             @Override
-            public void onResponse(Call<List<Photo>> call, Response<List<Photo>> response) {
-
+            public void onResponse(Call<List<Photo>> call, Response<List<Photo>> response)
+            {
                 List<Photo> collection = response.body();
-                String[] titles = new String[collection.size()];
-                int i = 0;
+//                String[] titles = new String[collection.size()];
+//                int i = 0;
+//
+//                for (Photo item : collection) {
+//                    titles[i] =  item.getTitle();
+//                    i++;
+//                } // for i
 
-                for (Photo item : collection) {
-                    titles[i] =  item.getTitle();
-                    i++;
-                } // for i
-
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
-                        android.R.layout.simple_list_item_1, titles);
-                lsvItemsList.setAdapter(adapter);
-//                itemsAdapterPhoto = new PhotosAdapter(this, R.layout.homework009_photo_item,
-//                        collection);
-//                lsvItemsList.setAdapter(itemsAdapterPhoto);
-                lsvItemsList.setOnItemClickListener(Exercises001.this);
+//                ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
+//                        android.R.layout.simple_list_item_1, titles);
+//                lsvItemsList.setAdapter(adapter);
+                itemsAdapterPhoto = new PhotosAdapter(getApplicationContext(), R.layout.homework009_photo_item,
+                        collection);
+                lsvItemsList.setAdapter(itemsAdapterPhoto);
+//                lsvItemsList.setOnItemClickListener(Exercises001.this);
+                lsvItemsList.setOnItemClickListener((adapterView, view, position, l) -> {
+                    // получить ссылку на выбранный комментарий
+                    Photo item = collection.get(position);
+                    String body = item.getTitle() + "\n------------------------\n" +
+                            item.getID();
+                    // вывести название и тело комментария
+                    Toast
+                            .makeText(getApplicationContext(), body, Toast.LENGTH_LONG)
+                            .show();
+                });
             }
 
             @Override
@@ -192,7 +281,8 @@ public class Exercises001 extends AppCompatActivity implements AdapterView.OnIte
                 finish();
                 break;
             case  R.id.btnAlbums:
-                GetAlbums();
+//                GetAlbums();
+                GetAlbumsVolley();
                 break;
             case  R.id.btnPhotos:
                 GetPhotos();
