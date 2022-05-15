@@ -147,7 +147,6 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/btnGoToHW009"
                     android:layout_centerHorizontal="true"
-                    android:enabled="false"
                     android:text="@string/btn_GoToHW010" />
 
             </RelativeLayout>

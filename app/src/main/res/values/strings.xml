@@ -462,4 +462,28 @@
     <string name="mni_exercises001">Exercises001</string>
     <string name="btn_get_albums">Albums</string>
     <string name="btn_get_photos">Photos</string>
+    <string name="Brand">Brand</string>
+    <string name="Model">Model</string>
+    <string name="YearOfManufacture">Year of Manufacture</string>
+    <string name="EnginePower">Engine Power</string>
+    <string name="Price">Price</string>
+    <string name="SymbolicImage">Symbolic Image</string>
+    <string name="btn_sortDescPrice">Sort Desc Price</string>
+    <string name="btn_new_collection">New Collection</string>
+    <string name="btn_sort_asc_price">Sort Asc Price</string>
+    <string name="btn_sort_brand_model">Sort Brand Model</string>
+    <string name="testwork010">Test Work on 15.05.2022</string>
+    <string name="testwork010_text">Разработать приложение Android по следующим спецификациям.
+    \n\t    1.\tНа главной активности при помощи <b>ListView</b> (или <b>RecyclerView</b>) и адаптера отображать коллекцию объектов, представляющих сведения об автомобиле: бренд и модель (например, ВАЗ 2101, …), год выпуска, мощность двигателя, цена, условное изображение. В коллекции должно быть не менее 12 объектов.
+    \n\t    2.\tПо командам меню активности требуется:
+    \n\t    •\tформировать новую коллекцию
+    \n\t    •\tупорядочивать коллекцию по убыванию цены
+    \n\t    •\tупорядочивать коллекцию по возрастанию цены
+    \n\t    •\tупорядочивать коллекцию по  бренд и модель
+    \n\t    3.\tВ разметке элемента списка предусмотрите кнопку удаления элемента из коллекции
+    \n\t    4.\tПо клику на элемент списка отображать объект коллекции в диалоге для редактирования его полей (кроме файла изображения) </string>
+    <string name="btn_delete">Delete</string>
+    <string name="edit_auto">Edit Auto</string>
+
+
 </resources>

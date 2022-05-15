@@ -13,13 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeWorkAndroid">
         <activity
+            android:name=".homework010.activity.Exercises001"
+            android:exported="false" />
+        <activity
+            android:name=".homework010.MainActivityHW010"
+            android:exported="false" />
+        <activity
             android:name=".homework009.activity.Exercises001"
             android:exported="false" />
 
         <service
             android:name=".homework008.services.ServiceHW008"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity
             android:name=".homework008.activity.Exercises001"

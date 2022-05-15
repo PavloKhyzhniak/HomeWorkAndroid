@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txvBrandName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/txvYearOfManufacture"
+        app:layout_constraintEnd_toStartOf="@+id/txvModelName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txvModelName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/txvBrandName"
+        app:layout_constraintEnd_toEndOf="@+id/ibtnEdit"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/ibtnEdit"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="centerInside"
+        android:background="@drawable/edit"
+        app:layout_constraintStart_toEndOf="@+id/txvModelName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/txvModelName"/>
+
+    <TextView
+        android:id="@+id/txvEnginePower"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/txvSymbolicImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txvYearOfManufacture"
+        app:layout_constraintTop_toBottomOf="@+id/txvBrandName" />
+
+    <TextView
+        android:id="@+id/txvYearOfManufacture"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/txvEnginePower"
+        app:layout_constraintEnd_toStartOf="@+id/txvPrice"
+        app:layout_constraintBottom_toTopOf="@+id/txvSymbolicImage"
+        app:layout_constraintTop_toBottomOf="@+id/txvBrandName" />
+
+    <TextView
+        android:id="@+id/txvPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/txvYearOfManufacture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvBrandName" />
+
+    <TextView
+        android:id="@+id/txvSymbolicImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/txvYearOfManufacture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
